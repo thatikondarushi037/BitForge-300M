@@ -1,0 +1,64 @@
+{
+  "mode": "dense_quantized",
+  "file_bytes": 335225,
+  "cpu_load_ms": {
+    "mean": 3.117439989000559,
+    "sample_stdev": 0.25310728601378973,
+    "min": 2.8344999882392585,
+    "max": 3.4895000280812383
+  },
+  "cpu_load_ms_raw": [
+    3.014699963387102,
+    3.0077999690547585,
+    3.4895000280812383,
+    3.240699996240437,
+    2.8344999882392585
+  ],
+  "cuda_load_ms": {
+    "mean": 4.3558800127357244,
+    "sample_stdev": 0.31687702226474823,
+    "min": 3.925300028640777,
+    "max": 4.784500051755458
+  },
+  "cuda_load_ms_raw": [
+    4.4507000129669905,
+    4.4074999750591815,
+    4.211399995256215,
+    3.925300028640777,
+    4.784500051755458
+  ],
+  "inference_forward_ms": {
+    "mean": 2.599125200067647,
+    "sample_stdev": 0.09709005015911024,
+    "min": 2.4587779998546466,
+    "max": 2.6733310002600774
+  },
+  "inference_forward_ms_raw": [
+    2.6615909999236465,
+    2.4587779998546466,
+    2.6733310002600774,
+    2.6665120001416653,
+    2.535414000158198
+  ],
+  "inference_memory": {
+    "baseline_allocated_bytes": 33910784,
+    "peak_allocated_bytes": 34156544,
+    "peak_reserved_bytes": 35651584
+  },
+  "workload": {
+    "batch_size": 1,
+    "context": 64,
+    "warmup": 20,
+    "latency_repeats": 5,
+    "forwards_per_repeat": 100,
+    "loading_repeats": 5,
+    "loading_cache": "warm OS file cache; complete CPU construction/validation, plus HtoD for CUDA"
+  },
+  "generated_sample": "The workshop                                                                                                                         ",
+  "environment": {
+    "python": "3.13.7 (tags/v3.13.7:bcee1c3, Aug 14 2025, 14:15:11) [MSC v.1944 64 bit (AMD64)]",
+    "torch": "2.7.1+cu118",
+    "cuda_runtime": "11.8",
+    "gpu": "NVIDIA GeForce RTX 4060 Laptop GPU"
+  }
+}

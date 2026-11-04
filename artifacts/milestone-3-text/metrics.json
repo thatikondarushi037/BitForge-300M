@@ -1,0 +1,77 @@
+{
+  "python": "3.13.7 (tags/v3.13.7:bcee1c3, Aug 14 2025, 14:15:11) [MSC v.1944 64 bit (AMD64)]",
+  "torch": "2.7.1+cu118",
+  "cuda_runtime": "11.8",
+  "device": "cuda",
+  "gpu": "NVIDIA GeForce RTX 4060 Laptop GPU",
+  "parameters": 82432,
+  "config": {
+    "vocab_size": 259,
+    "max_seq_len": 64,
+    "d_model": 64,
+    "n_heads": 4,
+    "n_layers": 2,
+    "d_ff": 128,
+    "norm_eps": 1e-06
+  },
+  "tokenizer": {
+    "type": "utf8-byte",
+    "version": 1,
+    "vocab_size": 259,
+    "bos_id": 256,
+    "eos_id": 257,
+    "pad_id": 258
+  },
+  "corpus": {
+    "path": "C:\\Users\\Rushi Thatikonda\\Desktop\\BitForge-300M\\data\\dev_corpus.txt",
+    "bytes": 5807,
+    "sha256": "9a37fcfa0fc55b65c7090240126bc83200379af993417d0eb8b198140c4864ce",
+    "requested_validation_fraction": 0.2,
+    "split_byte_offset": 4751,
+    "train_tokens": 4751,
+    "validation_tokens": 1056,
+    "train_sha256": "02da0f5ebafe618796246ea0ac3d180a155bad4b62529a685079694375716609",
+    "validation_sha256": "876eb2a8c1199a58eeaf1631e9d308aae815ec22767a41565e9b7863dd6d3729"
+  },
+  "start_step": 0,
+  "step": 300,
+  "settings": {
+    "sequence_length": 64,
+    "batch_size": 16,
+    "seed": 42,
+    "learning_rate": 0.003,
+    "validation_fraction": 0.2,
+    "d_model": 64,
+    "n_heads": 4,
+    "n_layers": 2,
+    "d_ff": 128
+  },
+  "initial_train": {
+    "loss": 5.57077373464484,
+    "perplexity": 262.6372321702072,
+    "tokens": 4750
+  },
+  "initial_validation": {
+    "loss": 5.564511151788359,
+    "perplexity": 260.997584316718,
+    "tokens": 1055
+  },
+  "final_train": {
+    "loss": 2.9793664590935958,
+    "perplexity": 19.675347557815545,
+    "tokens": 4750
+  },
+  "final_validation": {
+    "loss": 2.9806811292024586,
+    "perplexity": 19.70123115960207,
+    "tokens": 1055
+  },
+  "sampled_training_loss_mean": 3.0369126359621683,
+  "elapsed_seconds": 5.711206900014076,
+  "peak_allocated_bytes": 81833472,
+  "peak_reserved_bytes": 102760448,
+  "checkpoint_restored_logits_exact": true,
+  "checkpoint_restored_step": 300,
+  "checkpoint_restored_batch_rng_exact": true,
+  "generated_sample": "The workshop                                                                                                                         "
+}

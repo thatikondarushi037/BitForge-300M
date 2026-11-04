@@ -1,0 +1,961 @@
+{
+  "format_version": 1,
+  "execution_order": [
+    {
+      "seed": 42,
+      "backend": "fp32"
+    },
+    {
+      "seed": 42,
+      "backend": "ternary"
+    },
+    {
+      "seed": 43,
+      "backend": "ternary"
+    },
+    {
+      "seed": 43,
+      "backend": "fp32"
+    },
+    {
+      "seed": 44,
+      "backend": "fp32"
+    },
+    {
+      "seed": 44,
+      "backend": "ternary"
+    }
+  ],
+  "runs": [
+    {
+      "seed": 42,
+      "backend": "fp32",
+      "config": {
+        "vocab_size": 259,
+        "max_seq_len": 64,
+        "d_model": 64,
+        "n_heads": 4,
+        "n_layers": 2,
+        "d_ff": 128,
+        "norm_eps": 1e-06,
+        "projection_backend": "fp32"
+      },
+      "parameters": 82432,
+      "settings": {
+        "steps": 300,
+        "batch_size": 16,
+        "sequence_length": 64,
+        "learning_rate": 0.003,
+        "weight_decay": 0.01,
+        "clip_norm": 1.0,
+        "dtype": "torch.float32",
+        "training_warmup": 5,
+        "inference_warmup": 20,
+        "latency_repeats": 5,
+        "latency_iterations": 100
+      },
+      "corpus": {
+        "path": "C:\\Users\\Rushi Thatikonda\\Desktop\\BitForge-300M\\data\\dev_corpus.txt",
+        "bytes": 5807,
+        "sha256": "9a37fcfa0fc55b65c7090240126bc83200379af993417d0eb8b198140c4864ce",
+        "requested_validation_fraction": 0.2,
+        "split_byte_offset": 4751,
+        "train_tokens": 4751,
+        "validation_tokens": 1056,
+        "train_sha256": "02da0f5ebafe618796246ea0ac3d180a155bad4b62529a685079694375716609",
+        "validation_sha256": "876eb2a8c1199a58eeaf1631e9d308aae815ec22767a41565e9b7863dd6d3729"
+      },
+      "tokenizer": {
+        "type": "utf8-byte",
+        "version": 1,
+        "vocab_size": 259,
+        "bos_id": 256,
+        "eos_id": 257,
+        "pad_id": 258
+      },
+      "initial_state_sha256": "cf1d8e24d2bf1054b2ff189c2150757a110a0effd21ee798426064b9d22294f3",
+      "batch_stream_sha256": "9c5296fa42337e829e78744b5f6d0d031724d5a5bb1268dc40c28baaaae0597f",
+      "initial_train": {
+        "loss": 5.54412066329153,
+        "perplexity": 255.7296069141911,
+        "tokens": 4750
+      },
+      "initial_validation": {
+        "loss": 5.538791790279732,
+        "perplexity": 254.37048083497442,
+        "tokens": 1055
+      },
+      "final_train": {
+        "loss": 2.751556541844418,
+        "perplexity": 15.666999254768896,
+        "tokens": 4750
+      },
+      "final_validation": {
+        "loss": 2.748404863547375,
+        "perplexity": 15.617699642305233,
+        "tokens": 1055
+      },
+      "training": {
+        "seconds": 4.756806900026277,
+        "peak_allocated_bytes": 81571328,
+        "peak_reserved_bytes": 102760448,
+        "baseline_allocated_bytes": 67464704,
+        "sampled_training_loss_mean": 3.011947265466054
+      },
+      "inference": {
+        "batch_size": 1,
+        "sequence_length": 64,
+        "workload": "full-context forward to all-position vocabulary logits; no KV cache",
+        "repeat_mean_ms": [
+          3.6353550001513213,
+          3.558418999891728,
+          3.359881000360474,
+          3.7686100002611056,
+          3.4182299999520183
+        ],
+        "mean_ms": 3.5480990001233295,
+        "repeat_sample_stdev_ms": 0.16480077803069776,
+        "peak_allocated_bytes": 67710976,
+        "peak_reserved_bytes": 69206016,
+        "baseline_allocated_bytes": 67465216
+      },
+      "training_checkpoint_bytes": 1018610,
+      "weights_checkpoint_bytes": 335225,
+      "storage_arithmetic_only": {
+        "actual_parameter_tensor_bytes": 329728,
+        "projection_parameters": 65536,
+        "full_precision_nonprojection_parameters": 16896,
+        "hypothetical_2bit_projection_bytes": 16384,
+        "hypothetical_fp32_scale_bytes": 32,
+        "hypothetical_packed_total_bytes": 84000,
+        "ternary_projection_modules": 0
+      },
+      "generated_sample": "The workshop te tete te te te te te te te te te te te te te te te te te te te te te te te te te te te te te te te te te te te te te t",
+      "environment": {
+        "python": "3.13.7 (tags/v3.13.7:bcee1c3, Aug 14 2025, 14:15:11) [MSC v.1944 64 bit (AMD64)]",
+        "python_executable": "C:\\Users\\Rushi Thatikonda\\Desktop\\BitForge-300M\\.venv\\Scripts\\python.exe",
+        "torch": "2.7.1+cu118",
+        "cuda_runtime": "11.8",
+        "gpu": "NVIDIA GeForce RTX 4060 Laptop GPU",
+        "gpu_total_memory_bytes": 8585216000,
+        "platform": "Windows-11-10.0.26300-SP0",
+        "deterministic_algorithms": true,
+        "tf32": false
+      }
+    },
+    {
+      "seed": 42,
+      "backend": "ternary",
+      "config": {
+        "vocab_size": 259,
+        "max_seq_len": 64,
+        "d_model": 64,
+        "n_heads": 4,
+        "n_layers": 2,
+        "d_ff": 128,
+        "norm_eps": 1e-06,
+        "projection_backend": "ternary"
+      },
+      "parameters": 82432,
+      "settings": {
+        "steps": 300,
+        "batch_size": 16,
+        "sequence_length": 64,
+        "learning_rate": 0.003,
+        "weight_decay": 0.01,
+        "clip_norm": 1.0,
+        "dtype": "torch.float32",
+        "training_warmup": 5,
+        "inference_warmup": 20,
+        "latency_repeats": 5,
+        "latency_iterations": 100
+      },
+      "corpus": {
+        "path": "C:\\Users\\Rushi Thatikonda\\Desktop\\BitForge-300M\\data\\dev_corpus.txt",
+        "bytes": 5807,
+        "sha256": "9a37fcfa0fc55b65c7090240126bc83200379af993417d0eb8b198140c4864ce",
+        "requested_validation_fraction": 0.2,
+        "split_byte_offset": 4751,
+        "train_tokens": 4751,
+        "validation_tokens": 1056,
+        "train_sha256": "02da0f5ebafe618796246ea0ac3d180a155bad4b62529a685079694375716609",
+        "validation_sha256": "876eb2a8c1199a58eeaf1631e9d308aae815ec22767a41565e9b7863dd6d3729"
+      },
+      "tokenizer": {
+        "type": "utf8-byte",
+        "version": 1,
+        "vocab_size": 259,
+        "bos_id": 256,
+        "eos_id": 257,
+        "pad_id": 258
+      },
+      "initial_state_sha256": "cf1d8e24d2bf1054b2ff189c2150757a110a0effd21ee798426064b9d22294f3",
+      "batch_stream_sha256": "9c5296fa42337e829e78744b5f6d0d031724d5a5bb1268dc40c28baaaae0597f",
+      "initial_train": {
+        "loss": 5.57077373464484,
+        "perplexity": 262.6372321702072,
+        "tokens": 4750
+      },
+      "initial_validation": {
+        "loss": 5.564511151788359,
+        "perplexity": 260.997584316718,
+        "tokens": 1055
+      },
+      "final_train": {
+        "loss": 2.9793664590935958,
+        "perplexity": 19.675347557815545,
+        "tokens": 4750
+      },
+      "final_validation": {
+        "loss": 2.9806811292024586,
+        "perplexity": 19.70123115960207,
+        "tokens": 1055
+      },
+      "training": {
+        "seconds": 6.462874900025781,
+        "peak_allocated_bytes": 81833472,
+        "peak_reserved_bytes": 102760448,
+        "baseline_allocated_bytes": 67464704,
+        "sampled_training_loss_mean": 3.0369126359621683
+      },
+      "inference": {
+        "batch_size": 1,
+        "sequence_length": 64,
+        "workload": "full-context forward to all-position vocabulary logits; no KV cache",
+        "repeat_mean_ms": [
+          7.8360179997980595,
+          7.383675999590196,
+          7.141498000128195,
+          7.114931000396609,
+          7.156292999861762
+        ],
+        "mean_ms": 7.326483199954964,
+        "repeat_sample_stdev_ms": 0.3044812350876286,
+        "peak_allocated_bytes": 67760640,
+        "peak_reserved_bytes": 69206016,
+        "baseline_allocated_bytes": 67465216
+      },
+      "training_checkpoint_bytes": 1018610,
+      "weights_checkpoint_bytes": 335225,
+      "storage_arithmetic_only": {
+        "actual_parameter_tensor_bytes": 329728,
+        "projection_parameters": 65536,
+        "full_precision_nonprojection_parameters": 16896,
+        "hypothetical_2bit_projection_bytes": 16384,
+        "hypothetical_fp32_scale_bytes": 32,
+        "hypothetical_packed_total_bytes": 84000,
+        "ternary_projection_modules": 8
+      },
+      "generated_sample": "The workshop                                                                                                                         ",
+      "environment": {
+        "python": "3.13.7 (tags/v3.13.7:bcee1c3, Aug 14 2025, 14:15:11) [MSC v.1944 64 bit (AMD64)]",
+        "python_executable": "C:\\Users\\Rushi Thatikonda\\Desktop\\BitForge-300M\\.venv\\Scripts\\python.exe",
+        "torch": "2.7.1+cu118",
+        "cuda_runtime": "11.8",
+        "gpu": "NVIDIA GeForce RTX 4060 Laptop GPU",
+        "gpu_total_memory_bytes": 8585216000,
+        "platform": "Windows-11-10.0.26300-SP0",
+        "deterministic_algorithms": true,
+        "tf32": false
+      }
+    },
+    {
+      "seed": 43,
+      "backend": "ternary",
+      "config": {
+        "vocab_size": 259,
+        "max_seq_len": 64,
+        "d_model": 64,
+        "n_heads": 4,
+        "n_layers": 2,
+        "d_ff": 128,
+        "norm_eps": 1e-06,
+        "projection_backend": "ternary"
+      },
+      "parameters": 82432,
+      "settings": {
+        "steps": 300,
+        "batch_size": 16,
+        "sequence_length": 64,
+        "learning_rate": 0.003,
+        "weight_decay": 0.01,
+        "clip_norm": 1.0,
+        "dtype": "torch.float32",
+        "training_warmup": 5,
+        "inference_warmup": 20,
+        "latency_repeats": 5,
+        "latency_iterations": 100
+      },
+      "corpus": {
+        "path": "C:\\Users\\Rushi Thatikonda\\Desktop\\BitForge-300M\\data\\dev_corpus.txt",
+        "bytes": 5807,
+        "sha256": "9a37fcfa0fc55b65c7090240126bc83200379af993417d0eb8b198140c4864ce",
+        "requested_validation_fraction": 0.2,
+        "split_byte_offset": 4751,
+        "train_tokens": 4751,
+        "validation_tokens": 1056,
+        "train_sha256": "02da0f5ebafe618796246ea0ac3d180a155bad4b62529a685079694375716609",
+        "validation_sha256": "876eb2a8c1199a58eeaf1631e9d308aae815ec22767a41565e9b7863dd6d3729"
+      },
+      "tokenizer": {
+        "type": "utf8-byte",
+        "version": 1,
+        "vocab_size": 259,
+        "bos_id": 256,
+        "eos_id": 257,
+        "pad_id": 258
+      },
+      "initial_state_sha256": "30d806dad6e3acff37cc38429923eb4106e43df307ae5b018cbf5a62041677bb",
+      "batch_stream_sha256": "bbdacbc454bbd2d9d1da747c53fb8a86f54cc647c632f3c6d89c5bef9525197b",
+      "initial_train": {
+        "loss": 5.590676847759046,
+        "perplexity": 267.91689730961394,
+        "tokens": 4750
+      },
+      "initial_validation": {
+        "loss": 5.594347551535656,
+        "perplexity": 268.90214805191874,
+        "tokens": 1055
+      },
+      "final_train": {
+        "loss": 2.978380350213302,
+        "perplexity": 19.655955085981713,
+        "tokens": 4750
+      },
+      "final_validation": {
+        "loss": 2.9824783831411064,
+        "perplexity": 19.73667111265787,
+        "tokens": 1055
+      },
+      "training": {
+        "seconds": 5.712980600015726,
+        "peak_allocated_bytes": 81833472,
+        "peak_reserved_bytes": 102760448,
+        "baseline_allocated_bytes": 67464704,
+        "sampled_training_loss_mean": 3.039258388678233
+      },
+      "inference": {
+        "batch_size": 1,
+        "sequence_length": 64,
+        "workload": "full-context forward to all-position vocabulary logits; no KV cache",
+        "repeat_mean_ms": [
+          8.26851399964653,
+          7.988253999501467,
+          6.130150000099093,
+          6.3499120000051335,
+          6.812639000127092
+        ],
+        "mean_ms": 7.109893799875863,
+        "repeat_sample_stdev_ms": 0.9669214126432936,
+        "peak_allocated_bytes": 67760640,
+        "peak_reserved_bytes": 69206016,
+        "baseline_allocated_bytes": 67465216
+      },
+      "training_checkpoint_bytes": 1018610,
+      "weights_checkpoint_bytes": 335225,
+      "storage_arithmetic_only": {
+        "actual_parameter_tensor_bytes": 329728,
+        "projection_parameters": 65536,
+        "full_precision_nonprojection_parameters": 16896,
+        "hypothetical_2bit_projection_bytes": 16384,
+        "hypothetical_fp32_scale_bytes": 32,
+        "hypothetical_packed_total_bytes": 84000,
+        "ternary_projection_modules": 8
+      },
+      "generated_sample": "The workshop                                                                                                                         ",
+      "environment": {
+        "python": "3.13.7 (tags/v3.13.7:bcee1c3, Aug 14 2025, 14:15:11) [MSC v.1944 64 bit (AMD64)]",
+        "python_executable": "C:\\Users\\Rushi Thatikonda\\Desktop\\BitForge-300M\\.venv\\Scripts\\python.exe",
+        "torch": "2.7.1+cu118",
+        "cuda_runtime": "11.8",
+        "gpu": "NVIDIA GeForce RTX 4060 Laptop GPU",
+        "gpu_total_memory_bytes": 8585216000,
+        "platform": "Windows-11-10.0.26300-SP0",
+        "deterministic_algorithms": true,
+        "tf32": false
+      }
+    },
+    {
+      "seed": 43,
+      "backend": "fp32",
+      "config": {
+        "vocab_size": 259,
+        "max_seq_len": 64,
+        "d_model": 64,
+        "n_heads": 4,
+        "n_layers": 2,
+        "d_ff": 128,
+        "norm_eps": 1e-06,
+        "projection_backend": "fp32"
+      },
+      "parameters": 82432,
+      "settings": {
+        "steps": 300,
+        "batch_size": 16,
+        "sequence_length": 64,
+        "learning_rate": 0.003,
+        "weight_decay": 0.01,
+        "clip_norm": 1.0,
+        "dtype": "torch.float32",
+        "training_warmup": 5,
+        "inference_warmup": 20,
+        "latency_repeats": 5,
+        "latency_iterations": 100
+      },
+      "corpus": {
+        "path": "C:\\Users\\Rushi Thatikonda\\Desktop\\BitForge-300M\\data\\dev_corpus.txt",
+        "bytes": 5807,
+        "sha256": "9a37fcfa0fc55b65c7090240126bc83200379af993417d0eb8b198140c4864ce",
+        "requested_validation_fraction": 0.2,
+        "split_byte_offset": 4751,
+        "train_tokens": 4751,
+        "validation_tokens": 1056,
+        "train_sha256": "02da0f5ebafe618796246ea0ac3d180a155bad4b62529a685079694375716609",
+        "validation_sha256": "876eb2a8c1199a58eeaf1631e9d308aae815ec22767a41565e9b7863dd6d3729"
+      },
+      "tokenizer": {
+        "type": "utf8-byte",
+        "version": 1,
+        "vocab_size": 259,
+        "bos_id": 256,
+        "eos_id": 257,
+        "pad_id": 258
+      },
+      "initial_state_sha256": "30d806dad6e3acff37cc38429923eb4106e43df307ae5b018cbf5a62041677bb",
+      "batch_stream_sha256": "bbdacbc454bbd2d9d1da747c53fb8a86f54cc647c632f3c6d89c5bef9525197b",
+      "initial_train": {
+        "loss": 5.5705776238692435,
+        "perplexity": 262.58573122901555,
+        "tokens": 4750
+      },
+      "initial_validation": {
+        "loss": 5.575399895979895,
+        "perplexity": 263.85504911574037,
+        "tokens": 1055
+      },
+      "final_train": {
+        "loss": 2.516915043881065,
+        "perplexity": 12.3903140686743,
+        "tokens": 4750
+      },
+      "final_validation": {
+        "loss": 2.5301197793246444,
+        "perplexity": 12.555009877211916,
+        "tokens": 1055
+      },
+      "training": {
+        "seconds": 4.839403200021479,
+        "peak_allocated_bytes": 81571328,
+        "peak_reserved_bytes": 102760448,
+        "baseline_allocated_bytes": 67464704,
+        "sampled_training_loss_mean": 2.938981162707011
+      },
+      "inference": {
+        "batch_size": 1,
+        "sequence_length": 64,
+        "workload": "full-context forward to all-position vocabulary logits; no KV cache",
+        "repeat_mean_ms": [
+          3.5182219999842346,
+          3.486269999993965,
+          3.464440000243485,
+          3.800072000012733,
+          3.568745999946259
+        ],
+        "mean_ms": 3.5675500000361353,
+        "repeat_sample_stdev_ms": 0.13577488072367971,
+        "peak_allocated_bytes": 67710976,
+        "peak_reserved_bytes": 69206016,
+        "baseline_allocated_bytes": 67465216
+      },
+      "training_checkpoint_bytes": 1018610,
+      "weights_checkpoint_bytes": 335225,
+      "storage_arithmetic_only": {
+        "actual_parameter_tensor_bytes": 329728,
+        "projection_parameters": 65536,
+        "full_precision_nonprojection_parameters": 16896,
+        "hypothetical_2bit_projection_bytes": 16384,
+        "hypothetical_fp32_scale_bytes": 32,
+        "hypothetical_packed_total_bytes": 84000,
+        "ternary_projection_modules": 0
+      },
+      "generated_sample": "The workshop te the the te te the te the te the the the te the the the the the the the the the the the the the the the the the the th",
+      "environment": {
+        "python": "3.13.7 (tags/v3.13.7:bcee1c3, Aug 14 2025, 14:15:11) [MSC v.1944 64 bit (AMD64)]",
+        "python_executable": "C:\\Users\\Rushi Thatikonda\\Desktop\\BitForge-300M\\.venv\\Scripts\\python.exe",
+        "torch": "2.7.1+cu118",
+        "cuda_runtime": "11.8",
+        "gpu": "NVIDIA GeForce RTX 4060 Laptop GPU",
+        "gpu_total_memory_bytes": 8585216000,
+        "platform": "Windows-11-10.0.26300-SP0",
+        "deterministic_algorithms": true,
+        "tf32": false
+      }
+    },
+    {
+      "seed": 44,
+      "backend": "fp32",
+      "config": {
+        "vocab_size": 259,
+        "max_seq_len": 64,
+        "d_model": 64,
+        "n_heads": 4,
+        "n_layers": 2,
+        "d_ff": 128,
+        "norm_eps": 1e-06,
+        "projection_backend": "fp32"
+      },
+      "parameters": 82432,
+      "settings": {
+        "steps": 300,
+        "batch_size": 16,
+        "sequence_length": 64,
+        "learning_rate": 0.003,
+        "weight_decay": 0.01,
+        "clip_norm": 1.0,
+        "dtype": "torch.float32",
+        "training_warmup": 5,
+        "inference_warmup": 20,
+        "latency_repeats": 5,
+        "latency_iterations": 100
+      },
+      "corpus": {
+        "path": "C:\\Users\\Rushi Thatikonda\\Desktop\\BitForge-300M\\data\\dev_corpus.txt",
+        "bytes": 5807,
+        "sha256": "9a37fcfa0fc55b65c7090240126bc83200379af993417d0eb8b198140c4864ce",
+        "requested_validation_fraction": 0.2,
+        "split_byte_offset": 4751,
+        "train_tokens": 4751,
+        "validation_tokens": 1056,
+        "train_sha256": "02da0f5ebafe618796246ea0ac3d180a155bad4b62529a685079694375716609",
+        "validation_sha256": "876eb2a8c1199a58eeaf1631e9d308aae815ec22767a41565e9b7863dd6d3729"
+      },
+      "tokenizer": {
+        "type": "utf8-byte",
+        "version": 1,
+        "vocab_size": 259,
+        "bos_id": 256,
+        "eos_id": 257,
+        "pad_id": 258
+      },
+      "initial_state_sha256": "bccea5bb5f247327afc9a291362008cd23901ca1158e63ed6a28e9d2dc570106",
+      "batch_stream_sha256": "ba1caf157d62e44970c5760db7a612ddf00e042c233476731bd5c606bfb84f96",
+      "initial_train": {
+        "loss": 5.518998451634458,
+        "perplexity": 249.38514078876955,
+        "tokens": 4750
+      },
+      "initial_validation": {
+        "loss": 5.518029293403806,
+        "perplexity": 249.14356420884613,
+        "tokens": 1055
+      },
+      "final_train": {
+        "loss": 2.977587008827611,
+        "perplexity": 19.640367387337502,
+        "tokens": 4750
+      },
+      "final_validation": {
+        "loss": 2.982065658207753,
+        "perplexity": 19.728526977147784,
+        "tokens": 1055
+      },
+      "training": {
+        "seconds": 4.211878700007219,
+        "peak_allocated_bytes": 81571328,
+        "peak_reserved_bytes": 102760448,
+        "baseline_allocated_bytes": 67464704,
+        "sampled_training_loss_mean": 3.035269698301951
+      },
+      "inference": {
+        "batch_size": 1,
+        "sequence_length": 64,
+        "workload": "full-context forward to all-position vocabulary logits; no KV cache",
+        "repeat_mean_ms": [
+          4.153976999805309,
+          4.432279999600723,
+          3.6709039995912462,
+          3.3944830001564696,
+          3.7039170000934973
+        ],
+        "mean_ms": 3.871112199849449,
+        "repeat_sample_stdev_ms": 0.41537174518850767,
+        "peak_allocated_bytes": 67710976,
+        "peak_reserved_bytes": 69206016,
+        "baseline_allocated_bytes": 67465216
+      },
+      "training_checkpoint_bytes": 1018610,
+      "weights_checkpoint_bytes": 335225,
+      "storage_arithmetic_only": {
+        "actual_parameter_tensor_bytes": 329728,
+        "projection_parameters": 65536,
+        "full_precision_nonprojection_parameters": 16896,
+        "hypothetical_2bit_projection_bytes": 16384,
+        "hypothetical_fp32_scale_bytes": 32,
+        "hypothetical_packed_total_bytes": 84000,
+        "ternary_projection_modules": 0
+      },
+      "generated_sample": "The workshop                                                                                                                         ",
+      "environment": {
+        "python": "3.13.7 (tags/v3.13.7:bcee1c3, Aug 14 2025, 14:15:11) [MSC v.1944 64 bit (AMD64)]",
+        "python_executable": "C:\\Users\\Rushi Thatikonda\\Desktop\\BitForge-300M\\.venv\\Scripts\\python.exe",
+        "torch": "2.7.1+cu118",
+        "cuda_runtime": "11.8",
+        "gpu": "NVIDIA GeForce RTX 4060 Laptop GPU",
+        "gpu_total_memory_bytes": 8585216000,
+        "platform": "Windows-11-10.0.26300-SP0",
+        "deterministic_algorithms": true,
+        "tf32": false
+      }
+    },
+    {
+      "seed": 44,
+      "backend": "ternary",
+      "config": {
+        "vocab_size": 259,
+        "max_seq_len": 64,
+        "d_model": 64,
+        "n_heads": 4,
+        "n_layers": 2,
+        "d_ff": 128,
+        "norm_eps": 1e-06,
+        "projection_backend": "ternary"
+      },
+      "parameters": 82432,
+      "settings": {
+        "steps": 300,
+        "batch_size": 16,
+        "sequence_length": 64,
+        "learning_rate": 0.003,
+        "weight_decay": 0.01,
+        "clip_norm": 1.0,
+        "dtype": "torch.float32",
+        "training_warmup": 5,
+        "inference_warmup": 20,
+        "latency_repeats": 5,
+        "latency_iterations": 100
+      },
+      "corpus": {
+        "path": "C:\\Users\\Rushi Thatikonda\\Desktop\\BitForge-300M\\data\\dev_corpus.txt",
+        "bytes": 5807,
+        "sha256": "9a37fcfa0fc55b65c7090240126bc83200379af993417d0eb8b198140c4864ce",
+        "requested_validation_fraction": 0.2,
+        "split_byte_offset": 4751,
+        "train_tokens": 4751,
+        "validation_tokens": 1056,
+        "train_sha256": "02da0f5ebafe618796246ea0ac3d180a155bad4b62529a685079694375716609",
+        "validation_sha256": "876eb2a8c1199a58eeaf1631e9d308aae815ec22767a41565e9b7863dd6d3729"
+      },
+      "tokenizer": {
+        "type": "utf8-byte",
+        "version": 1,
+        "vocab_size": 259,
+        "bos_id": 256,
+        "eos_id": 257,
+        "pad_id": 258
+      },
+      "initial_state_sha256": "bccea5bb5f247327afc9a291362008cd23901ca1158e63ed6a28e9d2dc570106",
+      "batch_stream_sha256": "ba1caf157d62e44970c5760db7a612ddf00e042c233476731bd5c606bfb84f96",
+      "initial_train": {
+        "loss": 5.523559355083265,
+        "perplexity": 250.5251601203171,
+        "tokens": 4750
+      },
+      "initial_validation": {
+        "loss": 5.521378923027436,
+        "perplexity": 249.97950213166857,
+        "tokens": 1055
+      },
+      "final_train": {
+        "loss": 2.9787235557154603,
+        "perplexity": 19.662702275687487,
+        "tokens": 4750
+      },
+      "final_validation": {
+        "loss": 2.983267725361467,
+        "perplexity": 19.75225625065097,
+        "tokens": 1055
+      },
+      "training": {
+        "seconds": 3.7574566999683157,
+        "peak_allocated_bytes": 81833472,
+        "peak_reserved_bytes": 102760448,
+        "baseline_allocated_bytes": 67464704,
+        "sampled_training_loss_mean": 3.036828021208445
+      },
+      "inference": {
+        "batch_size": 1,
+        "sequence_length": 64,
+        "workload": "full-context forward to all-position vocabulary logits; no KV cache",
+        "repeat_mean_ms": [
+          3.9767729997402057,
+          3.8080489996355027,
+          4.2558600002666935,
+          3.5484800004633144,
+          3.8605159998405725
+        ],
+        "mean_ms": 3.8899355999892578,
+        "repeat_sample_stdev_ms": 0.2576840387722591,
+        "peak_allocated_bytes": 67760640,
+        "peak_reserved_bytes": 69206016,
+        "baseline_allocated_bytes": 67465216
+      },
+      "training_checkpoint_bytes": 1018610,
+      "weights_checkpoint_bytes": 335225,
+      "storage_arithmetic_only": {
+        "actual_parameter_tensor_bytes": 329728,
+        "projection_parameters": 65536,
+        "full_precision_nonprojection_parameters": 16896,
+        "hypothetical_2bit_projection_bytes": 16384,
+        "hypothetical_fp32_scale_bytes": 32,
+        "hypothetical_packed_total_bytes": 84000,
+        "ternary_projection_modules": 8
+      },
+      "generated_sample": "The workshop                                                                                                                         ",
+      "environment": {
+        "python": "3.13.7 (tags/v3.13.7:bcee1c3, Aug 14 2025, 14:15:11) [MSC v.1944 64 bit (AMD64)]",
+        "python_executable": "C:\\Users\\Rushi Thatikonda\\Desktop\\BitForge-300M\\.venv\\Scripts\\python.exe",
+        "torch": "2.7.1+cu118",
+        "cuda_runtime": "11.8",
+        "gpu": "NVIDIA GeForce RTX 4060 Laptop GPU",
+        "gpu_total_memory_bytes": 8585216000,
+        "platform": "Windows-11-10.0.26300-SP0",
+        "deterministic_algorithms": true,
+        "tf32": false
+      }
+    }
+  ],
+  "aggregate": {
+    "seeds": [
+      42,
+      43,
+      44
+    ],
+    "variation": "sample standard deviation across seeds; not confidence intervals",
+    "by_backend": {
+      "fp32": {
+        "train_loss": {
+          "mean": 2.7486861981843647,
+          "sample_stdev": 0.23034939543327002,
+          "min": 2.516915043881065,
+          "max": 2.977587008827611
+        },
+        "train_perplexity": {
+          "mean": 15.899226903593567,
+          "sample_stdev": 3.6306012644634778,
+          "min": 12.3903140686743,
+          "max": 19.640367387337502
+        },
+        "validation_loss": {
+          "mean": 2.753530100359924,
+          "sample_stdev": 0.22601652682745335,
+          "min": 2.5301197793246444,
+          "max": 2.982065658207753
+        },
+        "validation_perplexity": {
+          "mean": 15.967078832221643,
+          "sample_stdev": 3.5994980566084576,
+          "min": 12.555009877211916,
+          "max": 19.728526977147784
+        },
+        "training_seconds": {
+          "mean": 4.602696266684991,
+          "sample_stdev": 0.3409682023461658,
+          "min": 4.211878700007219,
+          "max": 4.839403200021479
+        },
+        "inference_forward_ms": {
+          "mean": 3.6622537333363048,
+          "sample_stdev": 0.18113801264524437,
+          "min": 3.5480990001233295,
+          "max": 3.871112199849449
+        },
+        "training_peak_allocated_bytes": {
+          "mean": 81571328,
+          "sample_stdev": 0.0,
+          "min": 81571328,
+          "max": 81571328
+        },
+        "training_peak_reserved_bytes": {
+          "mean": 102760448,
+          "sample_stdev": 0.0,
+          "min": 102760448,
+          "max": 102760448
+        },
+        "inference_peak_allocated_bytes": {
+          "mean": 67710976,
+          "sample_stdev": 0.0,
+          "min": 67710976,
+          "max": 67710976
+        },
+        "inference_peak_reserved_bytes": {
+          "mean": 69206016,
+          "sample_stdev": 0.0,
+          "min": 69206016,
+          "max": 69206016
+        },
+        "training_checkpoint_bytes": {
+          "mean": 1018610,
+          "sample_stdev": 0.0,
+          "min": 1018610,
+          "max": 1018610
+        },
+        "weights_checkpoint_bytes": {
+          "mean": 335225,
+          "sample_stdev": 0.0,
+          "min": 335225,
+          "max": 335225
+        }
+      },
+      "ternary": {
+        "train_loss": {
+          "mean": 2.978823455007453,
+          "sample_stdev": 0.0005005872375061258,
+          "min": 2.978380350213302,
+          "max": 2.9793664590935958
+        },
+        "train_perplexity": {
+          "mean": 19.664668306494914,
+          "sample_stdev": 0.009844589824279775,
+          "min": 19.655955085981713,
+          "max": 19.675347557815545
+        },
+        "validation_loss": {
+          "mean": 2.982142412568344,
+          "sample_stdev": 0.0013256232842594829,
+          "min": 2.9806811292024586,
+          "max": 2.983267725361467
+        },
+        "validation_perplexity": {
+          "mean": 19.730052840970302,
+          "sample_stdev": 0.02614844391612911,
+          "min": 19.70123115960207,
+          "max": 19.75225625065097
+        },
+        "training_seconds": {
+          "mean": 5.311104066669941,
+          "sample_stdev": 1.3967642858911677,
+          "min": 3.7574566999683157,
+          "max": 6.462874900025781
+        },
+        "inference_forward_ms": {
+          "mean": 6.108770866606695,
+          "sample_stdev": 1.9246168962538004,
+          "min": 3.8899355999892578,
+          "max": 7.326483199954964
+        },
+        "training_peak_allocated_bytes": {
+          "mean": 81833472,
+          "sample_stdev": 0.0,
+          "min": 81833472,
+          "max": 81833472
+        },
+        "training_peak_reserved_bytes": {
+          "mean": 102760448,
+          "sample_stdev": 0.0,
+          "min": 102760448,
+          "max": 102760448
+        },
+        "inference_peak_allocated_bytes": {
+          "mean": 67760640,
+          "sample_stdev": 0.0,
+          "min": 67760640,
+          "max": 67760640
+        },
+        "inference_peak_reserved_bytes": {
+          "mean": 69206016,
+          "sample_stdev": 0.0,
+          "min": 69206016,
+          "max": 69206016
+        },
+        "training_checkpoint_bytes": {
+          "mean": 1018610,
+          "sample_stdev": 0.0,
+          "min": 1018610,
+          "max": 1018610
+        },
+        "weights_checkpoint_bytes": {
+          "mean": 335225,
+          "sample_stdev": 0.0,
+          "min": 335225,
+          "max": 335225
+        }
+      }
+    },
+    "paired_ternary_minus_fp32": {
+      "train_loss": {
+        "mean": 0.23013725682308803,
+        "sample_stdev": 0.23017320451134488,
+        "min": 0.0011365468878494767,
+        "max": 0.4614653063322369
+      },
+      "train_perplexity": {
+        "mean": 3.7654414029013488,
+        "sample_stdev": 3.6277573983181,
+        "min": 0.02233488834998454,
+        "max": 7.265641017307413
+      },
+      "validation_loss": {
+        "mean": 0.2286123122084199,
+        "sample_stdev": 0.22560058412939868,
+        "min": 0.0012020671537138483,
+        "max": 0.452358603816462
+      },
+      "validation_perplexity": {
+        "mean": 3.762974008748659,
+        "sample_stdev": 3.5897166086148675,
+        "min": 0.023729273503185766,
+        "max": 7.181661235445954
+      },
+      "training_seconds": {
+        "mean": 0.7084077999849493,
+        "sample_stdev": 1.0896742667613626,
+        "min": -0.4544220000389032,
+        "max": 1.7060679999995045
+      },
+      "inference_forward_ms": {
+        "mean": 2.4465171332703903,
+        "sample_stdev": 2.1057543574733995,
+        "min": 0.018823400139808655,
+        "max": 3.7783841998316348
+      },
+      "training_peak_allocated_bytes": {
+        "mean": 262144,
+        "sample_stdev": 0.0,
+        "min": 262144,
+        "max": 262144
+      },
+      "training_peak_reserved_bytes": {
+        "mean": 0,
+        "sample_stdev": 0.0,
+        "min": 0,
+        "max": 0
+      },
+      "inference_peak_allocated_bytes": {
+        "mean": 49664,
+        "sample_stdev": 0.0,
+        "min": 49664,
+        "max": 49664
+      },
+      "inference_peak_reserved_bytes": {
+        "mean": 0,
+        "sample_stdev": 0.0,
+        "min": 0,
+        "max": 0
+      },
+      "training_checkpoint_bytes": {
+        "mean": 0,
+        "sample_stdev": 0.0,
+        "min": 0,
+        "max": 0
+      },
+      "weights_checkpoint_bytes": {
+        "mean": 0,
+        "sample_stdev": 0.0,
+        "min": 0,
+        "max": 0
+      }
+    }
+  },
+  "timing_scope": "training optimization loop only, including sampling, batch hashing, HtoD, loss checks, clipping, AdamW; inference forward excludes HtoD",
+  "limitation": "Tiny assistant-generated CC0 corpus. No packed execution. Non-generalizable."
+}

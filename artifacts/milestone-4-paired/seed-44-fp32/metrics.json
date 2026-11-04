@@ -1,0 +1,116 @@
+{
+  "seed": 44,
+  "backend": "fp32",
+  "config": {
+    "vocab_size": 259,
+    "max_seq_len": 64,
+    "d_model": 64,
+    "n_heads": 4,
+    "n_layers": 2,
+    "d_ff": 128,
+    "norm_eps": 1e-06,
+    "projection_backend": "fp32"
+  },
+  "parameters": 82432,
+  "settings": {
+    "steps": 300,
+    "batch_size": 16,
+    "sequence_length": 64,
+    "learning_rate": 0.003,
+    "weight_decay": 0.01,
+    "clip_norm": 1.0,
+    "dtype": "torch.float32",
+    "training_warmup": 5,
+    "inference_warmup": 20,
+    "latency_repeats": 5,
+    "latency_iterations": 100
+  },
+  "corpus": {
+    "path": "C:\\Users\\Rushi Thatikonda\\Desktop\\BitForge-300M\\data\\dev_corpus.txt",
+    "bytes": 5807,
+    "sha256": "9a37fcfa0fc55b65c7090240126bc83200379af993417d0eb8b198140c4864ce",
+    "requested_validation_fraction": 0.2,
+    "split_byte_offset": 4751,
+    "train_tokens": 4751,
+    "validation_tokens": 1056,
+    "train_sha256": "02da0f5ebafe618796246ea0ac3d180a155bad4b62529a685079694375716609",
+    "validation_sha256": "876eb2a8c1199a58eeaf1631e9d308aae815ec22767a41565e9b7863dd6d3729"
+  },
+  "tokenizer": {
+    "type": "utf8-byte",
+    "version": 1,
+    "vocab_size": 259,
+    "bos_id": 256,
+    "eos_id": 257,
+    "pad_id": 258
+  },
+  "initial_state_sha256": "bccea5bb5f247327afc9a291362008cd23901ca1158e63ed6a28e9d2dc570106",
+  "batch_stream_sha256": "ba1caf157d62e44970c5760db7a612ddf00e042c233476731bd5c606bfb84f96",
+  "initial_train": {
+    "loss": 5.518998451634458,
+    "perplexity": 249.38514078876955,
+    "tokens": 4750
+  },
+  "initial_validation": {
+    "loss": 5.518029293403806,
+    "perplexity": 249.14356420884613,
+    "tokens": 1055
+  },
+  "final_train": {
+    "loss": 2.977587008827611,
+    "perplexity": 19.640367387337502,
+    "tokens": 4750
+  },
+  "final_validation": {
+    "loss": 2.982065658207753,
+    "perplexity": 19.728526977147784,
+    "tokens": 1055
+  },
+  "training": {
+    "seconds": 4.211878700007219,
+    "peak_allocated_bytes": 81571328,
+    "peak_reserved_bytes": 102760448,
+    "baseline_allocated_bytes": 67464704,
+    "sampled_training_loss_mean": 3.035269698301951
+  },
+  "inference": {
+    "batch_size": 1,
+    "sequence_length": 64,
+    "workload": "full-context forward to all-position vocabulary logits; no KV cache",
+    "repeat_mean_ms": [
+      4.153976999805309,
+      4.432279999600723,
+      3.6709039995912462,
+      3.3944830001564696,
+      3.7039170000934973
+    ],
+    "mean_ms": 3.871112199849449,
+    "repeat_sample_stdev_ms": 0.41537174518850767,
+    "peak_allocated_bytes": 67710976,
+    "peak_reserved_bytes": 69206016,
+    "baseline_allocated_bytes": 67465216
+  },
+  "training_checkpoint_bytes": 1018610,
+  "weights_checkpoint_bytes": 335225,
+  "storage_arithmetic_only": {
+    "actual_parameter_tensor_bytes": 329728,
+    "projection_parameters": 65536,
+    "full_precision_nonprojection_parameters": 16896,
+    "hypothetical_2bit_projection_bytes": 16384,
+    "hypothetical_fp32_scale_bytes": 32,
+    "hypothetical_packed_total_bytes": 84000,
+    "ternary_projection_modules": 0
+  },
+  "generated_sample": "The workshop                                                                                                                         ",
+  "environment": {
+    "python": "3.13.7 (tags/v3.13.7:bcee1c3, Aug 14 2025, 14:15:11) [MSC v.1944 64 bit (AMD64)]",
+    "python_executable": "C:\\Users\\Rushi Thatikonda\\Desktop\\BitForge-300M\\.venv\\Scripts\\python.exe",
+    "torch": "2.7.1+cu118",
+    "cuda_runtime": "11.8",
+    "gpu": "NVIDIA GeForce RTX 4060 Laptop GPU",
+    "gpu_total_memory_bytes": 8585216000,
+    "platform": "Windows-11-10.0.26300-SP0",
+    "deterministic_algorithms": true,
+    "tf32": false
+  }
+}

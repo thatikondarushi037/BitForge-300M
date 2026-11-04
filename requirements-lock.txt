@@ -1,0 +1,17 @@
+# Resolved Windows x64 / CPython 3.13 environment, 2026-11-04.
+# Install project separately with --no-deps --no-build-isolation -e .[dev]
+# Version pins, not a cross-platform or hash-complete lock.
+filelock==4.2.6
+fsspec==2026.9.0
+Jinja2==3.1.6
+MarkupSafe==3.0.3
+mpmath==1.3.0
+networkx==3.6.1
+numpy==2.4.1
+packaging==26.3
+pip==25.2
+setuptools==82.0.1
+sympy==1.14.0
+torch==2.7.1+cu118
+typing_extensions==4.16.0
+wheel==0.47.0

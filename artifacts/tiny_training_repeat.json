@@ -1,0 +1,14 @@
+{
+  "seed": 42,
+  "steps": 100,
+  "device": "cuda",
+  "gpu": "NVIDIA GeForce RTX 4060 Laptop GPU",
+  "torch": "2.7.1+cu118",
+  "cuda_runtime": "11.8",
+  "parameters": 2632,
+  "initial_loss": 1.3697137832641602,
+  "final_loss": 0.04846116900444031,
+  "elapsed_seconds": 0.42800230003194883,
+  "peak_allocated_bytes": 68268032,
+  "peak_reserved_bytes": 69206016
+}

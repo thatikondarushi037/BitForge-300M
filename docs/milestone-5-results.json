@@ -1,0 +1,447 @@
+{
+  "export": {
+    "packed_bytes": 87324,
+    "eligible_parameters": 65536,
+    "noneligible_parameters": 16896,
+    "total_parameters": 82432,
+    "eligible_percent": 79.5031055900621,
+    "effective_file_bits_per_parameter": 8.474767080745341,
+    "payload_bytes": 84000,
+    "header_bytes": 3280,
+    "sha256": "eec8a7c12400fbbbc447da4cceca4f26670c35b4a4d7a27adc6bd2d2bcbbfac4",
+    "manifest": {
+      "format": "bitforge-packed-ternary",
+      "version": 1,
+      "architecture": "bitforge-decoder-v1",
+      "config": {
+        "vocab_size": 259,
+        "max_seq_len": 64,
+        "d_model": 64,
+        "n_heads": 4,
+        "n_layers": 2,
+        "d_ff": 128,
+        "norm_eps": 1e-06,
+        "projection_backend": "ternary"
+      },
+      "tokenizer": {
+        "type": "utf8-byte",
+        "version": 1,
+        "vocab_size": 259,
+        "bos_id": 256,
+        "eos_id": 257,
+        "pad_id": 258
+      },
+      "quantizer": "absmean-fp32-round-even-clamp-v1",
+      "byte_order": "little",
+      "source_quantization_device": "cuda:0",
+      "tensors": [
+        {
+          "name": "token_embedding.weight",
+          "shape": [
+            259,
+            64
+          ],
+          "dtype": "float32",
+          "encoding": "raw-f32",
+          "offset": 0,
+          "nbytes": 66304,
+          "sha256": "337ab05350a02143e9caa41d0111373d5f93a4d6abf5f6a661db0c058a56b35c"
+        },
+        {
+          "name": "blocks.0.attention_norm.weight",
+          "shape": [
+            64
+          ],
+          "dtype": "float32",
+          "encoding": "raw-f32",
+          "offset": 66304,
+          "nbytes": 256,
+          "sha256": "468af5aa98ae1c942d7cc60c636bfa37eec8c5dc0265f85b35365202d60aeba1"
+        },
+        {
+          "name": "blocks.0.attention.qkv.weight",
+          "shape": [
+            192,
+            64
+          ],
+          "dtype": "float32",
+          "encoding": "ternary2-f32scale",
+          "offset": 66560,
+          "nbytes": 3076,
+          "sha256": "f94cd6647e006ee25fa3e858e2eb30471d477e4141de2ab670c671b20651f5ed"
+        },
+        {
+          "name": "blocks.0.attention.output.weight",
+          "shape": [
+            64,
+            64
+          ],
+          "dtype": "float32",
+          "encoding": "ternary2-f32scale",
+          "offset": 69636,
+          "nbytes": 1028,
+          "sha256": "1c75e64813737a3f6f4f5babd5e988916066f5ea96fcfbe774031e2642bb5d26"
+        },
+        {
+          "name": "blocks.0.ffn_norm.weight",
+          "shape": [
+            64
+          ],
+          "dtype": "float32",
+          "encoding": "raw-f32",
+          "offset": 70664,
+          "nbytes": 256,
+          "sha256": "c6c6522124171de64669c9a17f9fc2a7dd607bb18931444058867a4e0ca9bbc2"
+        },
+        {
+          "name": "blocks.0.ffn.up.weight",
+          "shape": [
+            128,
+            64
+          ],
+          "dtype": "float32",
+          "encoding": "ternary2-f32scale",
+          "offset": 70920,
+          "nbytes": 2052,
+          "sha256": "b404a6bdd40149d48075f824e2f26c5591bc9315a2d295ce1a4355538641185a"
+        },
+        {
+          "name": "blocks.0.ffn.down.weight",
+          "shape": [
+            64,
+            128
+          ],
+          "dtype": "float32",
+          "encoding": "ternary2-f32scale",
+          "offset": 72972,
+          "nbytes": 2052,
+          "sha256": "7b0330e4bc75ad1edd23745d25161c57ce29c131afde5d8a152d6c3680a37391"
+        },
+        {
+          "name": "blocks.1.attention_norm.weight",
+          "shape": [
+            64
+          ],
+          "dtype": "float32",
+          "encoding": "raw-f32",
+          "offset": 75024,
+          "nbytes": 256,
+          "sha256": "9fe4fdf5c430564cc2d8ccfccae1b3b77dac99856aa512024ce93f8fca7a7051"
+        },
+        {
+          "name": "blocks.1.attention.qkv.weight",
+          "shape": [
+            192,
+            64
+          ],
+          "dtype": "float32",
+          "encoding": "ternary2-f32scale",
+          "offset": 75280,
+          "nbytes": 3076,
+          "sha256": "bbea281c3320845b0dab91defc1cf3294b23c47f166f97f622ee1d61a0310c15"
+        },
+        {
+          "name": "blocks.1.attention.output.weight",
+          "shape": [
+            64,
+            64
+          ],
+          "dtype": "float32",
+          "encoding": "ternary2-f32scale",
+          "offset": 78356,
+          "nbytes": 1028,
+          "sha256": "f044ce8e9dabf33a625dc68a61f9f9faf7b1ab626d0a304a0fa8dc3da6ab7c41"
+        },
+        {
+          "name": "blocks.1.ffn_norm.weight",
+          "shape": [
+            64
+          ],
+          "dtype": "float32",
+          "encoding": "raw-f32",
+          "offset": 79384,
+          "nbytes": 256,
+          "sha256": "55070ab785d110489a113885afe44be1e9d7b8bc85df5b2ca700b741c8e0c38f"
+        },
+        {
+          "name": "blocks.1.ffn.up.weight",
+          "shape": [
+            128,
+            64
+          ],
+          "dtype": "float32",
+          "encoding": "ternary2-f32scale",
+          "offset": 79640,
+          "nbytes": 2052,
+          "sha256": "b06ea95b3d126f44cfa5a7d45bdf0352d43d4c7b9155b4dc67b7883441ff2c60"
+        },
+        {
+          "name": "blocks.1.ffn.down.weight",
+          "shape": [
+            64,
+            128
+          ],
+          "dtype": "float32",
+          "encoding": "ternary2-f32scale",
+          "offset": 81692,
+          "nbytes": 2052,
+          "sha256": "6328d50772164ba68439ac0d289746ff898d461e5e5fbe7f5376a0b0f10f4b7b"
+        },
+        {
+          "name": "final_norm.weight",
+          "shape": [
+            64
+          ],
+          "dtype": "float32",
+          "encoding": "raw-f32",
+          "offset": 83744,
+          "nbytes": 256,
+          "sha256": "63b629081f613e571a9538fd5c64645cd5be7137c223798088a33ed1ea446c61"
+        }
+      ]
+    },
+    "original_weights_bytes": 335225,
+    "compression_ratio_original_over_packed": 3.8388644587971235,
+    "file_size_reduction_percent": 73.95063017376388,
+    "source_weights_sha256": "84a7d3963aa1165b7e5f2139257be75e58fb91df66468000e8862afde5f0f532",
+    "logit_probes": [
+      {
+        "batch": 2,
+        "length": 1,
+        "max_abs_error": 0.0
+      },
+      {
+        "batch": 2,
+        "length": 8,
+        "max_abs_error": 0.0
+      },
+      {
+        "batch": 2,
+        "length": 32,
+        "max_abs_error": 0.0
+      },
+      {
+        "batch": 2,
+        "length": 64,
+        "max_abs_error": 0.0
+      }
+    ],
+    "weights_exact_numerical_match": true,
+    "corpus": {
+      "path": "C:\\Users\\Rushi Thatikonda\\Desktop\\BitForge-300M\\data\\dev_corpus.txt",
+      "bytes": 5807,
+      "sha256": "9a37fcfa0fc55b65c7090240126bc83200379af993417d0eb8b198140c4864ce",
+      "requested_validation_fraction": 0.2,
+      "split_byte_offset": 4751,
+      "train_tokens": 4751,
+      "validation_tokens": 1056,
+      "train_sha256": "02da0f5ebafe618796246ea0ac3d180a155bad4b62529a685079694375716609",
+      "validation_sha256": "876eb2a8c1199a58eeaf1631e9d308aae815ec22767a41565e9b7863dd6d3729"
+    },
+    "reference_validation": {
+      "loss": 2.9806811292024586,
+      "perplexity": 19.70123115960207,
+      "tokens": 1055
+    },
+    "reconstructed_validation": {
+      "loss": 2.9806811292024586,
+      "perplexity": 19.70123115960207,
+      "tokens": 1055
+    }
+  },
+  "runs": [
+    {
+      "mode": "master_bitlinear",
+      "file_bytes": 335225,
+      "cpu_load_ms": {
+        "mean": 2.9099399922415614,
+        "sample_stdev": 0.03402106815884108,
+        "min": 2.856799983419478,
+        "max": 2.942599996458739
+      },
+      "cpu_load_ms_raw": [
+        2.9211000073701143,
+        2.942599996458739,
+        2.856799983419478,
+        2.9314999701455235,
+        2.897700003813952
+      ],
+      "cuda_load_ms": {
+        "mean": 5.068379989825189,
+        "sample_stdev": 1.4989346580745255,
+        "min": 4.3052000110037625,
+        "max": 7.744600006844848
+      },
+      "cuda_load_ms_raw": [
+        4.500199982430786,
+        4.3052000110037625,
+        4.483899974729866,
+        4.307999974116683,
+        7.744600006844848
+      ],
+      "inference_forward_ms": {
+        "mean": 3.4747682000743225,
+        "sample_stdev": 0.12893221289490145,
+        "min": 3.2558360003167763,
+        "max": 3.570823999471031
+      },
+      "inference_forward_ms_raw": [
+        3.2558360003167763,
+        3.49272400024347,
+        3.570823999471031,
+        3.569118000450544,
+        3.485338999889791
+      ],
+      "inference_memory": {
+        "baseline_allocated_bytes": 33910784,
+        "peak_allocated_bytes": 34206208,
+        "peak_reserved_bytes": 35651584
+      },
+      "workload": {
+        "batch_size": 1,
+        "context": 64,
+        "warmup": 20,
+        "latency_repeats": 5,
+        "forwards_per_repeat": 100,
+        "loading_repeats": 5,
+        "loading_cache": "warm OS file cache; complete CPU construction/validation, plus HtoD for CUDA"
+      },
+      "generated_sample": "The workshop                                                                                                                         ",
+      "environment": {
+        "python": "3.13.7 (tags/v3.13.7:bcee1c3, Aug 14 2025, 14:15:11) [MSC v.1944 64 bit (AMD64)]",
+        "torch": "2.7.1+cu118",
+        "cuda_runtime": "11.8",
+        "gpu": "NVIDIA GeForce RTX 4060 Laptop GPU"
+      }
+    },
+    {
+      "mode": "dense_quantized",
+      "file_bytes": 335225,
+      "cpu_load_ms": {
+        "mean": 3.117439989000559,
+        "sample_stdev": 0.25310728601378973,
+        "min": 2.8344999882392585,
+        "max": 3.4895000280812383
+      },
+      "cpu_load_ms_raw": [
+        3.014699963387102,
+        3.0077999690547585,
+        3.4895000280812383,
+        3.240699996240437,
+        2.8344999882392585
+      ],
+      "cuda_load_ms": {
+        "mean": 4.3558800127357244,
+        "sample_stdev": 0.31687702226474823,
+        "min": 3.925300028640777,
+        "max": 4.784500051755458
+      },
+      "cuda_load_ms_raw": [
+        4.4507000129669905,
+        4.4074999750591815,
+        4.211399995256215,
+        3.925300028640777,
+        4.784500051755458
+      ],
+      "inference_forward_ms": {
+        "mean": 2.599125200067647,
+        "sample_stdev": 0.09709005015911024,
+        "min": 2.4587779998546466,
+        "max": 2.6733310002600774
+      },
+      "inference_forward_ms_raw": [
+        2.6615909999236465,
+        2.4587779998546466,
+        2.6733310002600774,
+        2.6665120001416653,
+        2.535414000158198
+      ],
+      "inference_memory": {
+        "baseline_allocated_bytes": 33910784,
+        "peak_allocated_bytes": 34156544,
+        "peak_reserved_bytes": 35651584
+      },
+      "workload": {
+        "batch_size": 1,
+        "context": 64,
+        "warmup": 20,
+        "latency_repeats": 5,
+        "forwards_per_repeat": 100,
+        "loading_repeats": 5,
+        "loading_cache": "warm OS file cache; complete CPU construction/validation, plus HtoD for CUDA"
+      },
+      "generated_sample": "The workshop                                                                                                                         ",
+      "environment": {
+        "python": "3.13.7 (tags/v3.13.7:bcee1c3, Aug 14 2025, 14:15:11) [MSC v.1944 64 bit (AMD64)]",
+        "torch": "2.7.1+cu118",
+        "cuda_runtime": "11.8",
+        "gpu": "NVIDIA GeForce RTX 4060 Laptop GPU"
+      }
+    },
+    {
+      "mode": "packed",
+      "file_bytes": 87324,
+      "cpu_load_ms": {
+        "mean": 9.634939976967871,
+        "sample_stdev": 2.49174691698922,
+        "min": 7.418499968480319,
+        "max": 12.717799982056022
+      },
+      "cpu_load_ms_raw": [
+        11.948800005484372,
+        8.106199966277927,
+        12.717799982056022,
+        7.418499968480319,
+        7.983399962540716
+      ],
+      "cuda_load_ms": {
+        "mean": 12.84754000371322,
+        "sample_stdev": 1.7772284237826292,
+        "min": 10.395499994046986,
+        "max": 15.354299976024777
+      },
+      "cuda_load_ms_raw": [
+        10.395499994046986,
+        15.354299976024777,
+        13.16839997889474,
+        12.373100034892559,
+        12.94640003470704
+      ],
+      "inference_forward_ms": {
+        "mean": 2.7942868001991883,
+        "sample_stdev": 0.3407768194861538,
+        "min": 2.432144000194967,
+        "max": 3.1952270003966987
+      },
+      "inference_forward_ms_raw": [
+        2.9767709999578074,
+        2.432144000194967,
+        2.4440300004789606,
+        2.923261999967508,
+        3.1952270003966987
+      ],
+      "inference_memory": {
+        "baseline_allocated_bytes": 33910784,
+        "peak_allocated_bytes": 34156544,
+        "peak_reserved_bytes": 35651584
+      },
+      "workload": {
+        "batch_size": 1,
+        "context": 64,
+        "warmup": 20,
+        "latency_repeats": 5,
+        "forwards_per_repeat": 100,
+        "loading_repeats": 5,
+        "loading_cache": "warm OS file cache; complete CPU construction/validation, plus HtoD for CUDA"
+      },
+      "generated_sample": "The workshop                                                                                                                         ",
+      "environment": {
+        "python": "3.13.7 (tags/v3.13.7:bcee1c3, Aug 14 2025, 14:15:11) [MSC v.1944 64 bit (AMD64)]",
+        "torch": "2.7.1+cu118",
+        "cuda_runtime": "11.8",
+        "gpu": "NVIDIA GeForce RTX 4060 Laptop GPU"
+      }
+    }
+  ],
+  "limitation": "Packing reduces disk bytes only; both frozen paths execute dense FP32. Warm-cache single-session timings, not cold startup or packed kernels."
+}
