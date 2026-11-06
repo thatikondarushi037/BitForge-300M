@@ -12,6 +12,27 @@ bits per eligible weight instead of 32. This implementation keeps FP32 master
 weights during QAT and reconstructs dense floating-point tensors when loading
 packed files. **There are no native ternary GPU kernels.**
 
+## Table of contents
+
+- [Project highlights](#project-highlights)
+- [Verified results](#verified-results)
+- [Quick start](#quick-start)
+- [Architecture](#architecture)
+- [Install and run offline](#install-and-run-offline)
+- [QAT and checkpoint format](#qat-and-checkpoint-format)
+- [Tests and reproducibility](#tests-and-reproducibility)
+- [Limitations and next work](#limitations-and-next-work)
+
+## Project highlights
+
+| Full-model parameters | Checkpoint compression | Median CUDA forward | Automated tests |
+|---:|---:|---:|---:|
+| **297.06M** | **6.02×** | **49.09 ms** (batch 1, context 8) | **74 passing** |
+
+The full 297M model is untrained; the separate 1.38M demo model was trained
+for 600 updates on synthetic CC0 text. These figures summarize the verified
+results and measurement conditions below.
+
 ## Verified results
 
 | Item | Actual result |
@@ -37,6 +58,35 @@ runtime measurements are listed separately in the
 [benchmark CSV](artifacts/release-summary-final/benchmarks.csv).
 Compression does not imply proportional VRAM savings or native low-bit speed.
 Short laptop timings vary with power state and other workloads.
+
+## Quick start
+
+On Windows, use CPython 3.13 and the verified PyTorch 2.7.1+cu118 environment.
+Follow [Windows setup](docs/windows-setup.md) to prepare dependencies from a
+compatible offline wheelhouse. With network access, the repository setup script
+installs the pinned environment and verifies CUDA and tests:
+
+```powershell
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\scripts\setup.ps1
+.\.venv\Scripts\Activate.ps1
+```
+
+From the repository root in the prepared environment, generate the trained
+**1.38M demo checkpoint** offline, then run the CLI demonstration. Use a new
+output directory; checkpoint binaries are not included in Git. The 600-update
+run trains only the small demo, not the untrained 297M full model. CUDA is
+required for this reproduction path.
+
+```powershell
+python scripts/prepare_engineering_corpus.py
+python experiments/release_demo.py --output-dir artifacts/portfolio-demo --steps 600
+python -m bitforge demo --checkpoint artifacts/portfolio-demo/demo.bft --device cuda --prompt "The technician will " --max-new-tokens 32
+```
+
+See the [demonstration walkthrough](docs/portfolio-demo.md) for the presentation
+sequence and evidence to show. The recorded demonstration is not yet published.
+Demo output is repetitive and demonstrates the pipeline rather than general
+language ability.
 
 ## Architecture
 

@@ -82,7 +82,7 @@ powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\scripts\setup.ps1 -Whe
 ```
 
 The wheelhouse is local and ignored by Git; a fresh machine must download the
-locked packages first. See [the environment report](docs/environment.md) for
+locked packages first. See [the environment report](environment.md) for
 exact network installation commands and cache provenance.
 See [PyTorch installation guidance](https://pytorch.org/get-started/locally/).
 The NVIDIA driver must support the selected runtime; a separate CUDA toolkit is
@@ -104,7 +104,7 @@ $runTag = Get-Date -Format 'yyyyMMdd-HHmmss-fff'
 .\.venv\Scripts\python.exe experiments\benchmark_projections.py --output-dir "artifacts/paired-$runTag" --seeds 42 43 44 --steps 300
 ```
 
-See [Milestone 4](docs/milestone-4.md) for exact seed-level results and timing
+See [Milestone 4](milestone-4.md) for exact seed-level results and timing
 scope. Both backends retain FP32 master weights and dense execution; measured
 master-checkpoint sizes are identical in that benchmark. This tiny-corpus
 comparison is non-generalizable.
@@ -114,7 +114,7 @@ versus **335,225 bytes** for the same model's original weights-only file.
 The importer reconstructs frozen FP32 Linear weights and bypasses repeated
 quantization. This is on-disk compression, with no packed GPU execution or
 measured VRAM reduction against the equivalent dense frozen control. See
-[Milestone 5](docs/milestone-5.md) for exact commands, safety limits, and timings.
+[Milestone 5](milestone-5.md) for exact commands, safety limits, and timings.
 
 ## Mathematical foundations
 
@@ -147,7 +147,7 @@ The Transformer composes these projections into fused Q/K/V, attention output,
 and GELU feed-forward layers. It uses fixed sinusoidal positions, pre-RMSNorm
 residual blocks, and tied full-precision token embeddings/output weights. The
 tiny model has 69,952 parameters; the separate 297,059,328-parameter target is
-estimated without instantiating it. See [Milestone 2](docs/milestone-2.md).
+estimated without instantiating it. See [Milestone 2](milestone-2.md).
 
 ## Memory and reproducibility
 
@@ -168,8 +168,8 @@ total GPU usage. Timing includes initialization effects and is not a benchmark.
 Exact results across different software/hardware versions are not guaranteed.
 # Phase 1 advanced engineering
 
-Milestones [6](docs/milestone-6.md), [7](docs/milestone-7.md), and
-[8](docs/milestone-8.md) document paired QAT experiments, the verified
+Milestones [6](milestone-6.md), [7](milestone-7.md), and
+[8](milestone-8.md) document paired QAT experiments, the verified
 297M-parameter architecture, and measured CUDA execution/storage results.
 Full 300M training was excluded by memory preflight. Reproduction commands
 and limitations are included in each report.
