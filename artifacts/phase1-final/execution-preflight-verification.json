@@ -1,0 +1,11 @@
+{
+  "parameters": 1378176,
+  "fp32_weights_bytes": 5512704,
+  "training_budget_bytes": 1138141184,
+  "inference_budget_bytes": 1121603072,
+  "kind": "conservative estimate; allocator and kernel dependent",
+  "free_bytes": 7451181056,
+  "total_bytes": 8585216000,
+  "allowed_bytes": 5215826739,
+  "training_allowed": true
+}

@@ -1,163 +1,183 @@
 # BitForge-300M
 
-Memory-efficient, BitNet-inspired Transformer research. The eventual target is
-300 million parameters. Milestone 1 provides quantization foundations;
-**Milestone 2 adds a modular, tiny decoder-only Transformer**.
-Milestone 3 adds an offline byte tokenizer, local corpus, checkpointed text
-training, validation perplexity, and greedy generation.
-Milestone 4 compares matched FP32 and ternary projection backends over three
-paired seeds, with separate training/inference measurements.
-Milestone 5 adds a versioned two-bit checkpoint format with strict integrity
-checks and frozen dense reconstruction for offline inference.
-No 300M model is constructed, trained, or downloaded.
+A locally runnable, BitNet-inspired Transformer research system for studying
+ternary quantization-aware training, compact checkpoints, and CUDA execution.
+The full **297,059,328-parameter model has executed on CPU and an RTX 4060
+Laptop GPU**. It is randomly initialized and has never been pretrained.
+A separate **1,378,176-parameter model** is trained on offline synthetic CC0 text
+for the inference demonstration.
 
-## Layout
+Ternary weights take values `{-alpha, 0, +alpha}`. Storing their codes uses two
+bits per eligible weight instead of 32. This implementation keeps FP32 master
+weights during QAT and reconstructs dense floating-point tensors when loading
+packed files. **There are no native ternary GPU kernels.**
 
-```text
-src/bitforge/quantization.py  absmean quantization and identity STE
-src/bitforge/layers.py        reusable BitLinear
-src/bitforge/config.py        validated configs and parameter arithmetic
-src/bitforge/transformer.py   RMSNorm, positions, attention, FFN, decoder
-src/bitforge/tokenizer.py     versioned UTF-8 byte tokenizer (259 IDs)
-src/bitforge/data.py          isolated splits and deterministic next-token batches
-src/bitforge/training.py      evaluation, local checkpoints, greedy generation
-src/bitforge/benchmark.py     pairing audits, storage arithmetic, statistics
-src/bitforge/packed.py        two-bit export/import, strict metadata and checksums
-tests/test_core.py           CPU and CUDA unit tests (standard-library unittest)
-tests/test_transformer.py    architecture, causality, gradient, count tests
-tests/test_text_pipeline.py  tokenizer, data, checkpoint, generation tests
-tests/test_projection_backends.py matched initialization and backend tests
-tests/test_packed.py          packing, reconstruction, corruption rejection
-experiments/train_tiny.py    offline synthetic teacher regression
-experiments/train_next_token.py bounded synthetic next-token smoke test
-experiments/train_text.py    configurable offline text-training and resume CLI
-experiments/benchmark_projections.py fresh-process paired CUDA benchmark
-experiments/benchmark_packed.py actual sizes, equivalence, loading/inference measurements
-scripts/generate_text.py     offline greedy text generation from a checkpoint
-scripts/export_packed.py     local ternary checkpoint to versioned .bft file
-scripts/generate_packed.py   offline packed import and dense FP32 generation
-data/                       original CC0 prose, provenance, and SHA-256 manifest
-scripts/estimate_architecture.py allocation-free tiny and 300M estimates
-scripts/setup.ps1           isolated Windows CUDA setup
-scripts/verify_environment.py isolated CUDA and full-suite verification
-requirements-lock.txt       resolved Windows/Python 3.13 CUDA dependencies
-docs/environment.md         environment stabilization report
-docs/milestone-1.md          validation and environment limitations
-docs/milestone-2.md          architecture, counts, measured validation
-docs/milestone-3.md          text pipeline, checkpoints, measured real-text run
-docs/milestone-4.md          controlled FP32/ternary comparison and limitations
-docs/milestone-4-results.json complete machine-readable benchmark snapshot
-docs/milestone-5.md          format specification and measured real compression
-docs/milestone-5-results.json packed-checkpoint measurements
+## Verified results
+
+| Item | Actual result |
+|---|---|
+| Full architecture | 297,059,328 real parameters; CPU and CUDA finite forward |
+| Full forward shape | `[1, 8, 32000]`, batch 1, context 8 |
+| Full CUDA QAT FP32 peak | 1,442,173,952 allocated / 1,495,269,376 reserved bytes |
+| Full CUDA QAT FP32 median | 49.09 ms, 2 warm-ups and 5 timed forwards |
+| Full dense master file | 1,188,291,675 bytes |
+| Full packed file | 197,365,045 bytes; **6.0208x** measured compression |
+| Full packed reconstruction | CPU error 0; CUDA maximum absolute logit error 2.03e-6 |
+| Earlier 1.378M checkpoint | **10.2076x** measured compression (Milestone 6) |
+| Trained demo | 600 updates; validation CE 2.2972, byte perplexity 9.9464 |
+| Paired QAT comparison | Three seeds, 100 updates each; no consistent quality improvement |
+| Earlier training memory optimization | 120.8 to 91.5 MiB allocated; BF16 + SDPA + checkpointing |
+| Release tests | 71 ordinary + 3 real full-model tests passed; 0 failures, 0 skips |
+
+Full forward and memory values above refer to the ternary QAT model, FP32
+weights/execution, SDPA, sequence length 8, Windows 11 / Python 3.13.7 /
+PyTorch 2.7.1+cu118. Packed files load to frozen dense projections, so their
+runtime measurements are listed separately in the
+[final technical report](docs/final-technical-report.md) and
+[benchmark CSV](artifacts/release-summary-final/benchmarks.csv).
+Compression does not imply proportional VRAM savings or native low-bit speed.
+Short laptop timings vary with power state and other workloads.
+
+## Architecture
+
+```mermaid
+flowchart TD
+    A[UTF-8 byte IDs for experiments] --> B[Token embedding]
+    B --> C[Fixed sinusoidal positions]
+    C --> D[Pre-RMSNorm]
+    D --> E[Causal multi-head attention]
+    E --> F[Residual add]
+    F --> G[Pre-RMSNorm]
+    G --> H[Linear -> GELU -> Linear]
+    H --> I[Residual add]
+    I --> J[Repeat decoder block]
+    J --> K[Final RMSNorm]
+    K --> L[Tied embedding output projection]
+    L --> M[Next-token logits]
 ```
 
-## Setup and execution (PowerShell)
+| Setting | Trained experiment | Full architecture |
+|---|---:|---:|
+| Vocabulary/output dimension | 259 byte/special IDs | 32,000 |
+| Width | 192 | 1,024 |
+| Blocks | 3 | 24 |
+| Attention heads | 6 | 16 |
+| FFN width | 768 | 3,328 |
+| Configured context | 64 | 2,048 |
+| Unique parameters, tied output | 1,378,176 | 297,059,328 |
+| Training status | 600 demo updates; paired 100-step research runs | Zero updates |
 
-Python 3.13 is the reference interpreter. From this directory, with network access:
+The full configuration has 32,768,000 embedding/head, 100,663,296 attention,
+163,577,856 FFN, and 50,176 norm parameters. It is inspired by BitNet's ternary
+projection idea and extends this repository's decoder; it is not a reproduction
+of a published BitNet model. Only the byte tokenizer is implemented. The 32K
+full-size head is an architectural target, without a trained 32K tokenizer.
+Full generation restricts sampling to byte IDs and is a smoke test.
+
+## Install and run offline
+
+Use the existing Python 3.13 / PyTorch 2.7.1 environment:
 
 ```powershell
-powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\scripts\setup.ps1
-.\.venv\Scripts\python.exe scripts\verify_environment.py
+.\.venv\Scripts\Activate.ps1
+python -m pip install --no-index --no-deps --no-build-isolation -e .
+python -m bitforge --help
+```
+
+See [Windows setup](docs/windows-setup.md) for prepared offline wheels and
+hardware requirements. No datasets, weights, or Internet calls are needed at
+inference time. Checkpoint binaries are generated locally and ignored by Git;
+a fresh clone must create them first:
+
+```powershell
+python scripts/prepare_engineering_corpus.py
+python experiments/release_demo.py --output-dir artifacts/my-demo --steps 600
+python -m bitforge demo --checkpoint artifacts/my-demo/demo.bft --device cuda --prompt "The technician will " --max-new-tokens 32
+```
+
+For the already verified local artifacts:
+
+```powershell
+python -m bitforge model-info --checkpoint artifacts/release-demo-final/demo.pt
+python -m bitforge generate --checkpoint artifacts/release-demo-final/demo.pt --device cpu --prompt "The technician will " --max-new-tokens 32 --verbose
+python -m bitforge generate --checkpoint artifacts/release-demo-final/demo.bft --device cuda --prompt "The technician will " --temperature 0.8 --top-k 40 --top-p 0.9 --seed 42 --max-new-tokens 32
+python -m bitforge verify-checkpoint --checkpoint artifacts/release-demo-final/demo.bft --reference artifacts/release-demo-final/demo.pt --device cuda
+python -m bitforge benchmark --checkpoint artifacts/release-full-final/full.bft --device cuda --sequence-length 8 --warmup 2 --repeats 5 --generation-tokens 2
+python -m bitforge demo --checkpoint artifacts/release-full-final/full.bft --device cuda --prompt "The " --max-new-tokens 2
+```
+
+Temperature 0 is greedy; positive temperature supports seeded top-k and top-p
+sampling. CPU and CUDA are supported. BF16 autocast is CUDA-only. Missing,
+corrupt, and incompatible files fail with a readable error and exit code 2.
+Config-bearing historical training checkpoints remain readable.
+
+## QAT and checkpoint format
+
+`BitLinear` preserves the original absmean ternary baseline and identity
+straight-through estimator. `LeastSquaresBitLinear` alternates scale least
+squares and nearest ternary assignment four times from that baseline. Each
+coordinate step reduces weight reconstruction error, up to floating-point
+rounding. That property does not imply improved language-model loss: the
+three-seed comparison found essentially equal validation losses and extra cost.
+FP32 embeddings, norms, activations, and optimizer state are not ternary.
+
+Packed v1 (original) and v2 (improved quantizer) use a bounded JSON manifest,
+two-bit projection codes, FP32 scales and non-quantized tensors, per-tensor and
+whole-container SHA-256 checks. Loading verifies dimensions, architecture,
+quantizer, shape, finite values, offsets, padding and integrity before assigning
+weights. It creates frozen dense projections to avoid accidental requantization.
+Checksums detect corruption; they are not signatures. Dense local files use
+`torch.load(weights_only=True)` with strict state validation.
+
+The full packed file is less compressed than the small model because its large
+floating-point embedding/head remains unpacked. CPU/GPU QAT reductions can
+change codes near rounding thresholds; packed files fix their source-device
+codes. This device effect is reported separately from reconstruction error.
+
+## Tests and reproducibility
+
+```powershell
+python -m unittest discover -s tests -v
+python -m unittest discover -s tests/expensive -v
+python scripts/run_release_tests.py --include-full --output artifacts/my-test-results.json
 $env:CUBLAS_WORKSPACE_CONFIG = ':4096:8'
-$runTag = Get-Date -Format 'yyyyMMdd-HHmmss-fff'
-.\.venv\Scripts\python.exe experiments/train_next_token.py --device cuda --steps 100 --seed 42 --output "artifacts/next-token-$runTag.json"
-.\.venv\Scripts\python.exe scripts/estimate_architecture.py
+python experiments/release_full_model.py --output-dir artifacts/my-full --threads 4
 ```
 
-Activation is optional. Setup installs the checked-in dependency snapshot,
-including PyTorch 2.7.1+cu118 from the official PyTorch cu118 index, installs the
-project, and verifies CUDA plus all discovered tests. Python is constrained to 3.13;
-other Python/PyTorch minor versions require a separate validation pass.
-The dependency snapshot targets Windows x64 and is version-pinned, without a
-complete set of package hashes. Setup never rewrites it or uses global PyTorch.
-For offline setup with the recovered local wheels, run:
+The full runner constructs one real model at a time, checks available RAM/VRAM
+and disk before allocation/writes, performs bounded inference, and exports and
+reloads the full-size files. It never starts full-size training. Use a new output
+directory for each run; previous checkpoints are preserved. Expensive tests
+are opt-in and run real full-size CPU/CUDA forwards and packed export/reload.
 
-```powershell
-powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\scripts\setup.ps1 -Wheelhouse .venv\wheelhouse
-```
+- [Exact reproduction commands and measurement conditions](docs/reproducibility.md)
+- [Final technical report and acceptance gates](docs/final-technical-report.md)
+- [Measured JSON summary](artifacts/release-summary-final/summary.json)
+- [Full experiment evidence](artifacts/release-full-final/results.json)
+- [Identical dense/packed runtime comparison](artifacts/release-full-storage/results.json)
+- [Test counts and complete logs](artifacts/release-tests-final.json)
+- [2-4 minute portfolio demonstration](docs/portfolio-demo.md)
+- [Release checklist](docs/release-checklist.md)
+- [Milestones 1-8 history](docs/milestones-1-8-readme.md) and [6](docs/milestone-6.md), [7](docs/milestone-7.md), [8](docs/milestone-8.md)
 
-The wheelhouse is local and ignored by Git; a fresh machine must download the
-locked packages first. See [the environment report](docs/environment.md) for
-exact network installation commands and cache provenance.
-See [PyTorch installation guidance](https://pytorch.org/get-started/locally/).
-The NVIDIA driver must support the selected runtime; a separate CUDA toolkit is
-not needed for wheel-based execution. Offline replay requires pre-downloaded
-compatible wheels and dependencies. The experiment itself uses no network or
-external datasets. `--device cpu` explicitly selects CPU; CUDA errors never
-silently fall back to CPU.
+## Limitations and next work
 
-## Controlled FP32 versus ternary comparison
+The full model is untrained. Only batch 1 / short-context inference has been
+validated at full size; full training and long-context capacity are unverified.
+Synthetic templates overlap across train/validation, and the demo output is
+repetitive. Neither perplexity nor random full-model output establishes general
+language competence. No external evaluation corpus or pretrained weights were
+used. Corpus provenance, license and hashes are in the data manifest.
 
-`TransformerConfig(projection_backend='fp32')` selects ordinary `nn.Linear`
-attention/FFN projections; the default `'ternary'` preserves BitLinear. All
-other architecture settings and parameter layouts are shared. Old checkpoint
-configs without this field still load as ternary. The text-training CLI also
-accepts `--projection-backend fp32` and prevents changing backend on resume.
+Packed storage expands into dense FP32 runtime weights. BF16 autocast retains
+those weights and can increase peak memory at tiny contexts. Native ternary
+kernels, streaming/mmap loading, a KV cache, natural-language corpus evaluation,
+a trained 32K tokenizer, and full pretraining remain future work. The existing
+host decoder holds the packed payload while reconstructing tensors. Memory
+preflight is a conservative planning guard, not a proof against all allocator
+or driver failures.
 
-```powershell
-$runTag = Get-Date -Format 'yyyyMMdd-HHmmss-fff'
-.\.venv\Scripts\python.exe experiments\benchmark_projections.py --output-dir "artifacts/paired-$runTag" --seeds 42 43 44 --steps 300
-```
-
-See [Milestone 4](docs/milestone-4.md) for exact seed-level results and timing
-scope. Both backends retain FP32 master weights and dense execution; measured
-master-checkpoint sizes are identical in that benchmark. This tiny-corpus
-comparison is non-generalizable.
-
-Milestone 5 separately packs the trained ternary weights: **87,324 bytes**
-versus **335,225 bytes** for the same model's original weights-only file.
-The importer reconstructs frozen FP32 Linear weights and bypasses repeated
-quantization. This is on-disk compression, with no packed GPU execution or
-measured VRAM reduction against the equivalent dense frozen control. See
-[Milestone 5](docs/milestone-5.md) for exact commands, safety limits, and timings.
-
-## Mathematical foundations
-
-For a floating-point master weight tensor W, use one scale for the entire tensor:
-
-```text
-s = max(mean(abs(W)), machine_epsilon)
-T = clamp(round(W / s), -1, +1)
-Q = s * T
-Y = X Q^T + b
-```
-
-T contains only -1, 0, +1. Round uses PyTorch's ties-to-even convention.
-Zero tensors map to zero. FP16/BF16 statistics are accumulated in FP32.
-Inputs must be finite, nonempty floating-point tensors.
-
-Rounding has an unusable derivative for training. The straight-through estimator
-uses Q in the forward pass and the surrogate derivative dQ/dW = 1 in backward,
-including saturated weights. The scale is detached. This is a deliberate biased
-gradient approximation, not the derivative of the discrete function. The optimizer
-updates floating-point master weights; each forward pass quantizes them again.
-
-`BitLinear` follows `nn.Linear`, supporting arbitrary leading input dimensions,
-optional bias, device/dtype placement, and ordinary state dictionaries. Bias and
-activations stay floating point. There is no activation quantization or internal
-normalization. Quantization runs in both train and eval modes. This is a
-BitNet-inspired primitive, not a reproduction of the complete BitNet architecture.
-
-The Transformer composes these projections into fused Q/K/V, attention output,
-and GELU feed-forward layers. It uses fixed sinusoidal positions, pre-RMSNorm
-residual blocks, and tied full-precision token embeddings/output weights. The
-tiny model has 69,952 parameters; the separate 297,059,328-parameter target is
-estimated without instantiating it. See [Milestone 2](docs/milestone-2.md).
-
-## Memory and reproducibility
-
-Current execution uses floating-point tensors and dense PyTorch GEMMs. Master
-weights, gradients, optimizer state, and dequantized temporary weights consume
-memory. There is no demonstrated training-memory reduction or inference speedup.
-Three symbols have an ideal information content of log2(3), about 1.585 bits;
-straightforward packing uses 2 bits per eligible weight plus scales and metadata.
-Milestone 5 measures packed-file compression and validates round-trip weights,
-logits, and offline inference. Imported weights are expanded to frozen FP32;
-ordinary training state dictionaries still contain full-precision master weights.
-
-The tiny experiment has 2,632 parameters, fixed synthetic data, explicit seeds,
-deterministic PyTorch algorithms, and bounded steps. It reports initial/final MSE,
-elapsed wall time, and CUDA peak allocated/reserved bytes in `artifacts/`.
-Those allocator figures exclude some driver and library allocations and are not
-total GPU usage. Timing includes initialization effects and is not a benchmark.
-Exact results across different software/hardware versions are not guaranteed.
+This source release includes locally verified code, tests, documentation, and
+measured evidence. Generated checkpoint binaries remain local and are excluded
+from Git. See [the GitHub release record](docs/github-release.md) for the
+release verification and exact committed-file inventory. No release tag is created.

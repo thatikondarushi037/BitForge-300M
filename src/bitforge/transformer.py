@@ -5,6 +5,7 @@ import math
 import torch
 from torch import Tensor, nn
 from torch.nn import functional as F
+from torch.utils.checkpoint import checkpoint
 
 from .config import TransformerConfig
 from .layers import make_projection
@@ -49,6 +50,7 @@ class CausalSelfAttention(nn.Module):
         super().__init__()
         self.n_heads = config.n_heads
         self.head_dim = config.d_model // config.n_heads
+        self.use_sdpa = False
         self.qkv = make_projection(config.d_model, 3 * config.d_model, config.projection_backend)
         self.output = make_projection(config.d_model, config.d_model, config.projection_backend)
         self.register_buffer('future_mask', torch.ones(config.max_seq_len, config.max_seq_len,
@@ -58,6 +60,9 @@ class CausalSelfAttention(nn.Module):
         batch, length, width = x.shape
         q, k, v = self.qkv(x).reshape(batch, length, 3, self.n_heads, self.head_dim).unbind(2)
         q, k, v = (t.transpose(1, 2) for t in (q, k, v))
+        if self.use_sdpa:
+            attended = F.scaled_dot_product_attention(q, k, v, is_causal=True, dropout_p=0.0)
+            return self.output(attended.transpose(1, 2).contiguous().reshape(batch, length, width))
         scores = (q @ k.transpose(-2, -1)) / math.sqrt(self.head_dim)
         scores = scores.masked_fill(self.future_mask[:length, :length], float('-inf'))
         # FP32 softmax supports future low-precision use; FP64 stays FP64.
@@ -99,6 +104,7 @@ class TernaryTransformer(nn.Module):
     def __init__(self, config: TransformerConfig) -> None:
         super().__init__()
         self.config = config
+        self.activation_checkpointing = False
         self.token_embedding = nn.Embedding(config.vocab_size, config.d_model)
         nn.init.normal_(self.token_embedding.weight, mean=0.0, std=0.02)
         self.positions = SinusoidalPositions(config)
@@ -112,7 +118,7 @@ class TernaryTransformer(nn.Module):
             raise TypeError('tokens must contain integer token IDs (int32 or int64)')
         x = self.positions(self.token_embedding(tokens))
         for block in self.blocks:
-            x = block(x)
+            x = checkpoint(block, x, use_reentrant=False) if self.activation_checkpointing and self.training and torch.is_grad_enabled() else block(x)
         # Functional projection shares the embedding Parameter; no duplicate head.
         return F.linear(self.final_norm(x), self.token_embedding.weight)
 

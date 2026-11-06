@@ -21,6 +21,7 @@ dist/
 /artifacts/**
 !/artifacts/**/
 !/artifacts/**/*.json
+!/artifacts/**/*.csv
 *.pt
 *.pth
 *.ckpt

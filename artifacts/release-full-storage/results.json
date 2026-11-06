@@ -1,0 +1,508 @@
+{
+  "packed_bytes": 197365045,
+  "dense_reconstructed_bytes": 1188291675,
+  "compression_ratio": 6.020780807462638,
+  "rows": [
+    {
+      "path": "artifacts\\release-full-storage\\dense-reconstructed.pt",
+      "checkpoint_type": "dense",
+      "metadata": {
+        "checkpoint_type": "dense",
+        "source_config": {
+          "vocab_size": 32000,
+          "max_seq_len": 2048,
+          "d_model": 1024,
+          "n_heads": 16,
+          "n_layers": 24,
+          "d_ff": 3328,
+          "norm_eps": 1e-06,
+          "projection_backend": "fp32"
+        },
+        "training": "Random initialization, seed 300, zero training updates; frozen CPU-quantized reference",
+        "integrity": "weights_only load, strict shapes/dtypes and finite tensors; no embedded checksum",
+        "parameters": 297059328,
+        "device": "cpu",
+        "checkpoint_bytes": 1188291675,
+        "load_seconds": 1.073371300008148,
+        "runtime": "dense floating-point tensors; no native ternary kernels",
+        "cpu_memory": {
+          "rss_bytes": 2399535104,
+          "lifetime_peak_rss_bytes": 2399551488,
+          "private_commit_bytes": 3218280448
+        }
+      },
+      "load_cuda_peak": null,
+      "max_absolute_error_vs_cpu_fp32": 0.0,
+      "benchmark": {
+        "parameters": 297059328,
+        "device": "cpu",
+        "precision": "fp32",
+        "projection_backend": "fp32",
+        "sdpa": true,
+        "batch_size": 1,
+        "sequence_length": 8,
+        "warmup": 2,
+        "repeats": 5,
+        "latency_seconds": [
+          0.10787569999229163,
+          0.1125035000150092,
+          0.10726870002690703,
+          0.1063593000289984,
+          0.10791359998984262
+        ],
+        "median_latency_seconds": 0.10787569999229163,
+        "output_shape": [
+          1,
+          8,
+          32000
+        ],
+        "finite_logits": true,
+        "forward_cuda_peak": null,
+        "cpu_memory": {
+          "rss_bytes": 2399956992,
+          "lifetime_peak_rss_bytes": 2400718848,
+          "private_commit_bytes": 3219386368
+        },
+        "generation": {
+          "text": "The \ufffd\ufffd",
+          "token_ids": [
+            84,
+            104,
+            101,
+            32,
+            198,
+            198
+          ],
+          "generated_tokens": 2,
+          "seconds": 0.19729360000928864,
+          "tokens_per_second": 10.13717626879858,
+          "seed": 42,
+          "precision": "fp32",
+          "byte_only_sampling": true
+        }
+      }
+    },
+    {
+      "path": "artifacts\\release-full-storage\\dense-reconstructed.pt",
+      "checkpoint_type": "dense",
+      "metadata": {
+        "checkpoint_type": "dense",
+        "source_config": {
+          "vocab_size": 32000,
+          "max_seq_len": 2048,
+          "d_model": 1024,
+          "n_heads": 16,
+          "n_layers": 24,
+          "d_ff": 3328,
+          "norm_eps": 1e-06,
+          "projection_backend": "fp32"
+        },
+        "training": "Random initialization, seed 300, zero training updates; frozen CPU-quantized reference",
+        "integrity": "weights_only load, strict shapes/dtypes and finite tensors; no embedded checksum",
+        "parameters": 297059328,
+        "device": "cuda",
+        "checkpoint_bytes": 1188291675,
+        "load_seconds": 1.36201019998407,
+        "runtime": "dense floating-point tensors; no native ternary kernels",
+        "cpu_memory": {
+          "rss_bytes": 2494898176,
+          "lifetime_peak_rss_bytes": 2494902272,
+          "private_commit_bytes": 4768722944
+        }
+      },
+      "load_cuda_peak": {
+        "allocated_bytes": 1348669440,
+        "reserved_bytes": 1363148800
+      },
+      "max_absolute_error_vs_cpu_fp32": 2.0265579223632812e-06,
+      "benchmark": {
+        "parameters": 297059328,
+        "device": "cuda:0",
+        "precision": "fp32",
+        "projection_backend": "fp32",
+        "sdpa": true,
+        "batch_size": 1,
+        "sequence_length": 8,
+        "warmup": 2,
+        "repeats": 5,
+        "latency_seconds": [
+          0.015169300022535026,
+          0.014337799977511168,
+          0.016630700032692403,
+          0.015143199998419732,
+          0.017214099992997944
+        ],
+        "median_latency_seconds": 0.015169300022535026,
+        "output_shape": [
+          1,
+          8,
+          32000
+        ],
+        "finite_logits": true,
+        "forward_cuda_peak": {
+          "allocated_bytes": 1360005632,
+          "reserved_bytes": 1365245952
+        },
+        "cpu_memory": {
+          "rss_bytes": 2696097792,
+          "lifetime_peak_rss_bytes": 2696982528,
+          "private_commit_bytes": 5108551680
+        },
+        "generation": {
+          "text": "The \ufffd\ufffd",
+          "token_ids": [
+            84,
+            104,
+            101,
+            32,
+            198,
+            198
+          ],
+          "generated_tokens": 2,
+          "seconds": 0.03948649996891618,
+          "tokens_per_second": 50.650222267721944,
+          "seed": 42,
+          "precision": "fp32",
+          "byte_only_sampling": true
+        }
+      }
+    },
+    {
+      "path": "artifacts\\release-full-storage\\dense-reconstructed.pt",
+      "checkpoint_type": "dense",
+      "metadata": {
+        "checkpoint_type": "dense",
+        "source_config": {
+          "vocab_size": 32000,
+          "max_seq_len": 2048,
+          "d_model": 1024,
+          "n_heads": 16,
+          "n_layers": 24,
+          "d_ff": 3328,
+          "norm_eps": 1e-06,
+          "projection_backend": "fp32"
+        },
+        "training": "Random initialization, seed 300, zero training updates; frozen CPU-quantized reference",
+        "integrity": "weights_only load, strict shapes/dtypes and finite tensors; no embedded checksum",
+        "parameters": 297059328,
+        "device": "cuda",
+        "checkpoint_bytes": 1188291675,
+        "load_seconds": 1.2987592999706976,
+        "runtime": "dense floating-point tensors; no native ternary kernels",
+        "cpu_memory": {
+          "rss_bytes": 2735759360,
+          "lifetime_peak_rss_bytes": 2735874048,
+          "private_commit_bytes": 5137760256
+        }
+      },
+      "load_cuda_peak": {
+        "allocated_bytes": 1357189120,
+        "reserved_bytes": 1375731712
+      },
+      "max_absolute_error_vs_cpu_fp32": 0.01397252082824707,
+      "benchmark": {
+        "parameters": 297059328,
+        "device": "cuda:0",
+        "precision": "bf16",
+        "projection_backend": "fp32",
+        "sdpa": true,
+        "batch_size": 1,
+        "sequence_length": 8,
+        "warmup": 2,
+        "repeats": 5,
+        "latency_seconds": [
+          0.02024029998574406,
+          0.024943199998233467,
+          0.018451399984769523,
+          0.0243112999596633,
+          0.019264800008386374
+        ],
+        "median_latency_seconds": 0.02024029998574406,
+        "output_shape": [
+          1,
+          8,
+          32000
+        ],
+        "finite_logits": true,
+        "forward_cuda_peak": {
+          "allocated_bytes": 1423831552,
+          "reserved_bytes": 1442840576
+        },
+        "cpu_memory": {
+          "rss_bytes": 2815496192,
+          "lifetime_peak_rss_bytes": 2822643712,
+          "private_commit_bytes": 5306843136
+        },
+        "generation": {
+          "text": "The \ufffd\ufffd",
+          "token_ids": [
+            84,
+            104,
+            101,
+            32,
+            198,
+            198
+          ],
+          "generated_tokens": 2,
+          "seconds": 0.040525699965655804,
+          "tokens_per_second": 49.35139927737051,
+          "seed": 42,
+          "precision": "bf16",
+          "byte_only_sampling": true
+        }
+      }
+    },
+    {
+      "path": "artifacts\\release-full-final\\full.bft",
+      "checkpoint_type": "packed",
+      "metadata": {
+        "checkpoint_type": "packed",
+        "source_config": {
+          "d_ff": 3328,
+          "d_model": 1024,
+          "max_seq_len": 2048,
+          "n_heads": 16,
+          "n_layers": 24,
+          "norm_eps": 1e-06,
+          "projection_backend": "ternary",
+          "vocab_size": 32000
+        },
+        "source_quantization_device": "cpu",
+        "training": "not encoded in packed v1/v2; consult experiment provenance",
+        "integrity": "container and per-tensor SHA-256 verified",
+        "parameters": 297059328,
+        "device": "cpu",
+        "checkpoint_bytes": 197365045,
+        "load_seconds": 2.0732320999959484,
+        "runtime": "dense floating-point tensors; no native ternary kernels",
+        "cpu_memory": {
+          "rss_bytes": 2820018176,
+          "lifetime_peak_rss_bytes": 3620900864,
+          "private_commit_bytes": 4113928192
+        }
+      },
+      "load_cuda_peak": null,
+      "max_absolute_error_vs_cpu_fp32": 0.0,
+      "benchmark": {
+        "parameters": 297059328,
+        "device": "cpu",
+        "precision": "fp32",
+        "projection_backend": "fp32",
+        "sdpa": true,
+        "batch_size": 1,
+        "sequence_length": 8,
+        "warmup": 2,
+        "repeats": 5,
+        "latency_seconds": [
+          0.09853240003576502,
+          0.12520280003082007,
+          0.11451469996245578,
+          0.10289849998662248,
+          0.10412350000115111
+        ],
+        "median_latency_seconds": 0.10412350000115111,
+        "output_shape": [
+          1,
+          8,
+          32000
+        ],
+        "finite_logits": true,
+        "forward_cuda_peak": null,
+        "cpu_memory": {
+          "rss_bytes": 2819403776,
+          "lifetime_peak_rss_bytes": 3620900864,
+          "private_commit_bytes": 3846930432
+        },
+        "generation": {
+          "text": "The \ufffd\ufffd",
+          "token_ids": [
+            84,
+            104,
+            101,
+            32,
+            198,
+            198
+          ],
+          "generated_tokens": 2,
+          "seconds": 0.18745800002943724,
+          "tokens_per_second": 10.669056533655178,
+          "seed": 42,
+          "precision": "fp32",
+          "byte_only_sampling": true
+        }
+      }
+    },
+    {
+      "path": "artifacts\\release-full-final\\full.bft",
+      "checkpoint_type": "packed",
+      "metadata": {
+        "checkpoint_type": "packed",
+        "source_config": {
+          "d_ff": 3328,
+          "d_model": 1024,
+          "max_seq_len": 2048,
+          "n_heads": 16,
+          "n_layers": 24,
+          "norm_eps": 1e-06,
+          "projection_backend": "ternary",
+          "vocab_size": 32000
+        },
+        "source_quantization_device": "cpu",
+        "training": "not encoded in packed v1/v2; consult experiment provenance",
+        "integrity": "container and per-tensor SHA-256 verified",
+        "parameters": 297059328,
+        "device": "cuda",
+        "checkpoint_bytes": 197365045,
+        "load_seconds": 2.7888150000362657,
+        "runtime": "dense floating-point tensors; no native ternary kernels",
+        "cpu_memory": {
+          "rss_bytes": 2837000192,
+          "lifetime_peak_rss_bytes": 3624189952,
+          "private_commit_bytes": 5210308608
+        }
+      },
+      "load_cuda_peak": {
+        "allocated_bytes": 1357189120,
+        "reserved_bytes": 1375731712
+      },
+      "max_absolute_error_vs_cpu_fp32": 2.0265579223632812e-06,
+      "benchmark": {
+        "parameters": 297059328,
+        "device": "cuda:0",
+        "precision": "fp32",
+        "projection_backend": "fp32",
+        "sdpa": true,
+        "batch_size": 1,
+        "sequence_length": 8,
+        "warmup": 2,
+        "repeats": 5,
+        "latency_seconds": [
+          0.01378619996830821,
+          0.014890499995090067,
+          0.01571700000204146,
+          0.01631239999551326,
+          0.014599600050132722
+        ],
+        "median_latency_seconds": 0.014890499995090067,
+        "output_shape": [
+          1,
+          8,
+          32000
+        ],
+        "finite_logits": true,
+        "forward_cuda_peak": {
+          "allocated_bytes": 1360005632,
+          "reserved_bytes": 1377828864
+        },
+        "cpu_memory": {
+          "rss_bytes": 2836934656,
+          "lifetime_peak_rss_bytes": 3624189952,
+          "private_commit_bytes": 5212344320
+        },
+        "generation": {
+          "text": "The \ufffd\ufffd",
+          "token_ids": [
+            84,
+            104,
+            101,
+            32,
+            198,
+            198
+          ],
+          "generated_tokens": 2,
+          "seconds": 0.031043499999213964,
+          "tokens_per_second": 64.42572519370049,
+          "seed": 42,
+          "precision": "fp32",
+          "byte_only_sampling": true
+        }
+      }
+    },
+    {
+      "path": "artifacts\\release-full-final\\full.bft",
+      "checkpoint_type": "packed",
+      "metadata": {
+        "checkpoint_type": "packed",
+        "source_config": {
+          "d_ff": 3328,
+          "d_model": 1024,
+          "max_seq_len": 2048,
+          "n_heads": 16,
+          "n_layers": 24,
+          "norm_eps": 1e-06,
+          "projection_backend": "ternary",
+          "vocab_size": 32000
+        },
+        "source_quantization_device": "cpu",
+        "training": "not encoded in packed v1/v2; consult experiment provenance",
+        "integrity": "container and per-tensor SHA-256 verified",
+        "parameters": 297059328,
+        "device": "cuda",
+        "checkpoint_bytes": 197365045,
+        "load_seconds": 2.7066974000190385,
+        "runtime": "dense floating-point tensors; no native ternary kernels",
+        "cpu_memory": {
+          "rss_bytes": 2837876736,
+          "lifetime_peak_rss_bytes": 3642269696,
+          "private_commit_bytes": 5257232384
+        }
+      },
+      "load_cuda_peak": {
+        "allocated_bytes": 1357189120,
+        "reserved_bytes": 1375731712
+      },
+      "max_absolute_error_vs_cpu_fp32": 0.01397252082824707,
+      "benchmark": {
+        "parameters": 297059328,
+        "device": "cuda:0",
+        "precision": "bf16",
+        "projection_backend": "fp32",
+        "sdpa": true,
+        "batch_size": 1,
+        "sequence_length": 8,
+        "warmup": 2,
+        "repeats": 5,
+        "latency_seconds": [
+          0.018848099978640676,
+          0.022112300037406385,
+          0.02157219999935478,
+          0.01992600003723055,
+          0.019987300038337708
+        ],
+        "median_latency_seconds": 0.019987300038337708,
+        "output_shape": [
+          1,
+          8,
+          32000
+        ],
+        "finite_logits": true,
+        "forward_cuda_peak": {
+          "allocated_bytes": 1423831552,
+          "reserved_bytes": 1442840576
+        },
+        "cpu_memory": {
+          "rss_bytes": 2837835776,
+          "lifetime_peak_rss_bytes": 3642269696,
+          "private_commit_bytes": 5324447744
+        },
+        "generation": {
+          "text": "The \ufffd\ufffd",
+          "token_ids": [
+            84,
+            104,
+            101,
+            32,
+            198,
+            198
+          ],
+          "generated_tokens": 2,
+          "seconds": 0.0387398999882862,
+          "tokens_per_second": 51.626359402185884,
+          "seed": 42,
+          "precision": "bf16",
+          "byte_only_sampling": true
+        }
+      }
+    }
+  ]
+}

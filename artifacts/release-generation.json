@@ -1,0 +1,628 @@
+{
+  "rows": [
+    {
+      "checkpoint": "artifacts\\release-full-storage\\dense-reconstructed.pt",
+      "checkpoint_type": "dense",
+      "parameters": 297059328,
+      "device": "cpu",
+      "precision": "fp32",
+      "prompt": "The ",
+      "prompt_tokens": 4,
+      "max_new_tokens": 2,
+      "warmup": 1,
+      "repeats": 5,
+      "seed": 42,
+      "sampling": "greedy, byte IDs only",
+      "seconds": [
+        0.1466186000034213,
+        0.19786209997255355,
+        0.14207629999145865,
+        0.14521000004606321,
+        0.14496509998571128
+      ],
+      "tokens_per_second": [
+        13.640834109405835,
+        10.10805000188227,
+        14.076943164484408,
+        13.773156114355514,
+        13.796424106196135
+      ],
+      "median_tokens_per_second": 13.773156114355514,
+      "output_token_ids": [
+        84,
+        104,
+        101,
+        32,
+        198,
+        198
+      ],
+      "cuda_peak": null,
+      "cpu_memory": {
+        "rss_bytes": 2001829888,
+        "lifetime_peak_rss_bytes": 2001829888,
+        "private_commit_bytes": 3202985984
+      }
+    },
+    {
+      "checkpoint": "artifacts\\release-full-storage\\dense-reconstructed.pt",
+      "checkpoint_type": "dense",
+      "parameters": 297059328,
+      "device": "cuda",
+      "precision": "fp32",
+      "prompt": "The ",
+      "prompt_tokens": 4,
+      "max_new_tokens": 2,
+      "warmup": 1,
+      "repeats": 5,
+      "seed": 42,
+      "sampling": "greedy, byte IDs only",
+      "seconds": [
+        0.018886500038206577,
+        0.020785800006706268,
+        0.01861510000890121,
+        0.01867269998183474,
+        0.019243999966420233
+      ],
+      "tokens_per_second": [
+        105.89574542419643,
+        96.21953445884816,
+        107.43965915002644,
+        107.108238334341,
+        103.92849737528033
+      ],
+      "median_tokens_per_second": 105.89574542419643,
+      "output_token_ids": [
+        84,
+        104,
+        101,
+        32,
+        198,
+        198
+      ],
+      "cuda_peak": {
+        "allocated_bytes": 1358383104,
+        "reserved_bytes": 1363148800
+      },
+      "cpu_memory": {
+        "rss_bytes": 2314448896,
+        "lifetime_peak_rss_bytes": 2314674176,
+        "private_commit_bytes": 5093634048
+      }
+    },
+    {
+      "checkpoint": "artifacts\\release-full-storage\\dense-reconstructed.pt",
+      "checkpoint_type": "dense",
+      "parameters": 297059328,
+      "device": "cuda",
+      "precision": "bf16",
+      "prompt": "The ",
+      "prompt_tokens": 4,
+      "max_new_tokens": 2,
+      "warmup": 1,
+      "repeats": 5,
+      "seed": 42,
+      "sampling": "greedy, byte IDs only",
+      "seconds": [
+        0.026460300025064498,
+        0.02721410000231117,
+        0.028028199973050505,
+        0.027410800044890493,
+        0.027007700002286583
+      ],
+      "tokens_per_second": [
+        75.58493282787805,
+        73.49131515758923,
+        71.35670510139884,
+        72.96394110075637,
+        74.05295526204274
+      ],
+      "median_tokens_per_second": 73.49131515758923,
+      "output_token_ids": [
+        84,
+        104,
+        101,
+        32,
+        198,
+        198
+      ],
+      "cuda_peak": {
+        "allocated_bytes": 1423098368,
+        "reserved_bytes": 1442840576
+      },
+      "cpu_memory": {
+        "rss_bytes": 2629316608,
+        "lifetime_peak_rss_bytes": 2636951552,
+        "private_commit_bytes": 5283414016
+      }
+    },
+    {
+      "checkpoint": "artifacts\\release-full-final\\full.bft",
+      "checkpoint_type": "packed",
+      "parameters": 297059328,
+      "device": "cpu",
+      "precision": "fp32",
+      "prompt": "The ",
+      "prompt_tokens": 4,
+      "max_new_tokens": 2,
+      "warmup": 1,
+      "repeats": 5,
+      "seed": 42,
+      "sampling": "greedy, byte IDs only",
+      "seconds": [
+        0.15116529999068007,
+        0.14578600000822917,
+        0.15954780002357438,
+        0.17344899999443442,
+        0.1611018999828957
+      ],
+      "tokens_per_second": [
+        13.230549604461526,
+        13.718738424040074,
+        12.535428252250956,
+        11.530766969334937,
+        12.414502871861483
+      ],
+      "median_tokens_per_second": 12.535428252250956,
+      "output_token_ids": [
+        84,
+        104,
+        101,
+        32,
+        198,
+        198
+      ],
+      "cuda_peak": null,
+      "cpu_memory": {
+        "rss_bytes": 2786197504,
+        "lifetime_peak_rss_bytes": 3434696704,
+        "private_commit_bytes": 4094992384
+      }
+    },
+    {
+      "checkpoint": "artifacts\\release-full-final\\full.bft",
+      "checkpoint_type": "packed",
+      "parameters": 297059328,
+      "device": "cuda",
+      "precision": "fp32",
+      "prompt": "The ",
+      "prompt_tokens": 4,
+      "max_new_tokens": 2,
+      "warmup": 1,
+      "repeats": 5,
+      "seed": 42,
+      "sampling": "greedy, byte IDs only",
+      "seconds": [
+        0.01921480003511533,
+        0.01950549997854978,
+        0.01950110000325367,
+        0.019222999981138855,
+        0.02016879996517673
+      ],
+      "tokens_per_second": [
+        104.0864331840545,
+        102.53518249721373,
+        102.55831720601962,
+        104.04203308340799,
+        99.16306391323143
+      ],
+      "median_tokens_per_second": 102.55831720601962,
+      "output_token_ids": [
+        84,
+        104,
+        101,
+        32,
+        198,
+        198
+      ],
+      "cuda_peak": {
+        "allocated_bytes": 1358383104,
+        "reserved_bytes": 1375731712
+      },
+      "cpu_memory": {
+        "rss_bytes": 2802937856,
+        "lifetime_peak_rss_bytes": 3591524352,
+        "private_commit_bytes": 5188960256
+      }
+    },
+    {
+      "checkpoint": "artifacts\\release-full-final\\full.bft",
+      "checkpoint_type": "packed",
+      "parameters": 297059328,
+      "device": "cuda",
+      "precision": "bf16",
+      "prompt": "The ",
+      "prompt_tokens": 4,
+      "max_new_tokens": 2,
+      "warmup": 1,
+      "repeats": 5,
+      "seed": 42,
+      "sampling": "greedy, byte IDs only",
+      "seconds": [
+        0.026522999978624284,
+        0.026381200004834682,
+        0.02649260003818199,
+        0.02498739998554811,
+        0.027859000023454428
+      ],
+      "tokens_per_second": [
+        75.40625123899493,
+        75.81156276566173,
+        75.49277900687495,
+        80.04034037781979,
+        71.79008572871261
+      ],
+      "median_tokens_per_second": 75.49277900687495,
+      "output_token_ids": [
+        84,
+        104,
+        101,
+        32,
+        198,
+        198
+      ],
+      "cuda_peak": {
+        "allocated_bytes": 1423098368,
+        "reserved_bytes": 1442840576
+      },
+      "cpu_memory": {
+        "rss_bytes": 2806571008,
+        "lifetime_peak_rss_bytes": 3608322048,
+        "private_commit_bytes": 5300391936
+      }
+    },
+    {
+      "checkpoint": "artifacts\\release-demo-storage\\dense-reconstructed.pt",
+      "checkpoint_type": "dense",
+      "parameters": 1378176,
+      "device": "cpu",
+      "precision": "fp32",
+      "prompt": "The ",
+      "prompt_tokens": 4,
+      "max_new_tokens": 16,
+      "warmup": 1,
+      "repeats": 5,
+      "seed": 42,
+      "sampling": "greedy, byte IDs only",
+      "seconds": [
+        0.01757019996875897,
+        0.014819199976045638,
+        0.01474060001783073,
+        0.018566699989605695,
+        0.01439239998580888
+      ],
+      "tokens_per_second": [
+        910.6327775693563,
+        1079.6804163425188,
+        1085.43749783902,
+        861.7578788345464,
+        1111.6978416230954
+      ],
+      "median_tokens_per_second": 1079.6804163425188,
+      "output_token_ids": [
+        84,
+        104,
+        101,
+        32,
+        114,
+        101,
+        32,
+        114,
+        101,
+        32,
+        114,
+        101,
+        32,
+        114,
+        101,
+        32,
+        114,
+        101,
+        32,
+        114
+      ],
+      "cuda_peak": null,
+      "cpu_memory": {
+        "rss_bytes": 2806452224,
+        "lifetime_peak_rss_bytes": 3608322048,
+        "private_commit_bytes": 4097380352
+      }
+    },
+    {
+      "checkpoint": "artifacts\\release-demo-storage\\dense-reconstructed.pt",
+      "checkpoint_type": "dense",
+      "parameters": 1378176,
+      "device": "cuda",
+      "precision": "fp32",
+      "prompt": "The ",
+      "prompt_tokens": 4,
+      "max_new_tokens": 16,
+      "warmup": 1,
+      "repeats": 5,
+      "seed": 42,
+      "sampling": "greedy, byte IDs only",
+      "seconds": [
+        0.025886099960189313,
+        0.025487000006251037,
+        0.02478879998670891,
+        0.023820300004445016,
+        0.025985200016293675
+      ],
+      "tokens_per_second": [
+        618.09233621931,
+        627.7710203662957,
+        645.4527854748424,
+        671.6959902694047,
+        615.7351103692645
+      ],
+      "median_tokens_per_second": 627.7710203662957,
+      "output_token_ids": [
+        84,
+        104,
+        101,
+        32,
+        114,
+        101,
+        32,
+        114,
+        101,
+        32,
+        114,
+        101,
+        32,
+        114,
+        101,
+        32,
+        114,
+        101,
+        32,
+        114
+      ],
+      "cuda_peak": {
+        "allocated_bytes": 14277120,
+        "reserved_bytes": 27262976
+      },
+      "cpu_memory": {
+        "rss_bytes": 2811797504,
+        "lifetime_peak_rss_bytes": 3608322048,
+        "private_commit_bytes": 4105605120
+      }
+    },
+    {
+      "checkpoint": "artifacts\\release-demo-storage\\dense-reconstructed.pt",
+      "checkpoint_type": "dense",
+      "parameters": 1378176,
+      "device": "cuda",
+      "precision": "bf16",
+      "prompt": "The ",
+      "prompt_tokens": 4,
+      "max_new_tokens": 16,
+      "warmup": 1,
+      "repeats": 5,
+      "seed": 42,
+      "sampling": "greedy, byte IDs only",
+      "seconds": [
+        0.034421399992424995,
+        0.03506329999072477,
+        0.034439500013832,
+        0.03192159999161959,
+        0.03173010004684329
+      ],
+      "tokens_per_second": [
+        464.8271134678156,
+        456.3175743364843,
+        464.58281896002813,
+        501.2280087527097,
+        504.25305865342773
+      ],
+      "median_tokens_per_second": 464.8271134678156,
+      "output_token_ids": [
+        84,
+        104,
+        101,
+        32,
+        114,
+        101,
+        32,
+        114,
+        101,
+        32,
+        114,
+        101,
+        32,
+        114,
+        101,
+        32,
+        114,
+        101,
+        32,
+        114
+      ],
+      "cuda_peak": {
+        "allocated_bytes": 14474240,
+        "reserved_bytes": 27262976
+      },
+      "cpu_memory": {
+        "rss_bytes": 2818445312,
+        "lifetime_peak_rss_bytes": 3608322048,
+        "private_commit_bytes": 4113379328
+      }
+    },
+    {
+      "checkpoint": "artifacts\\release-demo-final\\demo.bft",
+      "checkpoint_type": "packed",
+      "parameters": 1378176,
+      "device": "cpu",
+      "precision": "fp32",
+      "prompt": "The ",
+      "prompt_tokens": 4,
+      "max_new_tokens": 16,
+      "warmup": 1,
+      "repeats": 5,
+      "seed": 42,
+      "sampling": "greedy, byte IDs only",
+      "seconds": [
+        0.018323399999644607,
+        0.014997299993410707,
+        0.018781999999191612,
+        0.021088500041514635,
+        0.023354100005235523
+      ],
+      "tokens_per_second": [
+        873.2003885911091,
+        1066.8587017016293,
+        851.8794590932089,
+        758.7073508548517,
+        685.1045425177215
+      ],
+      "median_tokens_per_second": 851.8794590932089,
+      "output_token_ids": [
+        84,
+        104,
+        101,
+        32,
+        114,
+        101,
+        32,
+        114,
+        101,
+        32,
+        114,
+        101,
+        32,
+        114,
+        101,
+        32,
+        114,
+        101,
+        32,
+        114
+      ],
+      "cuda_peak": null,
+      "cpu_memory": {
+        "rss_bytes": 2818879488,
+        "lifetime_peak_rss_bytes": 3623755776,
+        "private_commit_bytes": 4113580032
+      }
+    },
+    {
+      "checkpoint": "artifacts\\release-demo-final\\demo.bft",
+      "checkpoint_type": "packed",
+      "parameters": 1378176,
+      "device": "cuda",
+      "precision": "fp32",
+      "prompt": "The ",
+      "prompt_tokens": 4,
+      "max_new_tokens": 16,
+      "warmup": 1,
+      "repeats": 5,
+      "seed": 42,
+      "sampling": "greedy, byte IDs only",
+      "seconds": [
+        0.02739350002957508,
+        0.025098999962210655,
+        0.02541080000810325,
+        0.029657999984920025,
+        0.02888679999159649
+      ],
+      "tokens_per_second": [
+        584.0801643720512,
+        637.4755975971069,
+        629.6535329425976,
+        539.4834448761007,
+        553.886204240504
+      ],
+      "median_tokens_per_second": 584.0801643720512,
+      "output_token_ids": [
+        84,
+        104,
+        101,
+        32,
+        114,
+        101,
+        32,
+        114,
+        101,
+        32,
+        114,
+        101,
+        32,
+        114,
+        101,
+        32,
+        114,
+        101,
+        32,
+        114
+      ],
+      "cuda_peak": {
+        "allocated_bytes": 14277120,
+        "reserved_bytes": 27262976
+      },
+      "cpu_memory": {
+        "rss_bytes": 2819235840,
+        "lifetime_peak_rss_bytes": 3624189952,
+        "private_commit_bytes": 4113580032
+      }
+    },
+    {
+      "checkpoint": "artifacts\\release-demo-final\\demo.bft",
+      "checkpoint_type": "packed",
+      "parameters": 1378176,
+      "device": "cuda",
+      "precision": "bf16",
+      "prompt": "The ",
+      "prompt_tokens": 4,
+      "max_new_tokens": 16,
+      "warmup": 1,
+      "repeats": 5,
+      "seed": 42,
+      "sampling": "greedy, byte IDs only",
+      "seconds": [
+        0.03657350002322346,
+        0.03744649997679517,
+        0.03576180001255125,
+        0.03822069999296218,
+        0.03467989998171106
+      ],
+      "tokens_per_second": [
+        437.47522085226495,
+        427.2762477111312,
+        447.4047725333879,
+        418.6213230774471,
+        461.3623455787885
+      ],
+      "median_tokens_per_second": 437.47522085226495,
+      "output_token_ids": [
+        84,
+        104,
+        101,
+        32,
+        114,
+        101,
+        32,
+        114,
+        101,
+        32,
+        114,
+        101,
+        32,
+        114,
+        101,
+        32,
+        114,
+        101,
+        32,
+        114
+      ],
+      "cuda_peak": {
+        "allocated_bytes": 14474240,
+        "reserved_bytes": 27262976
+      },
+      "cpu_memory": {
+        "rss_bytes": 2818306048,
+        "lifetime_peak_rss_bytes": 3624546304,
+        "private_commit_bytes": 4112502784
+      }
+    }
+  ]
+}

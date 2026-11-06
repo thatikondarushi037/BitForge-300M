@@ -1,0 +1,757 @@
+{
+  "checks": [
+    {
+      "arguments": [
+        "--help"
+      ],
+      "exit_code": 0,
+      "output": "usage: __main__.py [-h]\n                   {generate,model-info,benchmark,verify-checkpoint,demo} ...\n\nBitForge offline ternary Transformer research CLI\n\npositional arguments:\n  {generate,model-info,benchmark,verify-checkpoint,demo}\n\noptions:\n  -h, --help            show this help message and exit\n",
+      "stderr": ""
+    },
+    {
+      "arguments": [
+        "model-info",
+        "--checkpoint",
+        "artifacts/release-full-final/full.bft"
+      ],
+      "exit_code": 0,
+      "output": {
+        "checkpoint_type": "packed",
+        "source_config": {
+          "d_ff": 3328,
+          "d_model": 1024,
+          "max_seq_len": 2048,
+          "n_heads": 16,
+          "n_layers": 24,
+          "norm_eps": 1e-06,
+          "projection_backend": "ternary",
+          "vocab_size": 32000
+        },
+        "source_quantization_device": "cpu",
+        "training": "not encoded in packed v1/v2; consult experiment provenance",
+        "integrity": "container and per-tensor SHA-256 verified",
+        "parameters": 297059328,
+        "device": "cpu",
+        "checkpoint_bytes": 197365045,
+        "load_seconds": 2.5527052999823354,
+        "runtime": "dense floating-point tensors; no native ternary kernels",
+        "cpu_memory": {
+          "rss_bytes": 2117595136,
+          "lifetime_peak_rss_bytes": 2314924032,
+          "private_commit_bytes": 2922065920
+        }
+      },
+      "stderr": ""
+    },
+    {
+      "arguments": [
+        "generate",
+        "--checkpoint",
+        "artifacts/release-demo-final/demo.pt",
+        "--device",
+        "cpu",
+        "--prompt",
+        "The technician will ",
+        "--max-new-tokens",
+        "16",
+        "--json"
+      ],
+      "exit_code": 0,
+      "output": {
+        "text": "The technician will re re re re re r",
+        "token_ids": [
+          84,
+          104,
+          101,
+          32,
+          116,
+          101,
+          99,
+          104,
+          110,
+          105,
+          99,
+          105,
+          97,
+          110,
+          32,
+          119,
+          105,
+          108,
+          108,
+          32,
+          114,
+          101,
+          32,
+          114,
+          101,
+          32,
+          114,
+          101,
+          32,
+          114,
+          101,
+          32,
+          114,
+          101,
+          32,
+          114
+        ],
+        "generated_tokens": 16,
+        "seconds": 0.08308220002800226,
+        "tokens_per_second": 192.58036010851077,
+        "seed": 42,
+        "precision": "fp32",
+        "byte_only_sampling": true,
+        "model": {
+          "checkpoint_type": "dense",
+          "source_config": {
+            "vocab_size": 259,
+            "max_seq_len": 64,
+            "d_model": 192,
+            "n_heads": 6,
+            "n_layers": 3,
+            "d_ff": 768,
+            "norm_eps": 1e-06,
+            "projection_backend": "ternary_ls"
+          },
+          "training": {
+            "steps": 600,
+            "seed": 42,
+            "batch_size": 4,
+            "sequence_length": 64,
+            "training_targets": 153600,
+            "optimizer": "AdamW",
+            "lr": 0.001,
+            "weight_decay": 0.01,
+            "gradient_clip": 1.0,
+            "precision": "fp32",
+            "sdpa": true,
+            "initial_validation": {
+              "loss": 5.529376692297888,
+              "perplexity": 251.98679675208572,
+              "tokens": 52701
+            },
+            "validation": {
+              "loss": 2.2972073747081114,
+              "perplexity": 9.946367157553867,
+              "tokens": 52701
+            },
+            "training_seconds": 19.176602100022137,
+            "finite_steps": 600,
+            "loss_first": 5.538452625274658,
+            "loss_last": 2.1163926124572754,
+            "gpu": "NVIDIA GeForce RTX 4060 Laptop GPU",
+            "torch": "2.7.1+cu118",
+            "peak_allocated_bytes": 101442560,
+            "peak_reserved_bytes": 125829120,
+            "corpus": {
+              "path": "data\\engineering_corpus.txt",
+              "bytes": 263537,
+              "sha256": "e9d99fa6fe88b266989f61793b3bedd1c61a8dd398b5cb45ac2df1a58f1a6942",
+              "requested_validation_fraction": 0.2,
+              "split_byte_offset": 210835,
+              "train_tokens": 210835,
+              "validation_tokens": 52702,
+              "train_sha256": "7aa9228572ceabc7e1645c998c331476657951c02a1fa4543e4824922fc64f0a",
+              "validation_sha256": "ed14b7903ac09c87db6b08ff4fa657284ba2d9635cfda58f6725e280f7dfc0c8"
+            }
+          },
+          "integrity": "weights_only load, strict shapes/dtypes and finite tensors; no embedded checksum",
+          "parameters": 1378176,
+          "device": "cpu",
+          "checkpoint_bytes": 5521895,
+          "load_seconds": 1.0757493000128306,
+          "runtime": "dense floating-point tensors; no native ternary kernels",
+          "cpu_memory": {
+            "rss_bytes": 428589056,
+            "lifetime_peak_rss_bytes": 428589056,
+            "private_commit_bytes": 1157713920
+          }
+        }
+      },
+      "stderr": ""
+    },
+    {
+      "arguments": [
+        "generate",
+        "--checkpoint",
+        "artifacts/release-demo-final/demo.bft",
+        "--device",
+        "cuda",
+        "--prompt",
+        "The technician will ",
+        "--temperature",
+        "0.8",
+        "--top-k",
+        "40",
+        "--top-p",
+        "0.9",
+        "--seed",
+        "42",
+        "--max-new-tokens",
+        "16",
+        "--json"
+      ],
+      "exit_code": 0,
+      "output": {
+        "text": "The technician will re re Thos trhe ",
+        "token_ids": [
+          84,
+          104,
+          101,
+          32,
+          116,
+          101,
+          99,
+          104,
+          110,
+          105,
+          99,
+          105,
+          97,
+          110,
+          32,
+          119,
+          105,
+          108,
+          108,
+          32,
+          114,
+          101,
+          32,
+          114,
+          101,
+          32,
+          84,
+          104,
+          111,
+          115,
+          32,
+          116,
+          114,
+          104,
+          101,
+          32
+        ],
+        "generated_tokens": 16,
+        "seconds": 0.2931694999570027,
+        "tokens_per_second": 54.57593645432631,
+        "seed": 42,
+        "precision": "fp32",
+        "byte_only_sampling": true,
+        "model": {
+          "checkpoint_type": "packed",
+          "source_config": {
+            "d_ff": 768,
+            "d_model": 192,
+            "max_seq_len": 64,
+            "n_heads": 6,
+            "n_layers": 3,
+            "norm_eps": 1e-06,
+            "projection_backend": "ternary_ls",
+            "vocab_size": 259
+          },
+          "source_quantization_device": "cuda:0",
+          "training": "not encoded in packed v1/v2; consult experiment provenance",
+          "integrity": "container and per-tensor SHA-256 verified",
+          "parameters": 1378176,
+          "device": "cuda",
+          "checkpoint_bytes": 540722,
+          "load_seconds": 1.224559499998577,
+          "runtime": "dense floating-point tensors; no native ternary kernels",
+          "cpu_memory": {
+            "rss_bytes": 565866496,
+            "lifetime_peak_rss_bytes": 1308168192,
+            "private_commit_bytes": 1390665728
+          }
+        }
+      },
+      "stderr": ""
+    },
+    {
+      "arguments": [
+        "generate",
+        "--checkpoint",
+        "artifacts/release-demo-final/demo.bft",
+        "--device",
+        "cuda",
+        "--prompt",
+        "The technician will ",
+        "--temperature",
+        "0.8",
+        "--top-k",
+        "40",
+        "--top-p",
+        "0.9",
+        "--seed",
+        "42",
+        "--max-new-tokens",
+        "16",
+        "--json"
+      ],
+      "exit_code": 0,
+      "output": {
+        "text": "The technician will re re Thos trhe ",
+        "token_ids": [
+          84,
+          104,
+          101,
+          32,
+          116,
+          101,
+          99,
+          104,
+          110,
+          105,
+          99,
+          105,
+          97,
+          110,
+          32,
+          119,
+          105,
+          108,
+          108,
+          32,
+          114,
+          101,
+          32,
+          114,
+          101,
+          32,
+          84,
+          104,
+          111,
+          115,
+          32,
+          116,
+          114,
+          104,
+          101,
+          32
+        ],
+        "generated_tokens": 16,
+        "seconds": 0.25075940001988783,
+        "tokens_per_second": 63.80618233546193,
+        "seed": 42,
+        "precision": "fp32",
+        "byte_only_sampling": true,
+        "model": {
+          "checkpoint_type": "packed",
+          "source_config": {
+            "d_ff": 768,
+            "d_model": 192,
+            "max_seq_len": 64,
+            "n_heads": 6,
+            "n_layers": 3,
+            "norm_eps": 1e-06,
+            "projection_backend": "ternary_ls",
+            "vocab_size": 259
+          },
+          "source_quantization_device": "cuda:0",
+          "training": "not encoded in packed v1/v2; consult experiment provenance",
+          "integrity": "container and per-tensor SHA-256 verified",
+          "parameters": 1378176,
+          "device": "cuda",
+          "checkpoint_bytes": 540722,
+          "load_seconds": 1.2364163000020199,
+          "runtime": "dense floating-point tensors; no native ternary kernels",
+          "cpu_memory": {
+            "rss_bytes": 565481472,
+            "lifetime_peak_rss_bytes": 1306779648,
+            "private_commit_bytes": 1388191744
+          }
+        }
+      },
+      "stderr": ""
+    },
+    {
+      "arguments": [
+        "demo",
+        "--checkpoint",
+        "artifacts/release-demo-final/demo.bft",
+        "--device",
+        "cuda",
+        "--max-new-tokens",
+        "32"
+      ],
+      "exit_code": 0,
+      "output": "{\n  \"checkpoint_type\": \"packed\",\n  \"source_config\": {\n    \"d_ff\": 768,\n    \"d_model\": 192,\n    \"max_seq_len\": 64,\n    \"n_heads\": 6,\n    \"n_layers\": 3,\n    \"norm_eps\": 1e-06,\n    \"projection_backend\": \"ternary_ls\",\n    \"vocab_size\": 259\n  },\n  \"source_quantization_device\": \"cuda:0\",\n  \"training\": \"not encoded in packed v1/v2; consult experiment provenance\",\n  \"integrity\": \"container and per-tensor SHA-256 verified\",\n  \"parameters\": 1378176,\n  \"device\": \"cuda\",\n  \"checkpoint_bytes\": 540722,\n  \"load_seconds\": 1.2537697000079788,\n  \"runtime\": \"dense floating-point tensors; no native ternary kernels\",\n  \"cpu_memory\": {\n    \"rss_bytes\": 565747712,\n    \"lifetime_peak_rss_bytes\": 1304727552,\n    \"private_commit_bytes\": 1388716032\n  }\n}\nResearch demonstration; synthetic-data training does not establish general language ability. The 297M architecture is untrained; byte-restricted generation is only a smoke test.\nThe technician will re re re re re re re re re re re\n",
+      "stderr": ""
+    },
+    {
+      "arguments": [
+        "demo",
+        "--checkpoint",
+        "artifacts/release-full-final/full.bft",
+        "--device",
+        "cuda",
+        "--prompt",
+        "The ",
+        "--max-new-tokens",
+        "2",
+        "--json"
+      ],
+      "exit_code": 0,
+      "output": {
+        "text": "The \ufffd\ufffd",
+        "token_ids": [
+          84,
+          104,
+          101,
+          32,
+          198,
+          198
+        ],
+        "generated_tokens": 2,
+        "seconds": 0.1331652000080794,
+        "tokens_per_second": 15.018938881018883,
+        "seed": 42,
+        "precision": "fp32",
+        "byte_only_sampling": true,
+        "model": {
+          "checkpoint_type": "packed",
+          "source_config": {
+            "d_ff": 3328,
+            "d_model": 1024,
+            "max_seq_len": 2048,
+            "n_heads": 16,
+            "n_layers": 24,
+            "norm_eps": 1e-06,
+            "projection_backend": "ternary",
+            "vocab_size": 32000
+          },
+          "source_quantization_device": "cpu",
+          "training": "not encoded in packed v1/v2; consult experiment provenance",
+          "integrity": "container and per-tensor SHA-256 verified",
+          "parameters": 297059328,
+          "device": "cuda",
+          "checkpoint_bytes": 197365045,
+          "load_seconds": 2.9264910999918357,
+          "runtime": "dense floating-point tensors; no native ternary kernels",
+          "cpu_memory": {
+            "rss_bytes": 2250403840,
+            "lifetime_peak_rss_bytes": 2447618048,
+            "private_commit_bytes": 4502401024
+          }
+        },
+        "notice": "Research demonstration; synthetic-data training does not establish general language ability. The 297M architecture is untrained; byte-restricted generation is only a smoke test."
+      },
+      "stderr": ""
+    },
+    {
+      "arguments": [
+        "benchmark",
+        "--checkpoint",
+        "artifacts/release-full-final/full.bft",
+        "--device",
+        "cuda",
+        "--sequence-length",
+        "8",
+        "--warmup",
+        "2",
+        "--repeats",
+        "5",
+        "--generation-tokens",
+        "2"
+      ],
+      "exit_code": 0,
+      "output": {
+        "parameters": 297059328,
+        "device": "cuda:0",
+        "precision": "fp32",
+        "projection_backend": "fp32",
+        "sdpa": true,
+        "batch_size": 1,
+        "sequence_length": 8,
+        "warmup": 2,
+        "repeats": 5,
+        "latency_seconds": [
+          0.010284100018907338,
+          0.011153900006320328,
+          0.010329300013836473,
+          0.009923000005073845,
+          0.013333600014448166
+        ],
+        "median_latency_seconds": 0.010329300013836473,
+        "output_shape": [
+          1,
+          8,
+          32000
+        ],
+        "finite_logits": true,
+        "forward_cuda_peak": {
+          "allocated_bytes": 1360005632,
+          "reserved_bytes": 1365245952
+        },
+        "cpu_memory": {
+          "rss_bytes": 2446696448,
+          "lifetime_peak_rss_bytes": 2447585280,
+          "private_commit_bytes": 4836810752
+        },
+        "generation": {
+          "text": "The \ufffd\ufffd",
+          "token_ids": [
+            84,
+            104,
+            101,
+            32,
+            198,
+            198
+          ],
+          "generated_tokens": 2,
+          "seconds": 0.027094700024463236,
+          "tokens_per_second": 73.81517411871111,
+          "seed": 42,
+          "precision": "fp32",
+          "byte_only_sampling": true
+        },
+        "model": {
+          "checkpoint_type": "packed",
+          "source_config": {
+            "d_ff": 3328,
+            "d_model": 1024,
+            "max_seq_len": 2048,
+            "n_heads": 16,
+            "n_layers": 24,
+            "norm_eps": 1e-06,
+            "projection_backend": "ternary",
+            "vocab_size": 32000
+          },
+          "source_quantization_device": "cpu",
+          "training": "not encoded in packed v1/v2; consult experiment provenance",
+          "integrity": "container and per-tensor SHA-256 verified",
+          "parameters": 297059328,
+          "device": "cuda",
+          "checkpoint_bytes": 197365045,
+          "load_seconds": 2.9670409000245854,
+          "runtime": "dense floating-point tensors; no native ternary kernels",
+          "cpu_memory": {
+            "rss_bytes": 2250043392,
+            "lifetime_peak_rss_bytes": 2447302656,
+            "private_commit_bytes": 4501405696
+          }
+        }
+      },
+      "stderr": ""
+    },
+    {
+      "arguments": [
+        "verify-checkpoint",
+        "--checkpoint",
+        "artifacts/release-full-final/full.bft",
+        "--reference",
+        "artifacts/release-full-final/full-master.pt",
+        "--device",
+        "cuda"
+      ],
+      "exit_code": 0,
+      "output": {
+        "verified": true,
+        "shape": [
+          1,
+          8,
+          32000
+        ],
+        "model": {
+          "checkpoint_type": "packed",
+          "source_config": {
+            "d_ff": 3328,
+            "d_model": 1024,
+            "max_seq_len": 2048,
+            "n_heads": 16,
+            "n_layers": 24,
+            "norm_eps": 1e-06,
+            "projection_backend": "ternary",
+            "vocab_size": 32000
+          },
+          "source_quantization_device": "cpu",
+          "training": "not encoded in packed v1/v2; consult experiment provenance",
+          "integrity": "container and per-tensor SHA-256 verified",
+          "parameters": 297059328,
+          "device": "cuda",
+          "checkpoint_bytes": 197365045,
+          "load_seconds": 3.064918299962301,
+          "runtime": "dense floating-point tensors; no native ternary kernels",
+          "cpu_memory": {
+            "rss_bytes": 2247626752,
+            "lifetime_peak_rss_bytes": 2444849152,
+            "private_commit_bytes": 4499193856
+          }
+        },
+        "max_absolute_error": 0.0
+      },
+      "stderr": ""
+    },
+    {
+      "arguments": [
+        "verify-checkpoint",
+        "--checkpoint",
+        "artifacts/release-demo-final/demo.bft",
+        "--reference",
+        "artifacts/release-demo-final/demo.pt",
+        "--device",
+        "cpu"
+      ],
+      "exit_code": 0,
+      "output": {
+        "verified": true,
+        "shape": [
+          1,
+          8,
+          259
+        ],
+        "model": {
+          "checkpoint_type": "packed",
+          "source_config": {
+            "d_ff": 768,
+            "d_model": 192,
+            "max_seq_len": 64,
+            "n_heads": 6,
+            "n_layers": 3,
+            "norm_eps": 1e-06,
+            "projection_backend": "ternary_ls",
+            "vocab_size": 259
+          },
+          "source_quantization_device": "cuda:0",
+          "training": "not encoded in packed v1/v2; consult experiment provenance",
+          "integrity": "container and per-tensor SHA-256 verified",
+          "parameters": 1378176,
+          "device": "cpu",
+          "checkpoint_bytes": 540722,
+          "load_seconds": 1.1713033000123687,
+          "runtime": "dense floating-point tensors; no native ternary kernels",
+          "cpu_memory": {
+            "rss_bytes": 435941376,
+            "lifetime_peak_rss_bytes": 1180659712,
+            "private_commit_bytes": 1170415616
+          }
+        },
+        "max_absolute_error": 0.0
+      },
+      "stderr": ""
+    },
+    {
+      "arguments": [
+        "generate",
+        "--checkpoint",
+        "artifacts/milestone-3-text/checkpoint.pt",
+        "--device",
+        "cpu",
+        "--max-new-tokens",
+        "2",
+        "--json"
+      ],
+      "exit_code": 0,
+      "output": {
+        "text": "The technician will   ",
+        "token_ids": [
+          84,
+          104,
+          101,
+          32,
+          116,
+          101,
+          99,
+          104,
+          110,
+          105,
+          99,
+          105,
+          97,
+          110,
+          32,
+          119,
+          105,
+          108,
+          108,
+          32,
+          32,
+          32
+        ],
+        "generated_tokens": 2,
+        "seconds": 0.00345059996470809,
+        "tokens_per_second": 579.6093492307197,
+        "seed": 42,
+        "precision": "fp32",
+        "byte_only_sampling": true,
+        "model": {
+          "checkpoint_type": "dense",
+          "source_config": {
+            "vocab_size": 259,
+            "max_seq_len": 64,
+            "d_model": 64,
+            "n_heads": 4,
+            "n_layers": 2,
+            "d_ff": 128,
+            "norm_eps": 1e-06,
+            "projection_backend": "ternary"
+          },
+          "training": {
+            "step": 300,
+            "settings": {
+              "sequence_length": 64,
+              "batch_size": 16,
+              "seed": 42,
+              "learning_rate": 0.003,
+              "validation_fraction": 0.2,
+              "d_model": 64,
+              "n_heads": 4,
+              "n_layers": 2,
+              "d_ff": 128
+            },
+            "corpus": {
+              "path": "C:\\Users\\Rushi Thatikonda\\Desktop\\BitForge-300M\\data\\dev_corpus.txt",
+              "bytes": 5807,
+              "sha256": "9a37fcfa0fc55b65c7090240126bc83200379af993417d0eb8b198140c4864ce",
+              "requested_validation_fraction": 0.2,
+              "split_byte_offset": 4751,
+              "train_tokens": 4751,
+              "validation_tokens": 1056,
+              "train_sha256": "02da0f5ebafe618796246ea0ac3d180a155bad4b62529a685079694375716609",
+              "validation_sha256": "876eb2a8c1199a58eeaf1631e9d308aae815ec22767a41565e9b7863dd6d3729"
+            },
+            "optimizer": "AdamW",
+            "weight_decay": 0.01,
+            "gradient_clip_norm": 1.0
+          },
+          "integrity": "weights_only load, strict shapes/dtypes and finite tensors; no embedded checksum",
+          "parameters": 82432,
+          "device": "cpu",
+          "checkpoint_bytes": 1018482,
+          "load_seconds": 1.1287281999830157,
+          "runtime": "dense floating-point tensors; no native ternary kernels",
+          "cpu_memory": {
+            "rss_bytes": 421916672,
+            "lifetime_peak_rss_bytes": 421916672,
+            "private_commit_bytes": 1137938432
+          }
+        }
+      },
+      "stderr": ""
+    },
+    {
+      "arguments": [
+        "verify-checkpoint",
+        "--checkpoint",
+        "C:\\Users\\RUSHIT~1\\AppData\\Local\\Temp\\tmp6tv_2orq\\corrupt.bft"
+      ],
+      "exit_code": 2,
+      "output": "",
+      "stderr": "bitforge: file integrity checksum mismatch\n"
+    },
+    {
+      "arguments": [
+        "model-info",
+        "--checkpoint",
+        "C:\\Users\\RUSHIT~1\\AppData\\Local\\Temp\\tmp6tv_2orq\\missing.pt"
+      ],
+      "exit_code": 2,
+      "output": "",
+      "stderr": "bitforge: [Errno 2] No such file or directory: 'C:\\\\Users\\\\RUSHIT~1\\\\AppData\\\\Local\\\\Temp\\\\tmp6tv_2orq\\\\missing.pt'\n"
+    }
+  ],
+  "passed": 13,
+  "failed": 0
+}

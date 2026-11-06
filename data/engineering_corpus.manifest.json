@@ -1,0 +1,10 @@
+{
+  "name": "Procedural engineering notebook",
+  "source": "Original templates written for BitForge; generated offline by scripts/prepare_engineering_corpus.py, seed 606; no external passages",
+  "license": "CC0-1.0",
+  "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "bytes": 263537,
+  "sha256": "e9d99fa6fe88b266989f61793b3bedd1c61a8dd398b5cb45ac2df1a58f1a6942",
+  "paragraphs": 700,
+  "limitations": "Synthetic template text, repeated phrasing; not a natural-language benchmark. Split before windowing; no exact duplicate paragraphs."
+}

@@ -1,0 +1,13 @@
+checkpoint,checkpoint_type,parameters,device,precision,prompt_tokens,max_new_tokens,warmup,repeats,median_tokens_per_second,peak_allocated_bytes,peak_reserved_bytes
+artifacts\release-full-storage\dense-reconstructed.pt,dense,297059328,cpu,fp32,4,2,1,5,13.773156114355514,,
+artifacts\release-full-storage\dense-reconstructed.pt,dense,297059328,cuda,fp32,4,2,1,5,105.89574542419643,1358383104,1363148800
+artifacts\release-full-storage\dense-reconstructed.pt,dense,297059328,cuda,bf16,4,2,1,5,73.49131515758923,1423098368,1442840576
+artifacts\release-full-final\full.bft,packed,297059328,cpu,fp32,4,2,1,5,12.535428252250956,,
+artifacts\release-full-final\full.bft,packed,297059328,cuda,fp32,4,2,1,5,102.55831720601962,1358383104,1375731712
+artifacts\release-full-final\full.bft,packed,297059328,cuda,bf16,4,2,1,5,75.49277900687495,1423098368,1442840576
+artifacts\release-demo-storage\dense-reconstructed.pt,dense,1378176,cpu,fp32,4,16,1,5,1079.6804163425188,,
+artifacts\release-demo-storage\dense-reconstructed.pt,dense,1378176,cuda,fp32,4,16,1,5,627.7710203662957,14277120,27262976
+artifacts\release-demo-storage\dense-reconstructed.pt,dense,1378176,cuda,bf16,4,16,1,5,464.8271134678156,14474240,27262976
+artifacts\release-demo-final\demo.bft,packed,1378176,cpu,fp32,4,16,1,5,851.8794590932089,,
+artifacts\release-demo-final\demo.bft,packed,1378176,cuda,fp32,4,16,1,5,584.0801643720512,14277120,27262976
+artifacts\release-demo-final\demo.bft,packed,1378176,cuda,bf16,4,16,1,5,437.47522085226495,14474240,27262976

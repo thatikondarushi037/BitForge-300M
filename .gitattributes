@@ -1,2 +1,3 @@
 # Preserve the corpus bytes used by its SHA-256 manifest on Windows checkout.
 data/dev_corpus.txt -text
+data/engineering_corpus.txt -text

@@ -1,0 +1,26 @@
+{
+  "artifacts/release-full-final/full-master.pt": {
+    "bytes": 1188291675,
+    "sha256": "199aaf5db53f075917e825df84550677f8d935ecce9ad9940e33901252110347"
+  },
+  "artifacts/release-full-final/full.bft": {
+    "bytes": 197365045,
+    "sha256": "c45716f5574bac9990dde484df232dee50a56101f015341750b0724380529192"
+  },
+  "artifacts/release-full-storage/dense-reconstructed.pt": {
+    "bytes": 1188291675,
+    "sha256": "20528f9740b785c3f220be267657f317043e4d1718b0f02c699498b98a93addb"
+  },
+  "artifacts/release-demo-final/demo.pt": {
+    "bytes": 5521895,
+    "sha256": "3d3675a118f031ce3938844d5c1bda109f1b38df317b1111431754983450f4ea"
+  },
+  "artifacts/release-demo-final/demo.bft": {
+    "bytes": 540722,
+    "sha256": "bfdd539926ebaeacfda0b033a13a0d1355f15fc9d8508a81c3e6bff0020d65ad"
+  },
+  "artifacts/release-demo-final/training.pt": {
+    "bytes": 16575402,
+    "sha256": "a90b619407e23d70a17a18156aa4360c6149361bf7f7efbd4f47c1e08b18c8e8"
+  }
+}

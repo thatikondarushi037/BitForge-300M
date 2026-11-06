@@ -1,0 +1,41 @@
+{
+  "tests": {
+    "passed": 74,
+    "failed": 0,
+    "skipped": 0
+  },
+  "cli_checks_passed": 13,
+  "full_parameters": 297059328,
+  "full_cpu_execution": true,
+  "full_cuda_execution": true,
+  "full_dense_bytes": 1188291675,
+  "full_packed_bytes": 197365045,
+  "full_compression_ratio": 6.020780807462638,
+  "full_packed_reconstruction": [
+    {
+      "device": "cpu",
+      "max_absolute_error": 0.0
+    },
+    {
+      "device": "cuda",
+      "max_absolute_error": 2.0265579223632812e-06
+    }
+  ],
+  "demo_training_steps": 600,
+  "demo_validation": {
+    "loss": 2.2972073747081114,
+    "perplexity": 9.946367157553867,
+    "tokens": 52701
+  },
+  "demo_generation": "The technician will re re re re re re re re re re recoreg re re re re re re re re re",
+  "full_training": "zero updates; randomly initialized",
+  "gates": {
+    "A": "PASS",
+    "B": "PASS",
+    "C": "PASS",
+    "D": "PASS",
+    "E": "PASS (local candidate; publication not performed)"
+  },
+  "runtime": "dense floating-point tensors and kernels; no native ternary execution",
+  "conditions": "See per-row backend/precision/context. Load times are single observations. CPU peaks are process-lifetime working-set peaks."
+}

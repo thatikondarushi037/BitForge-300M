@@ -14,11 +14,11 @@ class TransformerConfig:
     n_layers: int = 2
     d_ff: int = 128
     norm_eps: float = 1e-6
-    projection_backend: Literal['ternary', 'fp32'] = 'ternary'
+    projection_backend: Literal['ternary', 'fp32', 'ternary_ls'] = 'ternary'
 
     def __post_init__(self) -> None:
-        if self.projection_backend not in ('ternary', 'fp32'):
-            raise ValueError('projection_backend must be ternary or fp32')
+        if self.projection_backend not in ('ternary', 'fp32', 'ternary_ls'):
+            raise ValueError('projection_backend must be ternary, ternary_ls or fp32')
         for name in ('vocab_size', 'max_seq_len', 'd_model', 'n_heads', 'n_layers', 'd_ff'):
             value = getattr(self, name)
             if type(value) is not int or value <= 0:

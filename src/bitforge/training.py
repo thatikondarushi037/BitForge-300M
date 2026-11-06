@@ -2,6 +2,7 @@
 
 from dataclasses import asdict
 import math
+import json
 from pathlib import Path
 
 import torch
@@ -48,7 +49,7 @@ def save_checkpoint(path: Path, model: TernaryTransformer, optimizer: torch.opti
     payload = {
         'format_version': 1, 'config': asdict(model.config),
         'tokenizer': ByteTokenizer().metadata(), 'model': model.state_dict(),
-        'optimizer': optimizer.state_dict(), 'progress': progress,
+        'optimizer': optimizer.state_dict(), 'progress': json.loads(json.dumps(progress, allow_nan=False)),
         'batch_rng': batcher.generator.get_state(), 'cpu_rng': torch.get_rng_state(),
         'cuda_rng': torch.cuda.get_rng_state_all() if next(model.parameters()).is_cuda else [],
     }

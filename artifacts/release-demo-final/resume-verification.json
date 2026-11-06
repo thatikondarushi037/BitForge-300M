@@ -1,0 +1,12 @@
+{
+  "parameters": 1378176,
+  "training_step": 600,
+  "validation_cpu": {
+    "loss": 2.29720730275864,
+    "perplexity": 9.946366441918036,
+    "tokens": 52701
+  },
+  "next_batch_rng_restored": true,
+  "optimizer_step_restored": 600,
+  "additional_training_updates": 0
+}

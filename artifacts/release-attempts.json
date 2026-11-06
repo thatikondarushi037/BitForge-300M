@@ -1,0 +1,33 @@
+{
+  "purpose": "Retain interrupted-attempt history separately from successful release metrics",
+  "attempts": [
+    {
+      "stage": "initial full-size packed reload",
+      "result": "stopped by conservative host preflight; no out-of-memory crash",
+      "required_bytes": 4752949248,
+      "available_bytes": 6683348992,
+      "cause": "Training-derived 16-byte-per-parameter budget applied after inference decode",
+      "resolution": "Inference-specific incremental budget; bounded header/config preflight before decode",
+      "retained_evidence": "artifacts/release-full/results.json",
+      "successful_evidence": "artifacts/release-full-final/results.json"
+    },
+    {
+      "stage": "initial full master CPU/CUDA comparison",
+      "result": "strict numerical comparison failed",
+      "cause": "CPU/CUDA quantizer reduction differences were conflated with packed reconstruction",
+      "resolution": "Measure source-device codes and freeze the corresponding source-device quantized reference",
+      "measured_differing_codes": 2,
+      "measured_max_scale_difference": 1.862645149230957e-9,
+      "successful_evidence": "artifacts/release-full-final/quantizer-devices.json"
+    },
+    {
+      "stage": "600-step demo reload after completed training",
+      "result": "weights_only loader rejected TorchVersion metadata subclass",
+      "cause": "PyTorch version string subclass was pickled in progress metadata",
+      "resolution": "Normalize new metadata to JSON primitives; explicitly finalize the known local training checkpoint with a narrow TorchVersion allowlist",
+      "additional_training_updates_for_repair": 0,
+      "retained_local_checkpoint": "artifacts/release-demo/training.pt",
+      "successful_evidence": "artifacts/release-demo-final/results.json"
+    }
+  ]
+}

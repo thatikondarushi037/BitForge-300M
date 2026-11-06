@@ -1,0 +1,776 @@
+{
+  "checkpoint": "artifacts\\release-full-final\\full-master.pt",
+  "parameters": 297059328,
+  "rows": [
+    {
+      "tensor": "blocks.0.attention.qkv.weight",
+      "count": 3145728,
+      "different_codes": 0,
+      "cpu_scale": 0.015615522861480713,
+      "cuda_scale": 0.015615521930158138,
+      "absolute_scale_error": 9.313225746154785e-10
+    },
+    {
+      "tensor": "blocks.0.attention.output.weight",
+      "count": 1048576,
+      "different_codes": 0,
+      "cpu_scale": 0.01562471967190504,
+      "cuda_scale": 0.01562471967190504,
+      "absolute_scale_error": 0.0
+    },
+    {
+      "tensor": "blocks.0.ffn.up.weight",
+      "count": 3407872,
+      "different_codes": 0,
+      "cpu_scale": 0.015624504536390305,
+      "cuda_scale": 0.01562450546771288,
+      "absolute_scale_error": 9.313225746154785e-10
+    },
+    {
+      "tensor": "blocks.0.ffn.down.weight",
+      "count": 3407872,
+      "different_codes": 0,
+      "cpu_scale": 0.00866911094635725,
+      "cuda_scale": 0.008669111877679825,
+      "absolute_scale_error": 9.313225746154785e-10
+    },
+    {
+      "tensor": "blocks.1.attention.qkv.weight",
+      "count": 3145728,
+      "different_codes": 0,
+      "cpu_scale": 0.01562108751386404,
+      "cuda_scale": 0.015621086582541466,
+      "absolute_scale_error": 9.313225746154785e-10
+    },
+    {
+      "tensor": "blocks.1.attention.output.weight",
+      "count": 1048576,
+      "different_codes": 0,
+      "cpu_scale": 0.015638720244169235,
+      "cuda_scale": 0.015638720244169235,
+      "absolute_scale_error": 0.0
+    },
+    {
+      "tensor": "blocks.1.ffn.up.weight",
+      "count": 3407872,
+      "different_codes": 0,
+      "cpu_scale": 0.01562780886888504,
+      "cuda_scale": 0.01562781073153019,
+      "absolute_scale_error": 1.862645149230957e-09
+    },
+    {
+      "tensor": "blocks.1.ffn.down.weight",
+      "count": 3407872,
+      "different_codes": 0,
+      "cpu_scale": 0.008670302107930183,
+      "cuda_scale": 0.008670303039252758,
+      "absolute_scale_error": 9.313225746154785e-10
+    },
+    {
+      "tensor": "blocks.2.attention.qkv.weight",
+      "count": 3145728,
+      "different_codes": 0,
+      "cpu_scale": 0.015624187886714935,
+      "cuda_scale": 0.015624187886714935,
+      "absolute_scale_error": 0.0
+    },
+    {
+      "tensor": "blocks.2.attention.output.weight",
+      "count": 1048576,
+      "different_codes": 0,
+      "cpu_scale": 0.01563413441181183,
+      "cuda_scale": 0.01563413254916668,
+      "absolute_scale_error": 1.862645149230957e-09
+    },
+    {
+      "tensor": "blocks.2.ffn.up.weight",
+      "count": 3407872,
+      "different_codes": 0,
+      "cpu_scale": 0.01562159601598978,
+      "cuda_scale": 0.01562159601598978,
+      "absolute_scale_error": 0.0
+    },
+    {
+      "tensor": "blocks.2.ffn.down.weight",
+      "count": 3407872,
+      "different_codes": 0,
+      "cpu_scale": 0.00867321714758873,
+      "cuda_scale": 0.008673218078911304,
+      "absolute_scale_error": 9.313225746154785e-10
+    },
+    {
+      "tensor": "blocks.3.attention.qkv.weight",
+      "count": 3145728,
+      "different_codes": 0,
+      "cpu_scale": 0.015625955536961555,
+      "cuda_scale": 0.015625957399606705,
+      "absolute_scale_error": 1.862645149230957e-09
+    },
+    {
+      "tensor": "blocks.3.attention.output.weight",
+      "count": 1048576,
+      "different_codes": 0,
+      "cpu_scale": 0.015624530613422394,
+      "cuda_scale": 0.015624531544744968,
+      "absolute_scale_error": 9.313225746154785e-10
+    },
+    {
+      "tensor": "blocks.3.ffn.up.weight",
+      "count": 3407872,
+      "different_codes": 0,
+      "cpu_scale": 0.015623169019818306,
+      "cuda_scale": 0.015623170882463455,
+      "absolute_scale_error": 1.862645149230957e-09
+    },
+    {
+      "tensor": "blocks.3.ffn.down.weight",
+      "count": 3407872,
+      "different_codes": 0,
+      "cpu_scale": 0.008673886768519878,
+      "cuda_scale": 0.008673886768519878,
+      "absolute_scale_error": 0.0
+    },
+    {
+      "tensor": "blocks.4.attention.qkv.weight",
+      "count": 3145728,
+      "different_codes": 0,
+      "cpu_scale": 0.01562829501926899,
+      "cuda_scale": 0.01562829315662384,
+      "absolute_scale_error": 1.862645149230957e-09
+    },
+    {
+      "tensor": "blocks.4.attention.output.weight",
+      "count": 1048576,
+      "different_codes": 0,
+      "cpu_scale": 0.015615679323673248,
+      "cuda_scale": 0.015615679323673248,
+      "absolute_scale_error": 0.0
+    },
+    {
+      "tensor": "blocks.4.ffn.up.weight",
+      "count": 3407872,
+      "different_codes": 0,
+      "cpu_scale": 0.015619620680809021,
+      "cuda_scale": 0.015619619749486446,
+      "absolute_scale_error": 9.313225746154785e-10
+    },
+    {
+      "tensor": "blocks.4.ffn.down.weight",
+      "count": 3407872,
+      "different_codes": 0,
+      "cpu_scale": 0.008670100942254066,
+      "cuda_scale": 0.008670100942254066,
+      "absolute_scale_error": 0.0
+    },
+    {
+      "tensor": "blocks.5.attention.qkv.weight",
+      "count": 3145728,
+      "different_codes": 0,
+      "cpu_scale": 0.015631351619958878,
+      "cuda_scale": 0.015631351619958878,
+      "absolute_scale_error": 0.0
+    },
+    {
+      "tensor": "blocks.5.attention.output.weight",
+      "count": 1048576,
+      "different_codes": 0,
+      "cpu_scale": 0.015627017244696617,
+      "cuda_scale": 0.015627015382051468,
+      "absolute_scale_error": 1.862645149230957e-09
+    },
+    {
+      "tensor": "blocks.5.ffn.up.weight",
+      "count": 3407872,
+      "different_codes": 0,
+      "cpu_scale": 0.015627022832632065,
+      "cuda_scale": 0.015627020969986916,
+      "absolute_scale_error": 1.862645149230957e-09
+    },
+    {
+      "tensor": "blocks.5.ffn.down.weight",
+      "count": 3407872,
+      "different_codes": 0,
+      "cpu_scale": 0.008667469024658203,
+      "cuda_scale": 0.008667468093335629,
+      "absolute_scale_error": 9.313225746154785e-10
+    },
+    {
+      "tensor": "blocks.6.attention.qkv.weight",
+      "count": 3145728,
+      "different_codes": 0,
+      "cpu_scale": 0.015622158534824848,
+      "cuda_scale": 0.015622159466147423,
+      "absolute_scale_error": 9.313225746154785e-10
+    },
+    {
+      "tensor": "blocks.6.attention.output.weight",
+      "count": 1048576,
+      "different_codes": 0,
+      "cpu_scale": 0.0156288743019104,
+      "cuda_scale": 0.0156288743019104,
+      "absolute_scale_error": 0.0
+    },
+    {
+      "tensor": "blocks.6.ffn.up.weight",
+      "count": 3407872,
+      "different_codes": 0,
+      "cpu_scale": 0.01563328318297863,
+      "cuda_scale": 0.01563328504562378,
+      "absolute_scale_error": 1.862645149230957e-09
+    },
+    {
+      "tensor": "blocks.6.ffn.down.weight",
+      "count": 3407872,
+      "different_codes": 0,
+      "cpu_scale": 0.008670433424413204,
+      "cuda_scale": 0.008670434355735779,
+      "absolute_scale_error": 9.313225746154785e-10
+    },
+    {
+      "tensor": "blocks.7.attention.qkv.weight",
+      "count": 3145728,
+      "different_codes": 0,
+      "cpu_scale": 0.015626059845089912,
+      "cuda_scale": 0.015626057982444763,
+      "absolute_scale_error": 1.862645149230957e-09
+    },
+    {
+      "tensor": "blocks.7.attention.output.weight",
+      "count": 1048576,
+      "different_codes": 0,
+      "cpu_scale": 0.015651023015379906,
+      "cuda_scale": 0.015651024878025055,
+      "absolute_scale_error": 1.862645149230957e-09
+    },
+    {
+      "tensor": "blocks.7.ffn.up.weight",
+      "count": 3407872,
+      "different_codes": 0,
+      "cpu_scale": 0.015622668899595737,
+      "cuda_scale": 0.015622668899595737,
+      "absolute_scale_error": 0.0
+    },
+    {
+      "tensor": "blocks.7.ffn.down.weight",
+      "count": 3407872,
+      "different_codes": 0,
+      "cpu_scale": 0.00866755936294794,
+      "cuda_scale": 0.008667560294270515,
+      "absolute_scale_error": 9.313225746154785e-10
+    },
+    {
+      "tensor": "blocks.8.attention.qkv.weight",
+      "count": 3145728,
+      "different_codes": 0,
+      "cpu_scale": 0.015627266839146614,
+      "cuda_scale": 0.015627268701791763,
+      "absolute_scale_error": 1.862645149230957e-09
+    },
+    {
+      "tensor": "blocks.8.attention.output.weight",
+      "count": 1048576,
+      "different_codes": 0,
+      "cpu_scale": 0.015625592321157455,
+      "cuda_scale": 0.015625592321157455,
+      "absolute_scale_error": 0.0
+    },
+    {
+      "tensor": "blocks.8.ffn.up.weight",
+      "count": 3407872,
+      "different_codes": 0,
+      "cpu_scale": 0.015625348314642906,
+      "cuda_scale": 0.015625350177288055,
+      "absolute_scale_error": 1.862645149230957e-09
+    },
+    {
+      "tensor": "blocks.8.ffn.down.weight",
+      "count": 3407872,
+      "different_codes": 0,
+      "cpu_scale": 0.00866490975022316,
+      "cuda_scale": 0.008664910681545734,
+      "absolute_scale_error": 9.313225746154785e-10
+    },
+    {
+      "tensor": "blocks.9.attention.qkv.weight",
+      "count": 3145728,
+      "different_codes": 0,
+      "cpu_scale": 0.01562591828405857,
+      "cuda_scale": 0.01562592014670372,
+      "absolute_scale_error": 1.862645149230957e-09
+    },
+    {
+      "tensor": "blocks.9.attention.output.weight",
+      "count": 1048576,
+      "different_codes": 0,
+      "cpu_scale": 0.015620807185769081,
+      "cuda_scale": 0.015620806254446507,
+      "absolute_scale_error": 9.313225746154785e-10
+    },
+    {
+      "tensor": "blocks.9.ffn.up.weight",
+      "count": 3407872,
+      "different_codes": 0,
+      "cpu_scale": 0.015620418824255466,
+      "cuda_scale": 0.015620418824255466,
+      "absolute_scale_error": 0.0
+    },
+    {
+      "tensor": "blocks.9.ffn.down.weight",
+      "count": 3407872,
+      "different_codes": 0,
+      "cpu_scale": 0.00866757147014141,
+      "cuda_scale": 0.00866757147014141,
+      "absolute_scale_error": 0.0
+    },
+    {
+      "tensor": "blocks.10.attention.qkv.weight",
+      "count": 3145728,
+      "different_codes": 0,
+      "cpu_scale": 0.015630658715963364,
+      "cuda_scale": 0.015630660578608513,
+      "absolute_scale_error": 1.862645149230957e-09
+    },
+    {
+      "tensor": "blocks.10.attention.output.weight",
+      "count": 1048576,
+      "different_codes": 0,
+      "cpu_scale": 0.015628546476364136,
+      "cuda_scale": 0.015628546476364136,
+      "absolute_scale_error": 0.0
+    },
+    {
+      "tensor": "blocks.10.ffn.up.weight",
+      "count": 3407872,
+      "different_codes": 0,
+      "cpu_scale": 0.015619616955518723,
+      "cuda_scale": 0.015619617886841297,
+      "absolute_scale_error": 9.313225746154785e-10
+    },
+    {
+      "tensor": "blocks.10.ffn.down.weight",
+      "count": 3407872,
+      "different_codes": 1,
+      "cpu_scale": 0.008665314875543118,
+      "cuda_scale": 0.008665315806865692,
+      "absolute_scale_error": 9.313225746154785e-10
+    },
+    {
+      "tensor": "blocks.11.attention.qkv.weight",
+      "count": 3145728,
+      "different_codes": 0,
+      "cpu_scale": 0.015625277534127235,
+      "cuda_scale": 0.015625275671482086,
+      "absolute_scale_error": 1.862645149230957e-09
+    },
+    {
+      "tensor": "blocks.11.attention.output.weight",
+      "count": 1048576,
+      "different_codes": 0,
+      "cpu_scale": 0.01562807708978653,
+      "cuda_scale": 0.01562807708978653,
+      "absolute_scale_error": 0.0
+    },
+    {
+      "tensor": "blocks.11.ffn.up.weight",
+      "count": 3407872,
+      "different_codes": 0,
+      "cpu_scale": 0.015623362734913826,
+      "cuda_scale": 0.0156233636662364,
+      "absolute_scale_error": 9.313225746154785e-10
+    },
+    {
+      "tensor": "blocks.11.ffn.down.weight",
+      "count": 3407872,
+      "different_codes": 0,
+      "cpu_scale": 0.00866919569671154,
+      "cuda_scale": 0.00866919569671154,
+      "absolute_scale_error": 0.0
+    },
+    {
+      "tensor": "blocks.12.attention.qkv.weight",
+      "count": 3145728,
+      "different_codes": 0,
+      "cpu_scale": 0.015633491799235344,
+      "cuda_scale": 0.015633491799235344,
+      "absolute_scale_error": 0.0
+    },
+    {
+      "tensor": "blocks.12.attention.output.weight",
+      "count": 1048576,
+      "different_codes": 0,
+      "cpu_scale": 0.015623060055077076,
+      "cuda_scale": 0.01562306098639965,
+      "absolute_scale_error": 9.313225746154785e-10
+    },
+    {
+      "tensor": "blocks.12.ffn.up.weight",
+      "count": 3407872,
+      "different_codes": 0,
+      "cpu_scale": 0.015615121461451054,
+      "cuda_scale": 0.015615122392773628,
+      "absolute_scale_error": 9.313225746154785e-10
+    },
+    {
+      "tensor": "blocks.12.ffn.down.weight",
+      "count": 3407872,
+      "different_codes": 0,
+      "cpu_scale": 0.008669675327837467,
+      "cuda_scale": 0.008669676259160042,
+      "absolute_scale_error": 9.313225746154785e-10
+    },
+    {
+      "tensor": "blocks.13.attention.qkv.weight",
+      "count": 3145728,
+      "different_codes": 0,
+      "cpu_scale": 0.015623119659721851,
+      "cuda_scale": 0.015623120591044426,
+      "absolute_scale_error": 9.313225746154785e-10
+    },
+    {
+      "tensor": "blocks.13.attention.output.weight",
+      "count": 1048576,
+      "different_codes": 0,
+      "cpu_scale": 0.01562204398214817,
+      "cuda_scale": 0.015622043050825596,
+      "absolute_scale_error": 9.313225746154785e-10
+    },
+    {
+      "tensor": "blocks.13.ffn.up.weight",
+      "count": 3407872,
+      "different_codes": 0,
+      "cpu_scale": 0.01562696322798729,
+      "cuda_scale": 0.01562696322798729,
+      "absolute_scale_error": 0.0
+    },
+    {
+      "tensor": "blocks.13.ffn.down.weight",
+      "count": 3407872,
+      "different_codes": 0,
+      "cpu_scale": 0.008664602413773537,
+      "cuda_scale": 0.008664603345096111,
+      "absolute_scale_error": 9.313225746154785e-10
+    },
+    {
+      "tensor": "blocks.14.attention.qkv.weight",
+      "count": 3145728,
+      "different_codes": 0,
+      "cpu_scale": 0.015626927837729454,
+      "cuda_scale": 0.015626927837729454,
+      "absolute_scale_error": 0.0
+    },
+    {
+      "tensor": "blocks.14.attention.output.weight",
+      "count": 1048576,
+      "different_codes": 0,
+      "cpu_scale": 0.01561360526829958,
+      "cuda_scale": 0.01561360526829958,
+      "absolute_scale_error": 0.0
+    },
+    {
+      "tensor": "blocks.14.ffn.up.weight",
+      "count": 3407872,
+      "different_codes": 0,
+      "cpu_scale": 0.015620067715644836,
+      "cuda_scale": 0.015620068646967411,
+      "absolute_scale_error": 9.313225746154785e-10
+    },
+    {
+      "tensor": "blocks.14.ffn.down.weight",
+      "count": 3407872,
+      "different_codes": 0,
+      "cpu_scale": 0.008664066903293133,
+      "cuda_scale": 0.008664066903293133,
+      "absolute_scale_error": 0.0
+    },
+    {
+      "tensor": "blocks.15.attention.qkv.weight",
+      "count": 3145728,
+      "different_codes": 0,
+      "cpu_scale": 0.015630753710865974,
+      "cuda_scale": 0.015630751848220825,
+      "absolute_scale_error": 1.862645149230957e-09
+    },
+    {
+      "tensor": "blocks.15.attention.output.weight",
+      "count": 1048576,
+      "different_codes": 0,
+      "cpu_scale": 0.015613924711942673,
+      "cuda_scale": 0.015613924711942673,
+      "absolute_scale_error": 0.0
+    },
+    {
+      "tensor": "blocks.15.ffn.up.weight",
+      "count": 3407872,
+      "different_codes": 0,
+      "cpu_scale": 0.015629377216100693,
+      "cuda_scale": 0.015629377216100693,
+      "absolute_scale_error": 0.0
+    },
+    {
+      "tensor": "blocks.15.ffn.down.weight",
+      "count": 3407872,
+      "different_codes": 0,
+      "cpu_scale": 0.008665463887155056,
+      "cuda_scale": 0.008665463887155056,
+      "absolute_scale_error": 0.0
+    },
+    {
+      "tensor": "blocks.16.attention.qkv.weight",
+      "count": 3145728,
+      "different_codes": 0,
+      "cpu_scale": 0.015622726641595364,
+      "cuda_scale": 0.015622727572917938,
+      "absolute_scale_error": 9.313225746154785e-10
+    },
+    {
+      "tensor": "blocks.16.attention.output.weight",
+      "count": 1048576,
+      "different_codes": 0,
+      "cpu_scale": 0.015616847202181816,
+      "cuda_scale": 0.015616846270859241,
+      "absolute_scale_error": 9.313225746154785e-10
+    },
+    {
+      "tensor": "blocks.16.ffn.up.weight",
+      "count": 3407872,
+      "different_codes": 1,
+      "cpu_scale": 0.015625013038516045,
+      "cuda_scale": 0.015625014901161194,
+      "absolute_scale_error": 1.862645149230957e-09
+    },
+    {
+      "tensor": "blocks.16.ffn.down.weight",
+      "count": 3407872,
+      "different_codes": 0,
+      "cpu_scale": 0.00866468995809555,
+      "cuda_scale": 0.00866468995809555,
+      "absolute_scale_error": 0.0
+    },
+    {
+      "tensor": "blocks.17.attention.qkv.weight",
+      "count": 3145728,
+      "different_codes": 0,
+      "cpu_scale": 0.015629848465323448,
+      "cuda_scale": 0.015629848465323448,
+      "absolute_scale_error": 0.0
+    },
+    {
+      "tensor": "blocks.17.attention.output.weight",
+      "count": 1048576,
+      "different_codes": 0,
+      "cpu_scale": 0.01562739908695221,
+      "cuda_scale": 0.01562740094959736,
+      "absolute_scale_error": 1.862645149230957e-09
+    },
+    {
+      "tensor": "blocks.17.ffn.up.weight",
+      "count": 3407872,
+      "different_codes": 0,
+      "cpu_scale": 0.015620475634932518,
+      "cuda_scale": 0.015620476566255093,
+      "absolute_scale_error": 9.313225746154785e-10
+    },
+    {
+      "tensor": "blocks.17.ffn.down.weight",
+      "count": 3407872,
+      "different_codes": 0,
+      "cpu_scale": 0.008664223365485668,
+      "cuda_scale": 0.008664223365485668,
+      "absolute_scale_error": 0.0
+    },
+    {
+      "tensor": "blocks.18.attention.qkv.weight",
+      "count": 3145728,
+      "different_codes": 0,
+      "cpu_scale": 0.015625888481736183,
+      "cuda_scale": 0.015625890344381332,
+      "absolute_scale_error": 1.862645149230957e-09
+    },
+    {
+      "tensor": "blocks.18.attention.output.weight",
+      "count": 1048576,
+      "different_codes": 0,
+      "cpu_scale": 0.015619677491486073,
+      "cuda_scale": 0.015619677491486073,
+      "absolute_scale_error": 0.0
+    },
+    {
+      "tensor": "blocks.18.ffn.up.weight",
+      "count": 3407872,
+      "different_codes": 0,
+      "cpu_scale": 0.015622122213244438,
+      "cuda_scale": 0.015622123144567013,
+      "absolute_scale_error": 9.313225746154785e-10
+    },
+    {
+      "tensor": "blocks.18.ffn.down.weight",
+      "count": 3407872,
+      "different_codes": 0,
+      "cpu_scale": 0.008666226640343666,
+      "cuda_scale": 0.00866622757166624,
+      "absolute_scale_error": 9.313225746154785e-10
+    },
+    {
+      "tensor": "blocks.19.attention.qkv.weight",
+      "count": 3145728,
+      "different_codes": 0,
+      "cpu_scale": 0.01562674157321453,
+      "cuda_scale": 0.01562674343585968,
+      "absolute_scale_error": 1.862645149230957e-09
+    },
+    {
+      "tensor": "blocks.19.attention.output.weight",
+      "count": 1048576,
+      "different_codes": 0,
+      "cpu_scale": 0.015624076128005981,
+      "cuda_scale": 0.015624076128005981,
+      "absolute_scale_error": 0.0
+    },
+    {
+      "tensor": "blocks.19.ffn.up.weight",
+      "count": 3407872,
+      "different_codes": 0,
+      "cpu_scale": 0.0156210046261549,
+      "cuda_scale": 0.01562100276350975,
+      "absolute_scale_error": 1.862645149230957e-09
+    },
+    {
+      "tensor": "blocks.19.ffn.down.weight",
+      "count": 3407872,
+      "different_codes": 0,
+      "cpu_scale": 0.008664783090353012,
+      "cuda_scale": 0.008664782159030437,
+      "absolute_scale_error": 9.313225746154785e-10
+    },
+    {
+      "tensor": "blocks.20.attention.qkv.weight",
+      "count": 3145728,
+      "different_codes": 0,
+      "cpu_scale": 0.015624456107616425,
+      "cuda_scale": 0.015624457970261574,
+      "absolute_scale_error": 1.862645149230957e-09
+    },
+    {
+      "tensor": "blocks.20.attention.output.weight",
+      "count": 1048576,
+      "different_codes": 0,
+      "cpu_scale": 0.01562880352139473,
+      "cuda_scale": 0.01562880538403988,
+      "absolute_scale_error": 1.862645149230957e-09
+    },
+    {
+      "tensor": "blocks.20.ffn.up.weight",
+      "count": 3407872,
+      "different_codes": 0,
+      "cpu_scale": 0.015634682029485703,
+      "cuda_scale": 0.015634682029485703,
+      "absolute_scale_error": 0.0
+    },
+    {
+      "tensor": "blocks.20.ffn.down.weight",
+      "count": 3407872,
+      "different_codes": 0,
+      "cpu_scale": 0.008667131885886192,
+      "cuda_scale": 0.008667132817208767,
+      "absolute_scale_error": 9.313225746154785e-10
+    },
+    {
+      "tensor": "blocks.21.attention.qkv.weight",
+      "count": 3145728,
+      "different_codes": 0,
+      "cpu_scale": 0.015620134770870209,
+      "cuda_scale": 0.015620136633515358,
+      "absolute_scale_error": 1.862645149230957e-09
+    },
+    {
+      "tensor": "blocks.21.attention.output.weight",
+      "count": 1048576,
+      "different_codes": 0,
+      "cpu_scale": 0.01561534870415926,
+      "cuda_scale": 0.015615347772836685,
+      "absolute_scale_error": 9.313225746154785e-10
+    },
+    {
+      "tensor": "blocks.21.ffn.up.weight",
+      "count": 3407872,
+      "different_codes": 0,
+      "cpu_scale": 0.015619450248777866,
+      "cuda_scale": 0.015619450248777866,
+      "absolute_scale_error": 0.0
+    },
+    {
+      "tensor": "blocks.21.ffn.down.weight",
+      "count": 3407872,
+      "different_codes": 0,
+      "cpu_scale": 0.008669554255902767,
+      "cuda_scale": 0.008669555187225342,
+      "absolute_scale_error": 9.313225746154785e-10
+    },
+    {
+      "tensor": "blocks.22.attention.qkv.weight",
+      "count": 3145728,
+      "different_codes": 0,
+      "cpu_scale": 0.01562757045030594,
+      "cuda_scale": 0.01562757045030594,
+      "absolute_scale_error": 0.0
+    },
+    {
+      "tensor": "blocks.22.attention.output.weight",
+      "count": 1048576,
+      "different_codes": 0,
+      "cpu_scale": 0.015618082135915756,
+      "cuda_scale": 0.015618081204593182,
+      "absolute_scale_error": 9.313225746154785e-10
+    },
+    {
+      "tensor": "blocks.22.ffn.up.weight",
+      "count": 3407872,
+      "different_codes": 0,
+      "cpu_scale": 0.015625115483999252,
+      "cuda_scale": 0.015625113621354103,
+      "absolute_scale_error": 1.862645149230957e-09
+    },
+    {
+      "tensor": "blocks.22.ffn.down.weight",
+      "count": 3407872,
+      "different_codes": 0,
+      "cpu_scale": 0.008667162619531155,
+      "cuda_scale": 0.00866716355085373,
+      "absolute_scale_error": 9.313225746154785e-10
+    },
+    {
+      "tensor": "blocks.23.attention.qkv.weight",
+      "count": 3145728,
+      "different_codes": 0,
+      "cpu_scale": 0.015621335245668888,
+      "cuda_scale": 0.015621336176991463,
+      "absolute_scale_error": 9.313225746154785e-10
+    },
+    {
+      "tensor": "blocks.23.attention.output.weight",
+      "count": 1048576,
+      "different_codes": 0,
+      "cpu_scale": 0.015614138916134834,
+      "cuda_scale": 0.015614137053489685,
+      "absolute_scale_error": 1.862645149230957e-09
+    },
+    {
+      "tensor": "blocks.23.ffn.up.weight",
+      "count": 3407872,
+      "different_codes": 0,
+      "cpu_scale": 0.015623093582689762,
+      "cuda_scale": 0.015623095445334911,
+      "absolute_scale_error": 1.862645149230957e-09
+    },
+    {
+      "tensor": "blocks.23.ffn.down.weight",
+      "count": 3407872,
+      "different_codes": 0,
+      "cpu_scale": 0.008667489513754845,
+      "cuda_scale": 0.00866749044507742,
+      "absolute_scale_error": 9.313225746154785e-10
+    }
+  ],
+  "total_different_codes": 2,
+  "max_absolute_scale_error": 1.862645149230957e-09
+}

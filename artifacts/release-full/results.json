@@ -1,0 +1,252 @@
+{
+  "seed": 300,
+  "training": "random initialization; zero training updates",
+  "python": "3.13.7",
+  "torch": "2.7.1+cu118",
+  "cuda": "11.8",
+  "threads": 4,
+  "config": {
+    "vocab_size": 32000,
+    "max_seq_len": 2048,
+    "d_model": 1024,
+    "n_heads": 16,
+    "n_layers": 24,
+    "d_ff": 3328,
+    "norm_eps": 1e-06,
+    "projection_backend": "ternary"
+  },
+  "stages": [
+    {
+      "stage": "real_construction",
+      "parameters": 297059328,
+      "seconds": 1.2772485999739729,
+      "cpu_memory": {
+        "rss_bytes": 1814847488,
+        "lifetime_peak_rss_bytes": 1814855680,
+        "private_commit_bytes": 3081617408
+      }
+    },
+    {
+      "stage": "cpu_forward",
+      "parameters": 297059328,
+      "device": "cpu",
+      "precision": "fp32",
+      "projection_backend": "ternary",
+      "sdpa": true,
+      "batch_size": 1,
+      "sequence_length": 8,
+      "warmup": 1,
+      "repeats": 3,
+      "latency_seconds": [
+        0.5265661000157706,
+        0.5844372999854386,
+        0.5511845000437461
+      ],
+      "median_latency_seconds": 0.5511845000437461,
+      "output_shape": [
+        1,
+        8,
+        32000
+      ],
+      "finite_logits": true,
+      "forward_cuda_peak": null,
+      "cpu_memory": {
+        "rss_bytes": 1895497728,
+        "lifetime_peak_rss_bytes": 1895514112,
+        "private_commit_bytes": 3174727680
+      },
+      "generation": {
+        "text": "The \ufffd\ufffd",
+        "token_ids": [
+          84,
+          104,
+          101,
+          32,
+          198,
+          198
+        ],
+        "generated_tokens": 2,
+        "seconds": 1.0494637000374496,
+        "tokens_per_second": 1.9057352816763753,
+        "seed": 42,
+        "precision": "fp32",
+        "byte_only_sampling": true
+      }
+    },
+    {
+      "stage": "cuda_forward",
+      "parameters": 297059328,
+      "device": "cuda:0",
+      "precision": "fp32",
+      "projection_backend": "ternary",
+      "sdpa": true,
+      "batch_size": 1,
+      "sequence_length": 8,
+      "warmup": 2,
+      "repeats": 5,
+      "latency_seconds": [
+        0.051227200019638985,
+        0.05100879998644814,
+        0.04838319995906204,
+        0.049473000050056726,
+        0.049812100012786686
+      ],
+      "median_latency_seconds": 0.049812100012786686,
+      "output_shape": [
+        1,
+        8,
+        32000
+      ],
+      "finite_logits": true,
+      "forward_cuda_peak": {
+        "allocated_bytes": 1442173952,
+        "reserved_bytes": 1495269376
+      },
+      "cpu_memory": {
+        "rss_bytes": 2130378752,
+        "lifetime_peak_rss_bytes": 2130763776,
+        "private_commit_bytes": 5050552320
+      },
+      "generation": {
+        "text": "The \ufffd\ufffd",
+        "token_ids": [
+          84,
+          104,
+          101,
+          32,
+          198,
+          198
+        ],
+        "generated_tokens": 2,
+        "seconds": 0.10563150001689792,
+        "tokens_per_second": 18.933746085969233,
+        "seed": 42,
+        "precision": "fp32",
+        "byte_only_sampling": true
+      }
+    },
+    {
+      "stage": "cuda_forward",
+      "parameters": 297059328,
+      "device": "cuda:0",
+      "precision": "bf16",
+      "projection_backend": "ternary",
+      "sdpa": true,
+      "batch_size": 1,
+      "sequence_length": 8,
+      "warmup": 2,
+      "repeats": 5,
+      "latency_seconds": [
+        0.04988589999265969,
+        0.05106639995938167,
+        0.05123809998622164,
+        0.0512371999793686,
+        0.05026020004879683
+      ],
+      "median_latency_seconds": 0.05106639995938167,
+      "output_shape": [
+        1,
+        8,
+        32000
+      ],
+      "finite_logits": true,
+      "forward_cuda_peak": {
+        "allocated_bytes": 1448866304,
+        "reserved_bytes": 1562378240
+      },
+      "cpu_memory": {
+        "rss_bytes": 2210861056,
+        "lifetime_peak_rss_bytes": 2218774528,
+        "private_commit_bytes": 5227638784
+      },
+      "generation": {
+        "text": "The \ufffd\ufffd",
+        "token_ids": [
+          84,
+          104,
+          101,
+          32,
+          198,
+          198
+        ],
+        "generated_tokens": 2,
+        "seconds": 0.10674099996685982,
+        "tokens_per_second": 18.736942698878085,
+        "seed": 42,
+        "precision": "bf16",
+        "byte_only_sampling": true
+      }
+    },
+    {
+      "stage": "dense_export",
+      "bytes": 1188291675,
+      "seconds": 0.8091449999483302,
+      "cpu_memory": {
+        "rss_bytes": 2448097280,
+        "lifetime_peak_rss_bytes": 2448097280,
+        "private_commit_bytes": 3961446400
+      }
+    },
+    {
+      "stage": "packed_export",
+      "bytes": 197365045,
+      "seconds": 3.5803498000022955,
+      "sha256": "c45716f5574bac9990dde484df232dee50a56101f015341750b0724380529192",
+      "eligible_parameters": 264241152,
+      "compression_ratio": 6.020780807462638,
+      "cpu_memory": {
+        "rss_bytes": 2633588736,
+        "lifetime_peak_rss_bytes": 3423817728,
+        "private_commit_bytes": 3884707840
+      }
+    },
+    {
+      "stage": "failed",
+      "cpu_memory": {
+        "rss_bytes": 2871881728,
+        "lifetime_peak_rss_bytes": 3439083520,
+        "private_commit_bytes": 3930357760
+      }
+    }
+  ],
+  "errors": [
+    {
+      "stage": "fatal",
+      "type": "RuntimeError",
+      "error": "host preflight rejected 4752949248 bytes; available=6683348992"
+    }
+  ],
+  "disk_preflight": {
+    "free_bytes": 274000543744,
+    "required_bytes": 2147483648,
+    "reserve_bytes": 1073741824
+  },
+  "cpu_preflight": {
+    "host": {
+      "required_bytes": 4752949248,
+      "available_bytes": 9670893568,
+      "fraction_limit": 0.65
+    }
+  },
+  "gpu": "NVIDIA GeForce RTX 4060 Laptop GPU",
+  "cuda_preflight": {
+    "host": {
+      "required_bytes": 4752949248,
+      "available_bytes": 9655328768,
+      "fraction_limit": 0.65
+    },
+    "cuda": {
+      "parameters": 297059328,
+      "fp32_weights_bytes": 1188237312,
+      "training_budget_bytes": 5930385408,
+      "inference_budget_bytes": 2365673472,
+      "kind": "conservative estimate; allocator and kernel dependent",
+      "free_bytes": 7451181056,
+      "total_bytes": 8585216000,
+      "allowed_bytes": 5215826739,
+      "training_allowed": false,
+      "inference_allowed": true
+    }
+  },
+  "completed": false
+}

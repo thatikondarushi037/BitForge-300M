@@ -1,0 +1,592 @@
+{
+  "packed_bytes": 540722,
+  "dense_reconstructed_bytes": 5520487,
+  "compression_ratio": 10.20947362970251,
+  "rows": [
+    {
+      "path": "artifacts\\release-demo-storage\\dense-reconstructed.pt",
+      "checkpoint_type": "dense",
+      "metadata": {
+        "checkpoint_type": "dense",
+        "source_config": {
+          "vocab_size": 259,
+          "max_seq_len": 64,
+          "d_model": 192,
+          "n_heads": 6,
+          "n_layers": 3,
+          "d_ff": 768,
+          "norm_eps": 1e-06,
+          "projection_backend": "fp32"
+        },
+        "training": "600 updates on offline CC0 synthetic corpus, seed 42; frozen CUDA-quantized reference",
+        "integrity": "weights_only load, strict shapes/dtypes and finite tensors; no embedded checksum",
+        "parameters": 1378176,
+        "device": "cpu",
+        "checkpoint_bytes": 5520487,
+        "load_seconds": 0.11050549999345094,
+        "runtime": "dense floating-point tensors; no native ternary kernels",
+        "cpu_memory": {
+          "rss_bytes": 470925312,
+          "lifetime_peak_rss_bytes": 1180192768,
+          "private_commit_bytes": 1191825408
+        }
+      },
+      "load_cuda_peak": null,
+      "max_absolute_error_vs_cpu_fp32": 0.0,
+      "benchmark": {
+        "parameters": 1378176,
+        "device": "cpu",
+        "precision": "fp32",
+        "projection_backend": "fp32",
+        "sdpa": true,
+        "batch_size": 1,
+        "sequence_length": 64,
+        "warmup": 2,
+        "repeats": 5,
+        "latency_seconds": [
+          0.0024228999973274767,
+          0.0026638999697752297,
+          0.00262529996689409,
+          0.002669600013177842,
+          0.002725200029090047
+        ],
+        "median_latency_seconds": 0.0026638999697752297,
+        "output_shape": [
+          1,
+          64,
+          259
+        ],
+        "finite_logits": true,
+        "forward_cuda_peak": null,
+        "cpu_memory": {
+          "rss_bytes": 463712256,
+          "lifetime_peak_rss_bytes": 1180192768,
+          "private_commit_bytes": 1179938816
+        },
+        "generation": {
+          "text": "The re re re re re r",
+          "token_ids": [
+            84,
+            104,
+            101,
+            32,
+            114,
+            101,
+            32,
+            114,
+            101,
+            32,
+            114,
+            101,
+            32,
+            114,
+            101,
+            32,
+            114,
+            101,
+            32,
+            114
+          ],
+          "generated_tokens": 16,
+          "seconds": 0.02961860003415495,
+          "tokens_per_second": 540.2010892327611,
+          "seed": 42,
+          "precision": "fp32",
+          "byte_only_sampling": true
+        }
+      }
+    },
+    {
+      "path": "artifacts\\release-demo-storage\\dense-reconstructed.pt",
+      "checkpoint_type": "dense",
+      "metadata": {
+        "checkpoint_type": "dense",
+        "source_config": {
+          "vocab_size": 259,
+          "max_seq_len": 64,
+          "d_model": 192,
+          "n_heads": 6,
+          "n_layers": 3,
+          "d_ff": 768,
+          "norm_eps": 1e-06,
+          "projection_backend": "fp32"
+        },
+        "training": "600 updates on offline CC0 synthetic corpus, seed 42; frozen CUDA-quantized reference",
+        "integrity": "weights_only load, strict shapes/dtypes and finite tensors; no embedded checksum",
+        "parameters": 1378176,
+        "device": "cuda",
+        "checkpoint_bytes": 5520487,
+        "load_seconds": 0.19140589999733493,
+        "runtime": "dense floating-point tensors; no native ternary kernels",
+        "cpu_memory": {
+          "rss_bytes": 561958912,
+          "lifetime_peak_rss_bytes": 1180192768,
+          "private_commit_bytes": 1377771520
+        }
+      },
+      "load_cuda_peak": {
+        "allocated_bytes": 5576192,
+        "reserved_bytes": 6291456
+      },
+      "max_absolute_error_vs_cpu_fp32": 6.67572021484375e-06,
+      "benchmark": {
+        "parameters": 1378176,
+        "device": "cuda:0",
+        "precision": "fp32",
+        "projection_backend": "fp32",
+        "sdpa": true,
+        "batch_size": 1,
+        "sequence_length": 64,
+        "warmup": 2,
+        "repeats": 5,
+        "latency_seconds": [
+          0.002483599993865937,
+          0.002667299995664507,
+          0.0031879000016488135,
+          0.002795299980789423,
+          0.0025591999874450266
+        ],
+        "median_latency_seconds": 0.002667299995664507,
+        "output_shape": [
+          1,
+          64,
+          259
+        ],
+        "finite_logits": true,
+        "forward_cuda_peak": {
+          "allocated_bytes": 14703616,
+          "reserved_bytes": 29360128
+        },
+        "cpu_memory": {
+          "rss_bytes": 768045056,
+          "lifetime_peak_rss_bytes": 1180192768,
+          "private_commit_bytes": 1728012288
+        },
+        "generation": {
+          "text": "The re re re re re r",
+          "token_ids": [
+            84,
+            104,
+            101,
+            32,
+            114,
+            101,
+            32,
+            114,
+            101,
+            32,
+            114,
+            101,
+            32,
+            114,
+            101,
+            32,
+            114,
+            101,
+            32,
+            114
+          ],
+          "generated_tokens": 16,
+          "seconds": 0.051333699957467616,
+          "tokens_per_second": 311.6860856173771,
+          "seed": 42,
+          "precision": "fp32",
+          "byte_only_sampling": true
+        }
+      }
+    },
+    {
+      "path": "artifacts\\release-demo-storage\\dense-reconstructed.pt",
+      "checkpoint_type": "dense",
+      "metadata": {
+        "checkpoint_type": "dense",
+        "source_config": {
+          "vocab_size": 259,
+          "max_seq_len": 64,
+          "d_model": 192,
+          "n_heads": 6,
+          "n_layers": 3,
+          "d_ff": 768,
+          "norm_eps": 1e-06,
+          "projection_backend": "fp32"
+        },
+        "training": "600 updates on offline CC0 synthetic corpus, seed 42; frozen CUDA-quantized reference",
+        "integrity": "weights_only load, strict shapes/dtypes and finite tensors; no embedded checksum",
+        "parameters": 1378176,
+        "device": "cuda",
+        "checkpoint_bytes": 5520487,
+        "load_seconds": 0.11919999995734543,
+        "runtime": "dense floating-point tensors; no native ternary kernels",
+        "cpu_memory": {
+          "rss_bytes": 765050880,
+          "lifetime_peak_rss_bytes": 1180192768,
+          "private_commit_bytes": 1724018688
+        }
+      },
+      "load_cuda_peak": {
+        "allocated_bytes": 14095872,
+        "reserved_bytes": 27262976
+      },
+      "max_absolute_error_vs_cpu_fp32": 0.03923320770263672,
+      "benchmark": {
+        "parameters": 1378176,
+        "device": "cuda:0",
+        "precision": "bf16",
+        "projection_backend": "fp32",
+        "sdpa": true,
+        "batch_size": 1,
+        "sequence_length": 64,
+        "warmup": 2,
+        "repeats": 5,
+        "latency_seconds": [
+          0.007809000031556934,
+          0.0026780000189319253,
+          0.0028663999983109534,
+          0.007495900033973157,
+          0.006577200023457408
+        ],
+        "median_latency_seconds": 0.006577200023457408,
+        "output_shape": [
+          1,
+          64,
+          259
+        ],
+        "finite_logits": true,
+        "forward_cuda_peak": {
+          "allocated_bytes": 14694912,
+          "reserved_bytes": 29360128
+        },
+        "cpu_memory": {
+          "rss_bytes": 839749632,
+          "lifetime_peak_rss_bytes": 1180192768,
+          "private_commit_bytes": 1819099136
+        },
+        "generation": {
+          "text": "The re re re re re r",
+          "token_ids": [
+            84,
+            104,
+            101,
+            32,
+            114,
+            101,
+            32,
+            114,
+            101,
+            32,
+            114,
+            101,
+            32,
+            114,
+            101,
+            32,
+            114,
+            101,
+            32,
+            114
+          ],
+          "generated_tokens": 16,
+          "seconds": 0.06016390002332628,
+          "tokens_per_second": 265.9402065656748,
+          "seed": 42,
+          "precision": "bf16",
+          "byte_only_sampling": true
+        }
+      }
+    },
+    {
+      "path": "artifacts\\release-demo-final\\demo.bft",
+      "checkpoint_type": "packed",
+      "metadata": {
+        "checkpoint_type": "packed",
+        "source_config": {
+          "d_ff": 768,
+          "d_model": 192,
+          "max_seq_len": 64,
+          "n_heads": 6,
+          "n_layers": 3,
+          "norm_eps": 1e-06,
+          "projection_backend": "ternary_ls",
+          "vocab_size": 259
+        },
+        "source_quantization_device": "cuda:0",
+        "training": "not encoded in packed v1/v2; consult experiment provenance",
+        "integrity": "container and per-tensor SHA-256 verified",
+        "parameters": 1378176,
+        "device": "cpu",
+        "checkpoint_bytes": 540722,
+        "load_seconds": 0.1578511000261642,
+        "runtime": "dense floating-point tensors; no native ternary kernels",
+        "cpu_memory": {
+          "rss_bytes": 850116608,
+          "lifetime_peak_rss_bytes": 1645285376,
+          "private_commit_bytes": 1836376064
+        }
+      },
+      "load_cuda_peak": null,
+      "max_absolute_error_vs_cpu_fp32": 0.0,
+      "benchmark": {
+        "parameters": 1378176,
+        "device": "cpu",
+        "precision": "fp32",
+        "projection_backend": "fp32",
+        "sdpa": true,
+        "batch_size": 1,
+        "sequence_length": 64,
+        "warmup": 2,
+        "repeats": 5,
+        "latency_seconds": [
+          0.0028699999675154686,
+          0.003652699990198016,
+          0.0033058999688364565,
+          0.003125999995972961,
+          0.00443289999384433
+        ],
+        "median_latency_seconds": 0.0033058999688364565,
+        "output_shape": [
+          1,
+          64,
+          259
+        ],
+        "finite_logits": true,
+        "forward_cuda_peak": null,
+        "cpu_memory": {
+          "rss_bytes": 850628608,
+          "lifetime_peak_rss_bytes": 1645285376,
+          "private_commit_bytes": 1837744128
+        },
+        "generation": {
+          "text": "The re re re re re r",
+          "token_ids": [
+            84,
+            104,
+            101,
+            32,
+            114,
+            101,
+            32,
+            114,
+            101,
+            32,
+            114,
+            101,
+            32,
+            114,
+            101,
+            32,
+            114,
+            101,
+            32,
+            114
+          ],
+          "generated_tokens": 16,
+          "seconds": 0.029072900011669844,
+          "tokens_per_second": 550.3406950657695,
+          "seed": 42,
+          "precision": "fp32",
+          "byte_only_sampling": true
+        }
+      }
+    },
+    {
+      "path": "artifacts\\release-demo-final\\demo.bft",
+      "checkpoint_type": "packed",
+      "metadata": {
+        "checkpoint_type": "packed",
+        "source_config": {
+          "d_ff": 768,
+          "d_model": 192,
+          "max_seq_len": 64,
+          "n_heads": 6,
+          "n_layers": 3,
+          "norm_eps": 1e-06,
+          "projection_backend": "ternary_ls",
+          "vocab_size": 259
+        },
+        "source_quantization_device": "cuda:0",
+        "training": "not encoded in packed v1/v2; consult experiment provenance",
+        "integrity": "container and per-tensor SHA-256 verified",
+        "parameters": 1378176,
+        "device": "cuda",
+        "checkpoint_bytes": 540722,
+        "load_seconds": 0.15457650000462309,
+        "runtime": "dense floating-point tensors; no native ternary kernels",
+        "cpu_memory": {
+          "rss_bytes": 852738048,
+          "lifetime_peak_rss_bytes": 1655947264,
+          "private_commit_bytes": 1836736512
+        }
+      },
+      "load_cuda_peak": {
+        "allocated_bytes": 14095872,
+        "reserved_bytes": 27262976
+      },
+      "max_absolute_error_vs_cpu_fp32": 6.67572021484375e-06,
+      "benchmark": {
+        "parameters": 1378176,
+        "device": "cuda:0",
+        "precision": "fp32",
+        "projection_backend": "fp32",
+        "sdpa": true,
+        "batch_size": 1,
+        "sequence_length": 64,
+        "warmup": 2,
+        "repeats": 5,
+        "latency_seconds": [
+          0.001938300032634288,
+          0.0022361999726854265,
+          0.002579700027126819,
+          0.0024048000341281295,
+          0.0025292999926023185
+        ],
+        "median_latency_seconds": 0.0024048000341281295,
+        "output_shape": [
+          1,
+          64,
+          259
+        ],
+        "finite_logits": true,
+        "forward_cuda_peak": {
+          "allocated_bytes": 14703616,
+          "reserved_bytes": 29360128
+        },
+        "cpu_memory": {
+          "rss_bytes": 852791296,
+          "lifetime_peak_rss_bytes": 1655947264,
+          "private_commit_bytes": 1836769280
+        },
+        "generation": {
+          "text": "The re re re re re r",
+          "token_ids": [
+            84,
+            104,
+            101,
+            32,
+            114,
+            101,
+            32,
+            114,
+            101,
+            32,
+            114,
+            101,
+            32,
+            114,
+            101,
+            32,
+            114,
+            101,
+            32,
+            114
+          ],
+          "generated_tokens": 16,
+          "seconds": 0.04189689998747781,
+          "tokens_per_second": 381.8898296719351,
+          "seed": 42,
+          "precision": "fp32",
+          "byte_only_sampling": true
+        }
+      }
+    },
+    {
+      "path": "artifacts\\release-demo-final\\demo.bft",
+      "checkpoint_type": "packed",
+      "metadata": {
+        "checkpoint_type": "packed",
+        "source_config": {
+          "d_ff": 768,
+          "d_model": 192,
+          "max_seq_len": 64,
+          "n_heads": 6,
+          "n_layers": 3,
+          "norm_eps": 1e-06,
+          "projection_backend": "ternary_ls",
+          "vocab_size": 259
+        },
+        "source_quantization_device": "cuda:0",
+        "training": "not encoded in packed v1/v2; consult experiment provenance",
+        "integrity": "container and per-tensor SHA-256 verified",
+        "parameters": 1378176,
+        "device": "cuda",
+        "checkpoint_bytes": 540722,
+        "load_seconds": 0.14979090000269935,
+        "runtime": "dense floating-point tensors; no native ternary kernels",
+        "cpu_memory": {
+          "rss_bytes": 849059840,
+          "lifetime_peak_rss_bytes": 1658097664,
+          "private_commit_bytes": 1836212224
+        }
+      },
+      "load_cuda_peak": {
+        "allocated_bytes": 14095872,
+        "reserved_bytes": 27262976
+      },
+      "max_absolute_error_vs_cpu_fp32": 0.03923320770263672,
+      "benchmark": {
+        "parameters": 1378176,
+        "device": "cuda:0",
+        "precision": "bf16",
+        "projection_backend": "fp32",
+        "sdpa": true,
+        "batch_size": 1,
+        "sequence_length": 64,
+        "warmup": 2,
+        "repeats": 5,
+        "latency_seconds": [
+          0.0029746000072918832,
+          0.0026350999833084643,
+          0.0024151000543497503,
+          0.0028568999841809273,
+          0.0024630000116303563
+        ],
+        "median_latency_seconds": 0.0026350999833084643,
+        "output_shape": [
+          1,
+          64,
+          259
+        ],
+        "finite_logits": true,
+        "forward_cuda_peak": {
+          "allocated_bytes": 14694912,
+          "reserved_bytes": 29360128
+        },
+        "cpu_memory": {
+          "rss_bytes": 849063936,
+          "lifetime_peak_rss_bytes": 1658097664,
+          "private_commit_bytes": 1836212224
+        },
+        "generation": {
+          "text": "The re re re re re r",
+          "token_ids": [
+            84,
+            104,
+            101,
+            32,
+            114,
+            101,
+            32,
+            114,
+            101,
+            32,
+            114,
+            101,
+            32,
+            114,
+            101,
+            32,
+            114,
+            101,
+            32,
+            114
+          ],
+          "generated_tokens": 16,
+          "seconds": 0.05995409999741241,
+          "tokens_per_second": 266.87082285766195,
+          "seed": 42,
+          "precision": "bf16",
+          "byte_only_sampling": true
+        }
+      }
+    }
+  ]
+}

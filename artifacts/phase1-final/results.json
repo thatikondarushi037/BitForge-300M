@@ -1,0 +1,377 @@
+{
+  "torch": "2.7.1+cu118",
+  "cuda": "11.8",
+  "gpu": "NVIDIA GeForce RTX 4060 Laptop GPU",
+  "corpus": {
+    "path": "data\\engineering_corpus.txt",
+    "bytes": 263537,
+    "sha256": "e9d99fa6fe88b266989f61793b3bedd1c61a8dd398b5cb45ac2df1a58f1a6942",
+    "requested_validation_fraction": 0.2,
+    "split_byte_offset": 210835,
+    "train_tokens": 210835,
+    "validation_tokens": 52702,
+    "train_sha256": "7aa9228572ceabc7e1645c998c331476657951c02a1fa4543e4824922fc64f0a",
+    "validation_sha256": "ed14b7903ac09c87db6b08ff4fa657284ba2d9635cfda58f6725e280f7dfc0c8"
+  },
+  "steps": 100,
+  "config": {
+    "vocab_size": 259,
+    "max_seq_len": 64,
+    "d_model": 192,
+    "n_heads": 6,
+    "n_layers": 3,
+    "d_ff": 768,
+    "norm_eps": 1e-06,
+    "projection_backend": "ternary"
+  },
+  "target_architecture": {
+    "config": {
+      "vocab_size": 32000,
+      "max_seq_len": 2048,
+      "d_model": 1024,
+      "n_heads": 16,
+      "n_layers": 24,
+      "d_ff": 3328,
+      "norm_eps": 1e-06,
+      "projection_backend": "ternary"
+    },
+    "actual_meta_parameters": 297059328,
+    "preflight_context_2048": {
+      "parameters": 297059328,
+      "fp32_weights_bytes": 1188237312,
+      "training_budget_bytes": 24350834688,
+      "inference_budget_bytes": 20786122752,
+      "kind": "conservative estimate; allocator and kernel dependent",
+      "free_bytes": 7451181056,
+      "total_bytes": 8585216000,
+      "allowed_bytes": 5215826739,
+      "training_allowed": false
+    },
+    "preflight_context_64": {
+      "parameters": 297059328,
+      "fp32_weights_bytes": 1188237312,
+      "training_budget_bytes": 6094733312,
+      "inference_budget_bytes": 2530021376,
+      "kind": "conservative estimate; allocator and kernel dependent",
+      "free_bytes": 7451181056,
+      "total_bytes": 8585216000,
+      "allowed_bytes": 5215826739,
+      "training_allowed": false
+    }
+  },
+  "small_preflight": {
+    "parameters": 1378176,
+    "fp32_weights_bytes": 5512704,
+    "training_budget_bytes": 1118736384,
+    "inference_budget_bytes": 1102198272,
+    "kind": "conservative estimate; allocator and kernel dependent",
+    "free_bytes": 7451181056,
+    "total_bytes": 8585216000,
+    "allowed_bytes": 5215826739,
+    "training_allowed": true
+  },
+  "qat": [
+    {
+      "seed": 42,
+      "backend": "fp32",
+      "parameters": 1378176,
+      "initial_validation": {
+        "loss": 5.507640940611784,
+        "perplexity": 246.5687700584675,
+        "tokens": 52701
+      },
+      "validation": {
+        "loss": 3.028110470202401,
+        "perplexity": 20.6581614763249,
+        "tokens": 52701
+      },
+      "seconds": 3.8000590999727137,
+      "loss_first": 5.527129173278809,
+      "loss_last": 2.9812424182891846,
+      "loss_min": 2.9338130950927734,
+      "loss_max": 5.527129173278809,
+      "max_gradient_norm_before_clip": 3.4833409786224365,
+      "finite_steps": 100,
+      "peak_allocated_bytes": 98954752,
+      "peak_reserved_bytes": 121634816
+    },
+    {
+      "seed": 42,
+      "backend": "ternary",
+      "parameters": 1378176,
+      "initial_validation": {
+        "loss": 5.484697335657749,
+        "perplexity": 240.9759981175573,
+        "tokens": 52701
+      },
+      "validation": {
+        "loss": 3.0286500108904573,
+        "perplexity": 20.66931040236097,
+        "tokens": 52701
+      },
+      "seconds": 4.703798200003803,
+      "loss_first": 5.495232105255127,
+      "loss_last": 2.9805543422698975,
+      "loss_min": 2.9335899353027344,
+      "loss_max": 5.495232105255127,
+      "max_gradient_norm_before_clip": 3.2372560501098633,
+      "finite_steps": 100,
+      "peak_allocated_bytes": 102604288,
+      "peak_reserved_bytes": 127926272
+    },
+    {
+      "seed": 42,
+      "backend": "ternary_ls",
+      "parameters": 1378176,
+      "initial_validation": {
+        "loss": 5.529376715460696,
+        "perplexity": 251.9868025888075,
+        "tokens": 52701
+      },
+      "validation": {
+        "loss": 3.0281760881201407,
+        "perplexity": 20.65951706634032,
+        "tokens": 52701
+      },
+      "seconds": 9.643031699990388,
+      "loss_first": 5.538452625274658,
+      "loss_last": 2.980526924133301,
+      "loss_min": 2.9347448348999023,
+      "loss_max": 5.538452625274658,
+      "max_gradient_norm_before_clip": 3.4359025955200195,
+      "finite_steps": 100,
+      "peak_allocated_bytes": 102604288,
+      "peak_reserved_bytes": 127926272
+    },
+    {
+      "seed": 43,
+      "backend": "fp32",
+      "parameters": 1378176,
+      "initial_validation": {
+        "loss": 5.528942521682797,
+        "perplexity": 251.87741523638323,
+        "tokens": 52701
+      },
+      "validation": {
+        "loss": 3.034035289254316,
+        "perplexity": 20.780920648853485,
+        "tokens": 52701
+      },
+      "seconds": 3.909156800014898,
+      "loss_first": 5.558376789093018,
+      "loss_last": 3.029493808746338,
+      "loss_min": 2.9413721561431885,
+      "loss_max": 5.558376789093018,
+      "max_gradient_norm_before_clip": 3.8215596675872803,
+      "finite_steps": 100,
+      "peak_allocated_bytes": 99154432,
+      "peak_reserved_bytes": 121634816
+    },
+    {
+      "seed": 43,
+      "backend": "ternary",
+      "parameters": 1378176,
+      "initial_validation": {
+        "loss": 5.509635037144063,
+        "perplexity": 247.06094254444275,
+        "tokens": 52701
+      },
+      "validation": {
+        "loss": 3.0341385234268823,
+        "perplexity": 20.78306606073984,
+        "tokens": 52701
+      },
+      "seconds": 4.270475499972235,
+      "loss_first": 5.535850524902344,
+      "loss_last": 3.0300486087799072,
+      "loss_min": 2.9391419887542725,
+      "loss_max": 5.535850524902344,
+      "max_gradient_norm_before_clip": 3.4840235710144043,
+      "finite_steps": 100,
+      "peak_allocated_bytes": 102803968,
+      "peak_reserved_bytes": 127926272
+    },
+    {
+      "seed": 43,
+      "backend": "ternary_ls",
+      "parameters": 1378176,
+      "initial_validation": {
+        "loss": 5.510540680338727,
+        "perplexity": 247.2847929547258,
+        "tokens": 52701
+      },
+      "validation": {
+        "loss": 3.033879690198699,
+        "perplexity": 20.777687408776746,
+        "tokens": 52701
+      },
+      "seconds": 8.664698500011582,
+      "loss_first": 5.540980815887451,
+      "loss_last": 3.0291390419006348,
+      "loss_min": 2.9403557777404785,
+      "loss_max": 5.540980815887451,
+      "max_gradient_norm_before_clip": 3.723924398422241,
+      "finite_steps": 100,
+      "peak_allocated_bytes": 102803968,
+      "peak_reserved_bytes": 127926272
+    },
+    {
+      "seed": 44,
+      "backend": "fp32",
+      "parameters": 1378176,
+      "initial_validation": {
+        "loss": 5.653909429558603,
+        "perplexity": 285.40505862165924,
+        "tokens": 52701
+      },
+      "validation": {
+        "loss": 3.037956235476688,
+        "perplexity": 20.862561471211784,
+        "tokens": 52701
+      },
+      "seconds": 3.5961882999981754,
+      "loss_first": 5.6434526443481445,
+      "loss_last": 3.0641300678253174,
+      "loss_min": 2.925032377243042,
+      "loss_max": 5.6434526443481445,
+      "max_gradient_norm_before_clip": 3.468945026397705,
+      "finite_steps": 100,
+      "peak_allocated_bytes": 99154432,
+      "peak_reserved_bytes": 121634816
+    },
+    {
+      "seed": 44,
+      "backend": "ternary",
+      "parameters": 1378176,
+      "initial_validation": {
+        "loss": 5.6468797267762465,
+        "perplexity": 283.40578128284096,
+        "tokens": 52701
+      },
+      "validation": {
+        "loss": 3.0373769956183287,
+        "perplexity": 20.850480543275467,
+        "tokens": 52701
+      },
+      "seconds": 4.773487899976317,
+      "loss_first": 5.644628524780273,
+      "loss_last": 3.0634632110595703,
+      "loss_min": 2.924617052078247,
+      "loss_max": 5.644628524780273,
+      "max_gradient_norm_before_clip": 3.4499762058258057,
+      "finite_steps": 100,
+      "peak_allocated_bytes": 102803968,
+      "peak_reserved_bytes": 127926272
+    },
+    {
+      "seed": 44,
+      "backend": "ternary_ls",
+      "parameters": 1378176,
+      "initial_validation": {
+        "loss": 5.644112623655575,
+        "perplexity": 282.62265226011056,
+        "tokens": 52701
+      },
+      "validation": {
+        "loss": 3.037957609175948,
+        "perplexity": 20.862590130116725,
+        "tokens": 52701
+      },
+      "seconds": 9.170526499976404,
+      "loss_first": 5.64625883102417,
+      "loss_last": 3.0639617443084717,
+      "loss_min": 2.925968647003174,
+      "loss_max": 5.64625883102417,
+      "max_gradient_norm_before_clip": 3.4752092361450195,
+      "finite_steps": 100,
+      "peak_allocated_bytes": 102803968,
+      "peak_reserved_bytes": 127926272
+    }
+  ],
+  "execution": [
+    {
+      "precision": "fp32",
+      "checkpointing": false,
+      "sdpa": false,
+      "batch": 8,
+      "sequence_length": 64,
+      "steps": 11,
+      "last_loss": 3.26812481880188,
+      "seconds_per_step": 0.051939780003158374,
+      "peak_allocated_bytes": 126640640,
+      "peak_reserved_bytes": 144703488
+    },
+    {
+      "precision": "fp32",
+      "checkpointing": false,
+      "sdpa": true,
+      "batch": 8,
+      "sequence_length": 64,
+      "steps": 11,
+      "last_loss": 3.2681267261505127,
+      "seconds_per_step": 0.050477329996647315,
+      "peak_allocated_bytes": 113288192,
+      "peak_reserved_bytes": 125829120
+    },
+    {
+      "precision": "bf16",
+      "checkpointing": false,
+      "sdpa": true,
+      "batch": 8,
+      "sequence_length": 64,
+      "steps": 11,
+      "last_loss": 3.267913818359375,
+      "seconds_per_step": 0.055115929996827615,
+      "peak_allocated_bytes": 102162944,
+      "peak_reserved_bytes": 104857600
+    },
+    {
+      "precision": "bf16",
+      "checkpointing": true,
+      "sdpa": true,
+      "batch": 8,
+      "sequence_length": 64,
+      "steps": 11,
+      "last_loss": 3.267913818359375,
+      "seconds_per_step": 0.09545914000482299,
+      "peak_allocated_bytes": 95941632,
+      "peak_reserved_bytes": 98566144
+    }
+  ],
+  "packed": {
+    "packed_bytes": 540722,
+    "dense_master_bytes": 5519475,
+    "dense_quantized_bytes": 5521015,
+    "compression_ratio": 10.207602057989133,
+    "max_logit_absolute_error": 9.5367431640625e-07,
+    "logit_tolerance": {
+      "rtol": 1e-05,
+      "atol": 2e-06
+    },
+    "export_seconds": 0.10553339996840805,
+    "packed_load_seconds": 0.3466049000271596,
+    "dense_load_seconds": 0.05616039998130873,
+    "packed_restored_latency_seconds": 0.006611060001887381,
+    "dense_latency_seconds": 0.007371324999257922,
+    "execution": "Both paths use dense FP32 GEMM after loading; no native ternary kernel."
+  },
+  "summary": {
+    "fp32": {
+      "mean_validation_ce": 3.033367331644468,
+      "sample_sd": 0.004956752867099961
+    },
+    "ternary": {
+      "mean_validation_ce": 3.0333885099785562,
+      "sample_sd": 0.004411570665831854
+    },
+    "ternary_ls": {
+      "mean_validation_ce": 3.0333377958315957,
+      "sample_sd": 0.0049132245694781165
+    }
+  },
+  "paired_ls_minus_original_ce": [
+    -0.0004739227703165483,
+    -0.00025883322818343046,
+    0.0005806135576191807
+  ]
+}
