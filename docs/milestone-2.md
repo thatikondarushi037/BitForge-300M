@@ -204,5 +204,4 @@ by the synthetic smoke script.
 Ordinary floating-point ternary tensors execute dense PyTorch operations. No
 packed ternary inference, compression, training-memory reduction, or performance
 gain is claimed. The 300M configuration remains unallocated and its feasibility
-on an 8 GB GPU has not been tested. Milestone 2 is complete; further work requires
-Milestone 3 approval.
+on an 8 GB GPU has not been tested. This report records the Milestone 2 state.

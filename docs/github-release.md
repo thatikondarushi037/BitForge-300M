@@ -1,9 +1,7 @@
 # GitHub source release record
 
-This records the authorized commit/push preparation after the engineering
-phase. No additional model features or training were introduced in this release
-session. The user explicitly authorized committing and pushing to `origin/main`.
-No tags, force-push or history rewriting are part of this operation.
+This historical record documents source-release verification after the engineering
+phase. No additional model features or training were introduced in the source release.
 
 ## Fresh verification
 
@@ -26,11 +24,6 @@ Fresh receipts: [tests](../artifacts/github-release-tests.json),
 attempt evidence remain unchanged, apart from a historical-status note in the
 technical report. Checkpoint binaries remain ignored locally; a fresh clone
 must reproduce them using the documented commands.
-
-This document describes the reviewed commit contents. The actual commit hash,
-remote push result and final working-tree status are verified after the push
-and returned in the release completion report; a document cannot embed its own
-commit hash without changing that hash.
 
 ## Exact release file inventory
 

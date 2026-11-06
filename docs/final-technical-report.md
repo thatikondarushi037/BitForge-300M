@@ -248,7 +248,6 @@ workspace checks also guard CLI forward/generation after loading weights.
 
 Modified tracked files relative to baseline `3a1e760`:
 `.gitignore`, `README.md`, and `src/bitforge/{config,layers,packed,quantization,training,transformer}.py`.
-Some advanced changes were already uncommitted at the start; they were retained.
 
 New implementation files: `src/bitforge/{__main__,execution,inference,resources}.py`.
 New tests: `tests/test_advanced.py`, `tests/test_inference.py`,
@@ -261,12 +260,13 @@ New docs: `docs/milestone-{6,7,8}.md`, `milestones-1-8-readme.md`,
 and this report. New measured JSON/CSV is under `artifacts/phase1-final/`,
 `artifacts/release-*/`, `artifacts/release-cli.json`, `artifacts/release-tests-final.json`.
 
-The Git/link/whitespace/credential-pattern review is recorded in `artifacts/release-summary-final/review.json`. Git remains at baseline `3a1e760` with modified and untracked source/docs/results;
-nothing staged, committed, pushed, tagged or published. Model binaries are
+The historical pre-release Git/link/whitespace/credential-pattern review at
+baseline `3a1e760` is recorded in `artifacts/release-summary-final/review.json`.
+At that review, source/docs/results included modified and untracked files; no
+changes were staged, committed, pushed, tagged or published. Model binaries were
 ignored and were not tracked. Source diffs, whitespace, module compilation,
 tracked binary/credential filename patterns and obvious private-key/token
-patterns were reviewed. A local candidate is ready for user review; the next
-commit/publish step needs explicit user approval.
+patterns were reviewed.
 
 ## Exact commands and remaining limitations
 

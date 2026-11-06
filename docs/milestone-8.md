@@ -1,6 +1,6 @@
 # Milestone 8 - memory-efficient execution
 
-Changed/new files across Phase 1: `src/bitforge/{config,layers,quantization,transformer,packed,execution}.py`; `tests/test_advanced.py`; `scripts/prepare_engineering_corpus.py`; `experiments/{phase1_advanced,benchmark_advanced_loading}.py`; `data/engineering_corpus.{txt,manifest.json}`; `README.md`; `docs/milestone-{6,7,8}.md`; and measured JSON artifacts under `artifacts/phase1-final/`. Pre-existing uncommitted advanced work was retained and completed. Generated checkpoint binaries are local ignored artifacts.
+Changed/new files across Phase 1: `src/bitforge/{config,layers,quantization,transformer,packed,execution}.py`; `tests/test_advanced.py`; `scripts/prepare_engineering_corpus.py`; `experiments/{phase1_advanced,benchmark_advanced_loading}.py`; `data/engineering_corpus.{txt,manifest.json}`; `README.md`; `docs/milestone-{6,7,8}.md`; and measured JSON artifacts under `artifacts/phase1-final/`. Generated checkpoint binaries are local ignored artifacts.
 
 The final runner additionally checks the execution benchmark's batch-8 preflight before allocating its model. That guard was added after the reported run; a separate successful post-run check is recorded in `execution-preflight-verification.json`. It does not retroactively change the measurement history. Initial batch-4 training was preflighted before execution.
 

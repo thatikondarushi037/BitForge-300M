@@ -56,5 +56,4 @@ python scripts/run_release_tests.py --include-full --output artifacts/video-test
 Use a new output filename if recording again. Both ordinary and real full-model
 tests should run; show the actual counts. Finish by showing
 `docs/final-technical-report.md`, the benchmark CSV, and the explicit limitations.
-No new training is necessary during the recording. Leave commit, tag and publish
-actions for explicit user approval.
+No new training is necessary during the recording.

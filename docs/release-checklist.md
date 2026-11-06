@@ -1,7 +1,7 @@
 # Release candidate checklist
 
-The user authorized committing and pushing the verified source release on
-`main`. The exact file inventory and fresh checks are in [github-release.md](github-release.md).
+This checklist records the verified source-release acceptance checks.
+The exact file inventory and fresh checks are in [github-release.md](github-release.md).
 Checkpoint distribution, standalone packaging, and release tags are outside this release.
 
 - [x] Preserve Milestones 1–8 implementation and experimental evidence.
@@ -16,8 +16,6 @@ Checkpoint distribution, standalone packaging, and release tags are outside this
 - [x] Separate opt-in expensive tests from ordinary tests; record actual skips.
 - [x] Document setup, reproduction, benchmark conditions, and video commands.
 - [x] Keep checkpoint binaries ignored; no credentials or binary weights tracked.
-- [x] User review and explicit instruction to perform the safe GitHub source release.
-- [x] Explicit approval to commit and push to `origin/main`; no tags or force-push.
 
 Recheck in a future release session:
 
